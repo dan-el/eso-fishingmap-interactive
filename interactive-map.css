@@ -1,0 +1,695 @@
+/* toco ... top-container     *
+ * zoco ... zone-container    *
+ * fh ..... fishing-hole      */
+ 
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: rgb(54, 57, 63);
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* some elements need to be transparent */
+#fishing-map-container .toco,
+#fishing-map-container .zoco,
+#zoom-container,
+#toggle-container-info,
+.zoom-button div a,
+svg.map-tamriel-svg {
+  background: transparent;	
+}
+
+#project-container,
+#footer {
+  margin: 0 auto;
+}
+
+#project-container,
+#fishing-map-container,
+#footer {
+  position: relative;
+  width: 100%;
+}
+
+#fishing-map-container .toco,
+#fishing-map-container .zoco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#image-container.overlay {
+  border: 1px solid white;
+}
+
+#footer {
+  font-size: 65%;
+  color: grey;
+  text-align: justify;
+}
+
+.fishing-map-image {
+  width: 100%;
+  display: block;
+}
+
+.fh {
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+  border-radius: 50%;
+  position: absolute;
+}
+
+#overlay .fh {
+  background: rgba(255,255,255,0.15);
+  width: 16px;
+  height: 16px;
+  margin-left: -8px;
+  margin-top: -8px;
+}
+
+#fishing-map-container.plus #overlay .fh {
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+}
+
+#fishing-map-container.pplus #overlay .fh {
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  margin-top: -12px;
+}
+
+#fishing-map-container.minus #overlay .fh {
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+}
+
+#fishing-map-container.mminus #overlay .fh {
+  width: 8px;
+  height: 8px;
+  margin-left: -4px;
+  margin-top: -4px;
+}
+
+#overlay .fh:hover,
+#overlay .fh:active,
+#overlay .fh.active {
+  z-index: 1000;
+}
+
+#overlay .foul:hover,
+#overlay .foul:active,
+#overlay .foul.active,
+#overlay .oily:hover,
+#overlay .oily:active,
+#overlay .oily.active {
+  background-color: rgba(255,255,0,1);
+}
+
+#overlay .river:hover,
+#overlay .river:active,
+#overlay .river.active {
+  background-color: rgba(0,255,255,1);
+}
+
+#overlay .saltwater:hover,
+#overlay .saltwater:active,
+#overlay .saltwater.active {
+  background-color: rgba(0,0,255,1);
+}
+
+#overlay .lake:hover,
+#overlay .lake:active,
+#overlay .lake.active {
+  background-color: rgba(255,0,0,1);
+}
+
+#fishing-map-container.plus .fh {
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  margin-top: -5px;
+}
+
+#fishing-map-container.pplus .fh {
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+}
+
+#fishing-map-container.minus .fh {
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  margin-top: -3px;
+}
+
+#fishing-map-container.mminus .fh {
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  margin-top: -2px;
+}
+
+.foul,
+.oily {
+  background-color: rgba(255,255,0,1);
+  color: black;
+}
+
+.foul:hover,
+.foul:active,
+.foul.active,
+.oily:hover,
+.oily:active,
+.oily.active {
+  background-color: rgba(255,255,0,.6);
+}
+
+.river {
+  background-color: rgba(0,255,255,1);
+  color: black;
+}
+
+.river:hover,
+.river:active,
+.river.active {
+  background-color: rgba(0,255,255,.6);
+}
+
+.saltwater {
+  background-color: rgba(0,0,255,1);
+  color: white;
+}
+
+.saltwater:hover,
+.saltwater:active,
+.saltwater.active {
+  background-color: rgba(0,0,255,.6);
+}
+
+.lake {
+  background-color: rgba(255,0,0,1);
+  color: white;
+}
+
+.lake:hover,
+.lake:active,
+.lake.active {
+  background-color: rgba(255,0,0,.6);
+}
+
+.type-button.active {
+  text-decoration: line-through;
+}
+
+.zone-button {
+  background-color: rgba(226,204,145,1);
+  padding: 0 !important;
+}
+
+.zone-button:hover,
+.zone-button:active,
+.zone-button.active {
+  background-color: rgba(226,204,145,.6);
+}
+
+.zone-button a {
+  background-color: transparent;
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: 5px;
+}
+
+.fh:hover,
+.fh:active,
+.fh.active {
+  cursor: pointer;
+}
+
+.fh:hover:after {
+  position: absolute;
+  top: -30px;
+  left: 8px;
+  border: 2px solid;
+  border-radius: 3px;
+  padding: 3px;
+  white-space: nowrap;
+  z-index: 100;
+}
+
+.fh.foul:hover:after {
+  content: "Foul (" attr(daco) ")";
+  border-color: rgb(255,255,0);
+  background-color: rgba(255,255,0,.75);
+}
+
+.fh.oily:hover:after {
+  content: "Oily (" attr(daco) ")";
+  border-color: rgb(255,255,0);
+  background-color: rgba(255,255,0,.75);
+}
+
+.fh.river:hover:after {
+  content: "River (" attr(daco) ")";
+  border-color: rgb(0,255,255);
+  background-color: rgba(0,255,255,.75);
+}
+
+.fh.saltwater:hover:after {
+  content: "Saltwater (" attr(daco) ")";
+  border-color: rgb(0,0,255);
+  background-color: rgba(0,0,255,.75);
+}
+
+.fh.lake:hover:after {
+  content: "Lake (" attr(daco) ")";
+  border-color: rgb(255,0,0);
+  background-color: rgba(255,0,0,.75);
+}
+
+#info-container .close {
+  content: "X";
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.info-element,
+.info-element b {
+  background-color: white;
+}
+
+.info-element {
+  position: absolute;
+  left: 50%;
+  top: 262px;
+  width: 80%;
+  margin-left: -43%;
+  padding: 3%;
+  text-align: center;
+}
+
+.info-element > p {
+  margin: 0;
+  padding-bottom: 15px;
+  background-color: transparent;
+}
+
+.info-element.overlay > p {
+  padding-bottom: 0;
+}
+
+.info-element .fish span {
+  font-weight: bold;
+}
+
+.info-element .fish .fish-green {
+  color: green;
+}
+
+.info-element .fish .fish-blue {
+  color: blue;
+}
+
+.info-element .fish .fish-purple {
+  color: purple;
+}
+
+div#rare-fish-container {
+  display: flex;
+  background-color: white;
+}
+
+div.rare-fish {
+  background-color: white;
+  margin: 0 auto;
+}
+
+div.rare-fish.full {
+  width: 100%;
+}
+
+div.rare-fish.dyn {
+  width: initial;
+}
+
+div.rare-fish em {
+  background-color: white;
+  color: red;
+  font-weight: bold;
+}
+
+div.rare-fish div.col {
+  float: left;
+  min-height: 50px;
+  min-width: 50px;
+  background-color: white;
+}
+
+div.rare-fish div.col-1 {
+  width: 100%;
+}
+
+div.rare-fish div.col-3 {
+  width: 33.33333333333333333333%;
+}
+
+div.rare-fish div.col-4 {
+  width: 25%;
+}
+
+div.rare-fish div.col div.cell {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+div.rare-fish div.col div.cell.head {
+  text-transform: uppercase;
+}
+
+div.rare-fish div.col div.cell.head div.inner {
+  padding: 5px;
+}
+
+div.rare-fish div.col div.cell.fish {
+  background-color: white;
+  margin: 0;
+  letter-spacing: -.5px;
+}
+
+div.rare-fish div.col div.cell.fish div.inner {
+  height: 2.5em;
+}
+
+div.rare-fish div.col div.cell div.inner {
+  display: table-cell;
+  vertical-align: middle;
+  background-color: transparent;
+  border: 1px solid black;
+  border-bottom: none;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+div.rare-fish div.col div.cell:last-of-type div.inner {
+  border-bottom: 1px solid black;
+}
+
+div.rare-fish div.col div.cell.green {
+  color: rgba(45,197,14,1);
+}
+
+div.rare-fish div.col div.cell.blue {
+  color: rgba(58,146,255,1);
+}
+
+div.rare-fish div.col div.cell.purple {
+  color: rgba(160,45,247,1);
+}
+
+#toggle-container-type,
+#toggle-container-zone-1,
+#toggle-container-zone-2,
+#toggle-container-zone-3 {
+  display: flex;
+}
+
+.toggle-button {
+  text-align: center;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: -0.8px;
+}
+
+.col-1 .toggle-button {
+  width: 100%;
+}
+
+.col-2 .toggle-button {
+  width: 50%;
+}
+
+.col-3 .toggle-button {
+  width: 33.33%;
+}
+
+.col-4 .toggle-button {
+  width: 25%;
+}
+
+.toggle-button div {
+  padding: 5px;
+  border: 3px solid rgba(0,0,0,.5);
+  border-top-color: rgba(0,0,0,.2);
+  border-right-color: rgba(0,0,0,.2);
+}
+
+#toggle-container-info {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 20px;
+}
+
+#zoom-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 20px;
+}
+
+.zoom-button,
+.info-button {
+  text-align: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.zoom-button div,
+.info-button div {
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  border: 3px solid rgba(0,0,0,.5);
+  border-top-color: rgba(0,0,0,.2);
+  border-right-color: rgba(0,0,0,.2);
+  background-color: rgba(215,204,200,1);
+  font-family: Consolas,monospace;
+  font-size: 200%;
+}
+
+.zoom-button div a,
+.info-button div a {
+  font-size: 100%;
+}
+
+.zoom-button div {
+  line-height: 35px;
+}
+
+.zoom-button div a {
+  text-decoration: none;
+  color: black !important;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.zoom-button div:hover,
+.zoom-button div:active,
+.info-button div:hover,
+.info-button div:active {
+  background-color: rgba(215,204,200,.6);
+}
+
+/* Hide items from printing view */
+@media print {
+  .no-print,
+  .no-print * {
+    display: none !important;
+  }
+  
+  * {
+    background-color: white;
+  }
+}
+
+/* ************* */
+/* media queries */
+/* ************* */
+
+/* small screens */
+@media only screen and (max-device-width: 767px) {
+  * {
+	font-size: 85%; /* 103 */
+  }
+  
+  #zoom-container,
+  #toggle-container-info {
+	margin: 10px;
+  }
+  
+  .zoom-width {
+    max-width: 100%  !important;
+  }
+  
+  .zoom-height {
+    max-height: 100% !important;
+  }
+  
+  .type-button,
+  .zone-button {
+	/* height: 60px;
+	line-height: 60px; */
+	font-size: 150%;
+  }
+  
+  .zoom-button,
+  .info-button {
+	margin-bottom: 10px;
+  }
+  
+  .info-button div,
+  .zoom-button div {
+	/* width: 70px;
+	height: 70px;
+	line-height: 70px;
+	margin-bottom: 70px; */
+	font-size: 300%;
+	width: 25px;
+	height: 25px;
+	line-height: 25px;
+  }
+  
+  .toggle-button div {
+	padding-left: 1px;
+	padding-right: 1px;
+  }
+  
+  .fh {
+    transform: scale(.6); 
+  }
+
+  .info-element {
+    top: 132px;
+	width: 88%;
+	padding: 3%;
+	margin: 0;
+	margin-left: -47%;
+	font-size:130%;
+  }
+  
+  .info-element > p {
+	padding-bottom: 8px;
+  }
+  
+  div.rare-fish,
+  div.rare-fish * {
+	font-size: 100%;  
+  }
+  
+  div.rare-fish div.col div.cell div.inner {
+	padding-left: 3px;
+	padding-right: 3px;
+  }
+  
+  div.rare-fish div.col div.cell.fish div.inner {
+	height: 2.6em;
+  }
+}
+
+/* iPad portrait orientation */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) { 
+  .zoom-width {
+    max-width: 100%  !important;
+  }
+  
+  .zoom-height {
+    max-height: 100% !important;
+  }
+  
+  .info-button div,
+  .zoom-button div{
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+	margin-bottom: 30px;
+	font-size: 250%;
+  }
+
+  .info-element {
+    top: 302px; 
+  }
+}
+
+/* iPad landscape orientation */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .info-button div,
+  .zoom-button div {
+	width: 45px;
+	height: 45px;
+	line-height: 45px;
+	margin-bottom: 30px;
+	font-size: 250%;
+  }
+  
+  .info-element {
+    top: 302px; 
+  }
+}	
+
+/* large screens */
+@media screen and (min-width: 2000px) {
+  * {
+	font-size: 35px;
+  }
+  
+  .zoom-width {
+    max-width: 1800px !important;
+  }
+  
+  .zoom-height {
+    max-height: 1800px !important;
+  }
+  
+  #toggle-container-info,
+  #zoom-container {
+	margin: 50px;
+  }
+  
+  .zoom-button,
+  .info-button {
+    margin-bottom: 50px;
+  }
+  
+  .zoom-button div,
+  .info-button div {
+	width: 80px;
+	height: 80px;
+	line-height: 80px;
+  }
+  
+  .fh {
+	transform: scale(2);
+  }
+}
