@@ -1,6 +1,5 @@
 DirectoryIndex interactive-map.html
 
-
 <IfModule mod_rewrite.c>
 RewriteEngine On
 #remove html file extension
@@ -13,6 +12,5 @@ RedirectMatch 301 "^/dc/(.*)" "/dc#$1"
 RedirectMatch 301 "^/ep/(.*)" "/ep#$1"
 RedirectMatch 301 "^/cyro-neutral/(.*)" "/cyro-neutral#$1"
 RedirectMatch 301 "^/dlc-chapter/(.*)" "/dlc-chapter#$1"
-
 
 </IfModule>
