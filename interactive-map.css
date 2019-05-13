@@ -541,7 +541,7 @@ div.rare-fish div.col div.cell.purple {
 /* small screens */
 @media only screen and (max-device-width: 767px) {
   * {
-	font-size: 85%; /* 103 */
+	font-size: 85%;
   }
   
   #zoom-container,
@@ -559,8 +559,6 @@ div.rare-fish div.col div.cell.purple {
   
   .type-button,
   .zone-button {
-	/* height: 60px;
-	line-height: 60px; */
 	font-size: 150%;
   }
   
@@ -571,17 +569,20 @@ div.rare-fish div.col div.cell.purple {
   
   .info-button div,
   .zoom-button div {
-	/* width: 70px;
-	height: 70px;
-	line-height: 70px;
-	margin-bottom: 70px; */
 	font-size: 300%;
 	width: 25px;
 	height: 25px;
 	line-height: 25px;
   }
   
-  .toggle-button div {
+  .toggle-button div,
+  .info-button div,
+  .zoom-button div {
+	border-width: 2px;
+  }
+  
+  .toggle-button div,
+  .toggle-button .zone-button a  {
 	padding-left: 1px;
 	padding-right: 1px;
   }

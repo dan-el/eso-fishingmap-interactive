@@ -648,7 +648,7 @@ function getRareFish(zone) {
  */
 function generateInfoText(alliance,zone) {
   var loc = getLocation(zone); // sanitize zone
-  var x = document.getElementById('tb-' + loc);
+  var x = document.getElementById('a-' + loc);
   var y = document.getElementById(alliance);
   var z = document.getElementById('info-container');
   var fish = getRareFish(loc);
