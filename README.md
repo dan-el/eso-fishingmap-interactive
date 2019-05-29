@@ -10,6 +10,6 @@ This is similar to the "ESO Fishing Map (Classic)" and is also based on the same
 * [Woeler](https://woeler.eu/) for making this a part of [The Dwemer Automaton](https://dwemerautomaton.com/) (!fishing)
 * [Nexu Industries](https://www.nexuindustries.com/) for making this a part of [The ESO App](https://itunes.apple.com/at/app/the-eso-app/id1065810256) and ongoing collaboration
 
-You can see a proof of concept here: https://map.housetertia.com
+You can see the map in action here: https://map.housetertia.com
 
 #workinprogress
