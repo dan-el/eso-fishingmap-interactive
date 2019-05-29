@@ -12,4 +12,7 @@ This is similar to the "ESO Fishing Map (Classic)" and is also based on the same
 
 You can see the map in action here: https://map.housetertia.com
 
+Alternatively find the "classic" fishing map here: https://housetertia.com/fishing-map
+And here: https://github.com/dan-el/eso-fishingmap-interactive
+
 #workinprogress
