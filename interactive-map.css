@@ -466,16 +466,28 @@ div.rare-fish div.col div.cell.purple {
 
 #toggle-container-info {
   position: absolute;
-  right: 0;
+  left: 50%;
   top: 0;
   margin: 20px;
+  margin-left: 178px;
+}
+
+#toggle-container-info .button {
+  float: right;
+  margin-left: 20px;
 }
 
 #zoom-container {
   position: absolute;
-  left: 0;
+  right: 50%;
   top: 0;
   margin: 20px;
+  margin-right: 178px;
+}
+
+#zoom-container .button {
+  float: left;
+  margin-right: 20px;
 }
 
 .zoom-button,
@@ -547,6 +559,17 @@ div.rare-fish div.col div.cell.purple {
   #zoom-container,
   #toggle-container-info {
 	margin: 10px;
+    position: absolute;
+  }
+  
+  #zoom-container {
+    left: 0;
+	right: initial;
+  }
+
+  #toggle-container-info {
+    right: 0;
+	left: initial;
   }
   
   .zoom-width {
@@ -560,6 +583,11 @@ div.rare-fish div.col div.cell.purple {
   .type-button,
   .zone-button {
 	font-size: 150%;
+  }
+  
+  #toggle-container-info .button,
+  #zoom-container .button  {
+    float: none;
   }
   
   .zoom-button,
@@ -630,12 +658,32 @@ div.rare-fish div.col div.cell.purple {
   }
   
   .info-button div,
-  .zoom-button div{
+  .zoom-button div {
 	width: 45px;
 	height: 45px;
 	line-height: 45px;
-	margin-bottom: 30px;
 	font-size: 250%;
+  }
+  
+  #zoom-container,
+  #toggle-container-info {
+   position: absolute;
+  }
+
+  #zoom-container {
+    left: 0;
+	right: initial;
+  }
+
+  #toggle-container-info {
+    right: 0;
+	left: initial;
+  }
+
+  #toggle-container-info .button,
+  #zoom-container .button  {
+    float: none;
+	margin-bottom: 30px;
   }
 
   .info-element {
@@ -650,14 +698,34 @@ div.rare-fish div.col div.cell.purple {
 	width: 45px;
 	height: 45px;
 	line-height: 45px;
-	margin-bottom: 30px;
 	font-size: 250%;
+  }
+
+  #zoom-container,
+  #toggle-container-info {
+   position: absolute;
+  }
+
+  #zoom-container {
+    left: 0;
+	right: initial;
+  }
+
+  #toggle-container-info {
+    right: 0;
+	left: initial;
+  }
+
+  #toggle-container-info .button,
+  #zoom-container .button  {
+    float: none;
+	margin-bottom: 30px;
   }
   
   .info-element {
     top: 302px; 
   }
-}	
+}
 
 /* large screens */
 @media screen and (min-width: 2000px) {
@@ -675,12 +743,20 @@ div.rare-fish div.col div.cell.purple {
   
   #toggle-container-info,
   #zoom-container {
-	margin: 50px;
+    margin: 50px;
   }
   
   .zoom-button,
   .info-button {
     margin-bottom: 50px;
+  }
+  
+  #zoom-container .button {
+	margin-right: 50px;
+  }
+  
+  #toggle-container-info .button {
+	margin-left: 50px;
   }
   
   .zoom-button div,
