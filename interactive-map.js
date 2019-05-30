@@ -92,8 +92,11 @@ function getLocation(zone) {
     'overlay'
   ];
 
-  if (zone) { var loc = zone; } // grab from parameter
-  else { var loc = window.location.href; } // grab from URL
+  if (zone) { // grab from parameter
+    var loc = zone;
+  } else {  // grab from URL
+    var loc = window.location.href;
+  }
   
   for (var i = 0; i < validLocations.length; i++) {
     if (loc.indexOf(validLocations[i]) > -1) {
