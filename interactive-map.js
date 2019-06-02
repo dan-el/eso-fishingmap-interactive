@@ -1,7 +1,7 @@
 /* Hide element of a certain id
  */
 function hideIdElement(id) {
-     var x = document.getElementById(id);
+  var x = document.getElementById(id);
 
   x.style.display = 'none';
 }
@@ -78,8 +78,8 @@ function unsetClassActive(classname) {
   }
 }
 
-/* Test if we have a valid location in the address
- * that we can use to jump to the proper sub map
+/* Do we have a valid location in the address which we can
+ * use to jump to the proper sub map?
  */
 function getLocation(zone) {
   var validLocations = [
@@ -91,11 +91,12 @@ function getLocation(zone) {
     'artaeum','murkmire','elsweyr','northernelsweyr',
     'overlay'
   ];
+  var loc = '';
 
   if (zone) { /* grab from parameter */
-    var loc = zone;
+    loc = zone;
   } else { /* grab from URL */
-    var loc = window.location.href;
+    loc = window.location.href;
   }
 
   for (var i = 0; i < validLocations.length; i++) {
@@ -110,49 +111,8 @@ function getLocation(zone) {
   return false;
 }
 
-/* do we have foul or oily holes?
- * Only needed in Clockwork City (dlc-chaper.html)
+/* Do we have foul or oily holes in our zone? (Only needed in CWC)
  */
-function foulOrOily(id) {
-  var x = document.getElementById(id).getElementsByClassName('foul fh'); /* foul holes? */
-  var y = document.getElementById(id).getElementsByClassName('oily fh'); /* oily holes? */
-
-  if (y.length = 0) {
-    return 'foul';
-  } else if (y.length > 0 && x.length > 0) {
-    return 'foul oily';
-  } else {
-    return 'oily';
-  }
-}
-
-/* Toggle zone map active - only one zone 
- * map is active at a time
- */
-function toggleZone(zone) {
-  var loc = getLocation(zone); /* sanitize zone */
-  var u = document.getElementById('tb-' + zone); /* zone name button */
-  var v = document.getElementsByClassName('fh'); /* fishing holes */
-  var y = document.getElementById('img-' + zone); /* map image */
-
-  hideClassElements('zoco'); // hide all zone containers */
-  toggleIdElement(loc); /* now show one specific zone container by id */
-  hideClassElements('fishing-map-image'); /* hide all fishing maps */
-  toggleIdElement('img-' + loc); /* now show one specific fishing map by id */
-  unsetClassActive('zone-button'); /* unset all zone-buttons */
-  toggleIdActive('tb-' + loc); /* now set one specific zone-buttonactive by id */
-
-  /* recount holes on zone change */
-  countFishingHoles(loc,foulOrOily(loc));
-  countFishingHoles(loc,'river');
-  countFishingHoles(loc,'lake');
-  countFishingHoles(loc,'saltwater');
-  /* generate info text */
-  generateInfoText(document.getElementById(loc).parentElement.id,loc);
-}
-
-/* Do we have foul or oily fishing holes in our zone?
-*/
 function foulOrOily(zone) {
   var loc = getLocation(zone); /* sanitize zone */
   var x = document.getElementById(loc).getElementsByClassName('foul fh'); /* foul fishing holes */
@@ -165,30 +125,30 @@ function foulOrOily(zone) {
   }
 }
 
-/* Count ALL fishing holes in the zones of
- * an alliance or zone
- */
-function countAllFishingHoles(id) {
-  var x = document.getElementById(id).getElementsByClassName('fh'); /* alliance or zone fishing holes */
-
-  return x.length;
-}
-
 /* Count fishing holes of a certain type in a certain zone and
  * add the numbers to the type-buttons
  */
 function countFishingHoles(zone,type) {
   var loc = getLocation(zone); /* sanitize zone */
+  var x = ''; /* zone name */
   if (type == 'oily') { /* oily is equal to foul in terms of button id */
-    var w = 'foul';
-  } else { 
-    var w = type;
+    x = 'foul';
+  } else {
+    x = type;
   }
-  var x = document.getElementById('tb-' + w); /* toggle button for hole types */
-  var y = document.getElementById(loc).getElementsByClassName(type + ' fh'); /* zone fishing holes of a certain type */
+  var y = document.getElementById('tb-' + x); /* toggle button for hole types */
+  var z = document.getElementById(loc).getElementsByClassName(x + ' fh'); /* zone fishing holes of a certain type */
 
   /* replace button text */
-  x.innerHTML = type + ' (' + y.length + ')';
+  y.innerHTML = w + ' (' + z.length + ')';
+}
+
+/* Count ALL fishing holes in an alliance or a zone
+ */
+function countAllFishingHoles(id) {
+  var x = document.getElementById(id).getElementsByClassName('fh'); /* alliance or zone fishing holes */
+
+  return x.length;
 }
 
 /* Return rare fish info for requested zone
@@ -636,14 +596,14 @@ function getRareFish(zone) {
         ['river','Grayling','Reedfish'],
         ['river','Rimmen Bichir','Speckled Dace'] ] ]
       break;
-  default:
-    return false;
+    default:
+      return false;
   }
   return fish;
 }
 
 /* Generate info text with finshing hole sums
- * and write it into the info-container
+ * and write it to the info-container
  */
 function generateInfoText(alliance,zone) {
   var loc = getLocation(zone); /* sanitize zone */
@@ -652,7 +612,9 @@ function generateInfoText(alliance,zone) {
   var z = document.getElementById('info-container');
   var fish = getRareFish(loc);
   var txt = '';
-  var innertxt = '';
+  var innerTxt = '';
+  var colClass = '';
+  var containerClass = '';
 
   /* add zone as class to info container */
   z.className = '';
@@ -660,70 +622,92 @@ function generateInfoText(alliance,zone) {
 
   /* add close button */
   txt = txt + '<div class="close" onclick="toggleClassElements(\'info-element\');">X</div>';
-
-  // generate info text with statistics
+  /* generate info text with statistics */
   txt = txt + '<p>All fishing holes in ' + y.getAttribute('data-name') + ': <b>' + countAllFishingHoles(alliance) + '</b></p>';
   if (loc !== 'overlay') {
     txt = txt + '<p>All fishing holes in ' + x.innerHTML + ': <b>' + countAllFishingHoles(loc) + '</b></p>';
   }
 
-  // generate rare fish info
+  /* generate rare fish info */
   if (fish) {
-    if (fish[1][1][2] && fish[1][2][2] && fish[1][3][2] && fish[1][4][2]) { // we have 4 columns
-      var colclass = '-4';
-      var containerclass = 'full';
-    } else if ((!fish[1][1][2] && !fish[1][2][2] && !fish[1][3][2]) || // 1,2,3 // we only have 1 columns
-               (!fish[1][1][2] && !fish[1][2][2] && !fish[1][4][2]) || // 1,2,4
-               (!fish[1][1][2] && !fish[1][3][2] && !fish[1][4][2]) || // 1,3,4
-               (!fish[1][2][2] && !fish[1][3][2] && !fish[1][4][2])) { // 2,3,4
-      var colclass = '-1';
-      var containerclass = 'dyn';
-  } else { // we have more than 1 and less than 4 columns
-    var colclass = '-3';
-    var containerclass = 'full';
+    if (fish[1][1][2] && fish[1][2][2] && fish[1][3][2] && fish[1][4][2]) { /* we have 4 columns */
+      colClass = '-4';
+      containerClass = 'full';
+    } else if ((!fish[1][1][2] && !fish[1][2][2] && !fish[1][3][2]) || /* 1,2,3 - we only have 1 column */
+               (!fish[1][1][2] && !fish[1][2][2] && !fish[1][4][2]) || /* 1,2,4 */
+               (!fish[1][1][2] && !fish[1][3][2] && !fish[1][4][2]) || /* 1,3,4 */
+               (!fish[1][2][2] && !fish[1][3][2] && !fish[1][4][2])) { /* 2,3,4 */
+                colClass = '-1';
+                containerClass = 'dyn';
+  } else { /* we have more than 1 and less than 4 columns */
+    colClass = '-3';
+    containerClass = 'full';
   }
-  txt = txt + '<div id="rare-fish-container"><div class="rare-fish ' + containerclass + '">'; // table container
-    for (i = 1; i < fish[0].length; i++) { // i ... number of columns: 4, 3, 1
+  txt = txt + '<div id="rare-fish-container"><div class="rare-fish ' + containerClass + '">'; /* table container */
+    for (i = 1; i < fish[0].length; i++) { /* i ... number of columns: 4, 3, 1 */
       if (fish[0][i][1]) {
-        innertxt = innertxt + '<div class="col col' + colclass + '"><div class="cell head ' + fish[0][i][0] + '"><div class="inner">' + fish[0][i][0] + '</div></div>';
-        for (var j = 0; j < fish.length; j++) { // j ... fish raritiy: green, blue, purple
+        innerTxt = innerTxt + '<div class="col col' + colClass + '"><div class="cell head ' + fish[0][i][0] + '"><div class="inner">' + fish[0][i][0] + '</div></div>';
+        for (var j = 0; j < fish.length; j++) { /* j ... fish raritiy: green, blue, purple */
           if (fish[j]) {
-            for (var k = 1; k < fish[j][i].length; k++) { // k ... rare fish name
+            for (var k = 1; k < fish[j][i].length; k++) { /* k ... rare fish name */
               if (fish[j][i][k]) {
-                innertxt = innertxt + '<div class="cell fish ' + fish[j][0][0] + '"><div class="inner">' + fish[j][i][k] + '</div></div>';
+                innerTxt = innerTxt + '<div class="cell fish ' + fish[j][0][0] + '"><div class="inner">' + fish[j][i][k] + '</div></div>';
               }
             }
           }
         }
-      innertxt = innertxt + '</div>';
+        innerTxt = innerTxt + '</div>';
       }
     }
-  if (innertxt) {
-    txt = txt + innertxt;
+  if (innerTxt) {
+    txt = txt + innerTxt;
   } else {
     txt = txt + '<em>No rare fish here :-(</em>';
   }
   txt = txt + '</div></div>';
   }
 
-  // replace info-container content
+  /* replace info-container content */
   document.getElementById('info-container').innerHTML = txt;
+}
+
+/* Toggle zone map active - only one is active at a time
+ */
+function toggleZone(zone) {
+  var loc = getLocation(zone); /* sanitize zone */
+
+  hideClassElements('zoco'); /* hide all zone containers */
+  toggleIdElement(loc); /* now show one specific zone container by id */
+  hideClassElements('fishing-map-image'); /* hide all fishing maps */
+  toggleIdElement('img-' + loc); /* now show one specific fishing map by id */
+  unsetClassActive('zone-button'); /* unset all zone-buttons */
+  toggleIdActive('tb-' + loc); /* now set one specific zone-buttonactive by id */
+
+  /* recount holes on zone change */
+  countFishingHoles(loc,foulOrOily(loc));
+  countFishingHoles(loc,'river');
+  countFishingHoles(loc,'lake');
+  countFishingHoles(loc,'saltwater');
+
+  /* generate info text */
+  generateInfoText(document.getElementById(loc).parentElement.id,loc);
 }
 
 /* Increase fishing pin size
  */
 function zoomInFishingHoles() {
   var x = document.getElementById('fishing-map-container');
+
   if (x.classList.contains('mminus')) {
-    x.classList.remove('mminus'); // zoom -1
+    x.classList.remove('mminus'); /* zoom -1 */
   } else {
     if (x.classList.contains('minus')) {
-      x.classList.remove('minus'); // zoom +-0
+      x.classList.remove('minus'); /* zoom +-0 */
     } else {
       if (x.classList.contains('plus')) {
-        x.classList.add('pplus'); // zoom +2
+        x.classList.add('pplus'); /* zoom +2 */
       } else {
-        x.classList.add('plus'); // zoom +1
+        x.classList.add('plus'); /* zoom +1 */
       }
     }
   }
@@ -733,28 +717,29 @@ function zoomInFishingHoles() {
  */
 function zoomOutFishingHoles() {
   var x = document.getElementById('fishing-map-container');
+
   if (x.classList.contains('pplus')) {
-    x.classList.remove('pplus'); // zoom +1
+    x.classList.remove('pplus'); /* zoom +1 */
   } else {
     if (x.classList.contains('plus')) {
-      x.classList.remove('plus'); // zoom +-0
+      x.classList.remove('plus'); /* zoom +-0 */
     } else {
       if (x.classList.contains('minus')) {
-        x.classList.add('mminus'); // zoom -2
+        x.classList.add('mminus'); /* zoom -2 */
       } else {
-        x.classList.add('minus'); // zoom -1
+        x.classList.add('minus'); /* zoom -1 */
       }
     }
   }
 }
 
-/* Increase fishing map size by increasing
- * max-width and max-height of zoom-width 
- * and zoom-height class elements
+/* Increase fishing map size by increasing max-width and
+ * max-height of zoom-width and zoom-height class elements
  */
 function zoomInFishingMap() {
   var x = document.getElementsByClassName('zoom-width');
   var y = document.getElementsByClassName('zoom-height');
+
   for (var i = 0; i < x.length; i++) {
     if (parseInt(x[i].style.maxWidth.replace(/px/,"")) < 1910) {
       x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/,''))+100 + 'px';
@@ -767,13 +752,13 @@ function zoomInFishingMap() {
   }
 }
 
-/* Increase fishing map size by decreasing
- * max-width and max-height of zoom-width 
- * and zoom-height class elements
+/* Increase fishing map size by decreasing max-width and
+ * max-height of zoom-width and zoom-height class elements
  */
 function zoomOutFishingMap() {
   var x = document.getElementsByClassName('zoom-width');
   var y = document.getElementsByClassName('zoom-height');
+
   for (var i = 0; i < x.length; i++) {
     if (parseInt(x[i].style.maxWidth.replace(/px/,"")) > 610) {
       x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/,""))-100 + 'px';
