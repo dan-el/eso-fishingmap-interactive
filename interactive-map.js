@@ -140,7 +140,7 @@ function countFishingHoles(zone,type) {
   var z = document.getElementById(loc).getElementsByClassName(x + ' fh'); /* zone fishing holes of a certain type */
 
   /* replace button text */
-  y.innerHTML = w + ' (' + z.length + ')';
+  y.innerHTML = x + ' (' + z.length + ')';
 }
 
 /* Count ALL fishing holes in an alliance or a zone
