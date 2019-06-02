@@ -92,15 +92,15 @@ function getLocation(zone) {
     'overlay'
   ];
 
-  if (zone) { // grab from parameter
+  if (zone) { /* grab from parameter */
     var loc = zone;
-  } else {  // grab from URL
+  } else { /* grab from URL */
     var loc = window.location.href;
   }
-  
+
   for (var i = 0; i < validLocations.length; i++) {
     if (loc.indexOf(validLocations[i]) > -1) {
-      if (validLocations[i] == 'elsweyr') { // to keep the legacy 'elsweyr' location remapped to 'northernelsweyr'
+      if (validLocations[i] == 'elsweyr') { /* to keep the legacy 'elsweyr' location remapped to 'northernelsweyr' */
         return 'northernelsweyr';
       } else {
         return(validLocations[i]);
@@ -114,9 +114,9 @@ function getLocation(zone) {
  * Only needed in Clockwork City (dlc-chaper.html)
  */
 function foulOrOily(id) {
-  var x = document.getElementById(id).getElementsByClassName('foul fh'); // foul holes?
-  var y = document.getElementById(id).getElementsByClassName('oily fh'); // oily holes?
-  
+  var x = document.getElementById(id).getElementsByClassName('foul fh'); /* foul holes? */
+  var y = document.getElementById(id).getElementsByClassName('oily fh'); /* oily holes? */
+
   if (y.length = 0) {
     return 'foul';
   } else if (y.length > 0 && x.length > 0) {
@@ -130,36 +130,34 @@ function foulOrOily(id) {
  * map is active at a time
  */
 function toggleZone(zone) {
-  var loc = getLocation(zone); // sanitize zone
-  var u = document.getElementById('tb-' + zone); // zone name button
-  var v = document.getElementsByClassName('fh'); // fishing holes
-  var y = document.getElementById('img-' + zone); // map image
-  
-  // only display zone fishing holes
-  hideClassElements('zoco'); // hide all zone containers
-  toggleIdElement(loc); // now show onespecific zone container by id
-  // only display zone map picture
-  hideClassElements('fishing-map-image'); // hide all fishing maps
-  toggleIdElement('img-' + loc); // now show one specific fishing map by id
-  // mark proper zone name button active
-  unsetClassActive('zone-button'); // unset all zone-buttons
-  toggleIdActive('tb-' + loc); // now set one specific zone-buttonactive by id
-  // recount holes on zone change
+  var loc = getLocation(zone); /* sanitize zone */
+  var u = document.getElementById('tb-' + zone); /* zone name button */
+  var v = document.getElementsByClassName('fh'); /* fishing holes */
+  var y = document.getElementById('img-' + zone); /* map image */
+
+  hideClassElements('zoco'); // hide all zone containers */
+  toggleIdElement(loc); /* now show one specific zone container by id */
+  hideClassElements('fishing-map-image'); /* hide all fishing maps */
+  toggleIdElement('img-' + loc); /* now show one specific fishing map by id */
+  unsetClassActive('zone-button'); /* unset all zone-buttons */
+  toggleIdActive('tb-' + loc); /* now set one specific zone-buttonactive by id */
+
+  /* recount holes on zone change */
   countFishingHoles(loc,foulOrOily(loc));
   countFishingHoles(loc,'river');
   countFishingHoles(loc,'lake');
   countFishingHoles(loc,'saltwater');
-  // generate info text
+  /* generate info text */
   generateInfoText(document.getElementById(loc).parentElement.id,loc);
 }
 
 /* Do we have foul or oily fishing holes in our zone?
 */
 function foulOrOily(zone) {
-  var loc = getLocation(zone); // sanitize zone
-  var x = document.getElementById(loc).getElementsByClassName('foul fh'); // foul fishing holes
-  var y = document.getElementById(loc).getElementsByClassName('oily fh'); // oily fishing holes
-  
+  var loc = getLocation(zone); /* sanitize zone */
+  var x = document.getElementById(loc).getElementsByClassName('foul fh'); /* foul fishing holes */
+  var y = document.getElementById(loc).getElementsByClassName('oily fh'); /* oily fishing holes */
+
   if (y.length > 0 && x.length == 0) {
     return 'oily';
   } else {
@@ -171,36 +169,35 @@ function foulOrOily(zone) {
  * an alliance or zone
  */
 function countAllFishingHoles(id) {
-  var x = document.getElementById(id).getElementsByClassName('fh'); // alliance or zone fishing holes
-  // return number
+  var x = document.getElementById(id).getElementsByClassName('fh'); /* alliance or zone fishing holes */
+
   return x.length;
 }
 
-/* Count fishing holes of a certain type
- * in a certain zone and add the numbers
- * to the type-buttons
+/* Count fishing holes of a certain type in a certain zone and
+ * add the numbers to the type-buttons
  */
 function countFishingHoles(zone,type) {
-  var loc = getLocation(zone); // sanitize zone
-  if (type == 'oily') { // oily is equal to foul in terms of button id
+  var loc = getLocation(zone); /* sanitize zone */
+  if (type == 'oily') { /* oily is equal to foul in terms of button id */
     var w = 'foul';
   } else { 
     var w = type;
   }
-  var x = document.getElementById('tb-' + w); // toggle button for hole types
-  var y = document.getElementById(loc).getElementsByClassName(type + ' fh'); // zone fishing holes of a certain type
-  
-  // replace button text or return number value
+  var x = document.getElementById('tb-' + w); /* toggle button for hole types */
+  var y = document.getElementById(loc).getElementsByClassName(type + ' fh'); /* zone fishing holes of a certain type */
+
+  /* replace button text */
   x.innerHTML = type + ' (' + y.length + ')';
 }
 
 /* Return rare fish info for requested zone
 */
 function getRareFish(zone) {
-  var loc = getLocation(zone); // sanitize zone
+  var loc = getLocation(zone); /* sanitize zone */
 
   switch(loc) {
-  /* Aldmeri Dominion */
+    /* Aldmeri Dominion */
     case 'auridon':
       fish = [
         [ ['blue'],
@@ -279,7 +276,7 @@ function getRareFish(zone) {
         ['saltwater',''],
         ['lake',''] ] ]
       break;
-  /* Daggerfall Covenant */
+    /* Daggerfall Covenant */
     case 'glenumbra':
       fish = [
         [ ['blue'],
@@ -371,7 +368,7 @@ function getRareFish(zone) {
         ['saltwater',''],
         ['lake',''] ] ]
       break;
-  /* Ebonheart Pact */
+    /* Ebonheart Pact */
     case 'stonefalls':
       fish = [
         [ ['blue'],
@@ -463,7 +460,7 @@ function getRareFish(zone) {
         ['saltwater',''],
         ['lake',''] ] ]
       break;
-  /* Cyrodiil & Neutral */
+    /* Cyrodiil & Neutral */
     case 'cyrodiil':
       fish = [
         [ ['blue'],
@@ -503,7 +500,7 @@ function getRareFish(zone) {
         ['lake','Croaker','Forlorn Catfish'],
         ['lake','Ghost Knifefish','Nirn Flounder'] ] ]
       break;
-  /* DLC and Chapter Zones */
+    /* DLC and Chapter Zones */
     case 'imperialcity':
       fish = [
         [ ['blue'],
@@ -649,28 +646,27 @@ function getRareFish(zone) {
  * and write it into the info-container
  */
 function generateInfoText(alliance,zone) {
-  var loc = getLocation(zone); // sanitize zone
+  var loc = getLocation(zone); /* sanitize zone */
   var x = document.getElementById('a-' + loc);
   var y = document.getElementById(alliance);
   var z = document.getElementById('info-container');
   var fish = getRareFish(loc);
   var txt = '';
   var innertxt = '';
-  
-  // add zone as class to info container
+
+  /* add zone as class to info container */
   z.className = '';
-  z.classList.add('info-element');
-  z.classList.add(loc);
-  
-  // add close button
+  z.classList.add('info-element ' + loc);
+
+  /* add close button */
   txt = txt + '<div class="close" onclick="toggleClassElements(\'info-element\');">X</div>';
-  
+
   // generate info text with statistics
   txt = txt + '<p>All fishing holes in ' + y.getAttribute('data-name') + ': <b>' + countAllFishingHoles(alliance) + '</b></p>';
   if (loc !== 'overlay') {
     txt = txt + '<p>All fishing holes in ' + x.innerHTML + ': <b>' + countAllFishingHoles(loc) + '</b></p>';
   }
-  
+
   // generate rare fish info
   if (fish) {
     if (fish[1][1][2] && fish[1][2][2] && fish[1][3][2] && fish[1][4][2]) { // we have 4 columns
@@ -709,7 +705,7 @@ function generateInfoText(alliance,zone) {
   }
   txt = txt + '</div></div>';
   }
-  
+
   // replace info-container content
   document.getElementById('info-container').innerHTML = txt;
 }
