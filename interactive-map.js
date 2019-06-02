@@ -618,7 +618,8 @@ function generateInfoText(alliance,zone) {
 
   /* add zone as class to info container */
   z.className = '';
-  z.classList.add('info-element ' + loc);
+  z.classList.add('info-element');
+  z.classList.add(loc);
 
   /* add close button */
   txt = txt + '<div class="close" onclick="toggleClassElements(\'info-element\');">X</div>';
@@ -637,8 +638,8 @@ function generateInfoText(alliance,zone) {
                (!fish[1][1][2] && !fish[1][2][2] && !fish[1][4][2]) || /* 1,2,4 */
                (!fish[1][1][2] && !fish[1][3][2] && !fish[1][4][2]) || /* 1,3,4 */
                (!fish[1][2][2] && !fish[1][3][2] && !fish[1][4][2])) { /* 2,3,4 */
-                colClass = '-1';
-                containerClass = 'dyn';
+      colClass = '-1';
+      containerClass = 'dyn';
   } else { /* we have more than 1 and less than 4 columns */
     colClass = '-3';
     containerClass = 'full';
