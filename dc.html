@@ -1,7 +1,5 @@
 <!doctype html>
-
 <html>
-
 <head>
   <title>Captain Trout&#8217;s Interactive Fishing Map &#8211; Daggerfall Covenant</title>
   <link rel="icon" href="favicon.jpg">
@@ -27,7 +25,6 @@
   <link rel="stylesheet" href="interactive-map.css" type="text/css">
   <script src="interactive-map.js" type="text/javascript"></script>
 </head>
-
 <body>
 <div id="project-container" class="zoom-width" style="max-width: 780px;">
   <div id="fishing-map-container" class="zoom-width zoom-height" style="max-width: 780px; max-height: 780px;">
@@ -38,9 +35,8 @@
       <img id="img-alikrdesert" class="fishing-map-image" src="basemaps/map-alikrdesert.jpg">
       <img id="img-bangkorai" class="fishing-map-image" src="basemaps/map-bangkorai.jpg">
       <img id="img-betnikh" class="fishing-map-image" src="basemaps/map-betnikh.jpg">
-	  <img id="img-strosmkai" class="fishing-map-image" src="basemaps/map-strosmkai.jpg">
+      <img id="img-strosmkai" class="fishing-map-image" src="basemaps/map-strosmkai.jpg">
     </div>
-
 <!-- Start: data from google sheet -->
 <div id="daggerfall-covenant" class="toco" data-name="the Daggerfall Covenant">
     <div id="glenumbra" class="zoco" style="display: block;">
@@ -66,16 +62,14 @@
     </div>
     </div>																																															
 <!-- End: data from google sheet -->
-    <div id="info-container" class="info-element" style="display: none;">
-	  I will be of some use in the future! :-)
-	</div>
-	<div id="toggle-container-info" class="no-print">
-	  <div class="info-button button"><div id="ib-info" onclick="toggleClassElements('info-element');">i</div></div>
-	  <div class="zoom-button button"><div id="zb-plus" onclick="zoomInFishingHoles();">+</div></div>
+    <div id="info-container" class="info-element" style="display: none;">I will be of some use in the future! :-)</div>
+    <div id="toggle-container-info" class="no-print">
+      <div class="info-button button"><div id="ib-info" onclick="toggleClassElements('info-element');">i</div></div>
+      <div class="zoom-button button"><div id="zb-plus" onclick="zoomInFishingHoles();">+</div></div>
       <div class="zoom-button button"><div id="zb-minus" onclick="zoomOutFishingHoles();">-</div></div>
-	</div>
+    </div>
     <div id="zoom-container" class="no-print">
-	  <div class="zoom-button button"><div id="zb-back"><a href="../">&#8624;</a></div></div>
+      <div class="zoom-button button"><div id="zb-back"><a href="../">&#8624;</a></div></div>
       <div class="zoom-button button"><div id="zb-plus" onclick="zoomInFishingMap();">+</div></div>
       <div class="zoom-button button"><div id="zb-minus" onclick="zoomOutFishingMap();">-</div></div>
     </div>
@@ -98,7 +92,7 @@
     </div>
     <div id="toggle-container-zone-3" class="zoom-width col-2" style="max-width: 780px;">
       <div class="toggle-button button"><div id="tb-betnikh" class="zone-button"><a id="a-betnikh" href="#betnikh">Betnikh</a></div></div>
-	  <div class="toggle-button button"><div id="tb-strosmkai" class="zone-button"><a id="a-strosmkai" href="#strosmkai">Stros M'Kai</a></div></div>
+      <div class="toggle-button button"><div id="tb-strosmkai" class="zone-button"><a id="a-strosmkai" href="#strosmkai">Stros M'Kai</a></div></div>
     </div>
   </div>
 </div>
@@ -119,7 +113,5 @@
     window.location.href = '../';
   });
 </script>
-
 </body>
-
 </html>

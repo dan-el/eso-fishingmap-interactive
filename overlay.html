@@ -1,7 +1,5 @@
 <!doctype html>
-
 <html>
-
 <head>
   <title>Captain Trout&#8217;s Interactive Fishing Map &#8211; Overlay View</title>
   <link rel="icon" href="favicon.jpg">
@@ -27,14 +25,12 @@
   <link rel="stylesheet" href="interactive-map.css" type="text/css">
   <script src="interactive-map.js" type="text/javascript"></script>
 </head>
-
 <body>
 <div id="project-container" class="zoom-width" style="max-width: 780px;">
   <div id="fishing-map-container" class="zoom-width zoom-height" style="max-width: 780px; max-height: 780px;">
     <div id="image-container" class="overlay">
       <img id="img-overlay" class="fishing-map-image" src="basemaps/map-transparent.png">
     </div>
-
 <!-- Start: data from google sheet -->
 <div id="ov-top" class="toco" data-name="Overlay">
 <div id="overlay" class="zoco" style="display: block;">
@@ -80,16 +76,14 @@
 </div>
 </div>																																															
 <!-- End: data from google sheet -->
-    <div id="info-container" class="info-element" style="display: none;">
-	  I will be of some use in the future! :-)
-	</div>
-	<div id="toggle-container-info" class="no-print">
+    <div id="info-container" class="info-element" style="display: none;">I will be of some use in the future! :-)</div>
+    <div id="toggle-container-info" class="no-print">
       <div class="info-button button"><div id="ib-info" onclick="toggleClassElements('info-element');">i</div></div>
       <div class="zoom-button button"><div id="zb-plus" onclick="zoomInFishingHoles();">+</div></div>
       <div class="zoom-button button"><div id="zb-minus" onclick="zoomOutFishingHoles();">-</div></div>
-	</div>
+    </div>
     <div id="zoom-container" class="no-print">
-	  <div class="zoom-button button"><div id="zb-back"><a href="../">&#8624;</a></div></div>
+      <div class="zoom-button button"><div id="zb-back"><a href="../">&#8624;</a></div></div>
       <div class="zoom-button button"><div id="zb-plus" onclick="zoomInFishingMap();">+</div></div>
       <div class="zoom-button button"><div id="zb-minus" onclick="zoomOutFishingMap();">-</div></div>
     </div>
@@ -114,7 +108,5 @@
     window.location.href = '../';
   });
 </script>
-
 </body>
-
 </html>
