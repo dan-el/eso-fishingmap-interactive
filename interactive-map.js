@@ -101,7 +101,7 @@ function getLocation(zone) {
 
   for (var i = 0; i < validLocations.length; i++) {
     if (loc.indexOf(validLocations[i]) > -1) {
-      if (validLocations[i] == 'elsweyr') { /* to keep the legacy 'elsweyr' location remapped to 'northernelsweyr' */
+      if (validLocations[i] === 'elsweyr') { /* to keep the legacy 'elsweyr' location remapped to 'northernelsweyr' */
         return 'northernelsweyr';
       } else {
         return(validLocations[i]);
@@ -118,7 +118,7 @@ function foulOrOily(zone) {
   var x = document.getElementById(loc).getElementsByClassName('foul fh'); /* foul fishing holes */
   var y = document.getElementById(loc).getElementsByClassName('oily fh'); /* oily fishing holes */
 
-  if (y.length > 0 && x.length == 0) {
+  if (y.length > 0 && x.length === 0) {
     return 'oily';
   } else {
     return 'foul';
@@ -131,7 +131,7 @@ function foulOrOily(zone) {
 function countFishingHoles(zone,type) {
   var loc = getLocation(zone); /* sanitize zone */
   var x = ''; /* zone name */
-  if (type == 'oily') { /* oily is equal to foul in terms of button id */
+  if (type === 'oily') { /* oily is equal to foul in terms of button id */
     x = 'foul';
   } else {
     x = type;
