@@ -1,6 +1,7 @@
-/* toco ... top-container     *
- * zoco ... zone-container    *
- * fh ..... fishing-hole      */
+/* toco ... top-container
+ * zoco ... zone-container
+ * fh ..... fishing-hole
+ */
  
 * {
   font-family: Arial, Helvetica, sans-serif;
@@ -67,6 +68,17 @@ svg.map-tamriel-svg {
   margin-top: -4px;
   border-radius: 50%;
   position: absolute;
+}
+
+.fh.rare:before {
+  content: " ";
+  width: 8px;
+  height: 8px;
+  margin-left: -4px !important;
+  margin-top: -4px !important;
+  display: block;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,1);
 }
 
 #overlay .fh {
@@ -138,28 +150,32 @@ svg.map-tamriel-svg {
   background-color: rgba(255,0,0,1);
 }
 
-#fishing-map-container.plus .fh {
+#fishing-map-container.plus .fh,
+#fishing-map-container.plus .fh.rare:before {
   width: 10px;
   height: 10px;
   margin-left: -5px;
   margin-top: -5px;
 }
 
-#fishing-map-container.pplus .fh {
+#fishing-map-container.pplus .fh,
+#fishing-map-container.pplus .fh.rare:before {
   width: 12px;
   height: 12px;
   margin-left: -6px;
   margin-top: -6px;
 }
 
-#fishing-map-container.minus .fh {
+#fishing-map-container.minus .fh,
+#fishing-map-container.minus .fh.rare:before {
   width: 6px;
   height: 6px;
   margin-left: -3px;
   margin-top: -3px;
 }
 
-#fishing-map-container.mminus .fh {
+#fishing-map-container.mminus .fh,
+#fishing-map-container.mminus .fh.rare:before {
   width: 4px;
   height: 4px;
   margin-left: -2px;
@@ -260,10 +276,18 @@ svg.map-tamriel-svg {
   background-color: rgba(255,255,0,.75);
 }
 
+.fh.foul:before {
+  border-color: rgba(255,255,0,.75);
+}
+
 .fh.oily:hover:after {
   content: "Oily (" attr(daco) ")";
   border-color: rgb(255,255,0);
   background-color: rgba(255,255,0,.75);
+}
+
+.fh.oily:before {
+  border-color: rgba(255,255,0,.75);
 }
 
 .fh.river:hover:after {
@@ -272,16 +296,28 @@ svg.map-tamriel-svg {
   background-color: rgba(0,255,255,.75);
 }
 
+.fh.river:before {
+  border-color: rgba(0,255,255,.75);
+}
+
 .fh.saltwater:hover:after {
   content: "Saltwater (" attr(daco) ")";
   border-color: rgb(0,0,255);
   background-color: rgba(0,0,255,.75);
 }
 
+.fh.saltwater:before {
+  border-color: rgba(0,0,255,.75);
+}
+
 .fh.lake:hover:after {
   content: "Lake (" attr(daco) ")";
   border-color: rgb(255,0,0);
   background-color: rgba(255,0,0,.75);
+}
+
+.fh.lake:before {
+  border-color: rgba(255,0,0,.75);
 }
 
 #info-container .close {
