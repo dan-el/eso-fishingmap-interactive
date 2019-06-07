@@ -695,7 +695,7 @@ function toggleZone(zone) {
   hideClassElements('fishing-map-image'); /* hide all fishing maps */
   toggleIdElement('img-' + locZ); /* now show one specific fishing map by id */
   unsetClassActive('zone-button'); /* unset all zone-buttons */
-  toggleIdActive('tb-' + locZ); /* now set one specific zone-buttonactive by id */
+  toggleIdActive('tb-' + locZ); /* now set one specific zone-button active by id */
 
   /* recount holes on zone change */
   numFoulHoles = countFishingHoles(locZ,foulOrOily(locZ));
@@ -733,7 +733,7 @@ function toggleZone(zone) {
   generateInfoText(locA,locZ);
 }
 
-/* Increase fishing pin size
+/* Increase fishing hole pin size
  */
 function zoomInFishingHoles() {
   var x = document.getElementById('fishing-map-container');
@@ -756,7 +756,7 @@ function zoomInFishingHoles() {
   }
 }
 
-/* Decrease fishing pin size
+/* Decrease fishing hole pin size
  */
 function zoomOutFishingHoles() {
   var x = document.getElementById('fishing-map-container');
@@ -788,13 +788,13 @@ function zoomInFishingMap() {
   var y = document.getElementsByClassName('zoom-height');
 
   for (var i = 0; i < x.length; i++) {
-    if (parseInt(x[i].style.maxWidth.replace(/px/,"")) < 1910) {
+    if (parseInt(x[i].style.maxWidth.replace(/px/,'')) < 1910) { /* width */
       x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/,''))+100 + 'px';
     }
   }
   for (var i = 0; i < y.length; i++) {
-    if (parseInt(y[i].style.maxHeight.replace(/px/,"")) < 1910) {
-      y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/,""))+100 + 'px';
+    if (parseInt(y[i].style.maxHeight.replace(/px/,'')) < 1910) { /* height */
+      y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/,''))+100 + 'px';
     }
   }
 }
@@ -807,13 +807,13 @@ function zoomOutFishingMap() {
   var y = document.getElementsByClassName('zoom-height');
 
   for (var i = 0; i < x.length; i++) {
-    if (parseInt(x[i].style.maxWidth.replace(/px/,"")) > 610) {
-      x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/,""))-100 + 'px';
+    if (parseInt(x[i].style.maxWidth.replace(/px/,'')) > 610) { /* width */
+      x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/,''))-100 + 'px';
     }
   }
   for (var i = 0; i < y.length; i++) {
-    if (parseInt(y[i].style.maxHeight.replace(/px/,"")) > 610) {
-      y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/,""))-100 + 'px';
+    if (parseInt(y[i].style.maxHeight.replace(/px/,'')) > 610) { /* height */
+      y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/,''))-100 + 'px';
     }
   }
 }
