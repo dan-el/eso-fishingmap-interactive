@@ -72,13 +72,13 @@ svg.map-tamriel-svg {
 
 .fh.rare:before {
   content: " ";
-  width: 8px;
-  height: 8px;
-  margin-left: -4px !important;
-  margin-top: -4px !important;
+  width: 12px;
+  height: 12px;
+  margin-left: -3px !important;
+  margin-top: -3px !important;
   display: block;
   border-radius: 50%;
-  border: 4px solid rgba(255,255,255,1);
+  border: 1px solid rgba(255,255,255,1);
 }
 
 #overlay .fh {
@@ -150,36 +150,66 @@ svg.map-tamriel-svg {
   background-color: rgba(255,0,0,1);
 }
 
-#fishing-map-container.plus .fh,
-#fishing-map-container.plus .fh.rare:before {
+#fishing-map-container.plus .fh {
   width: 10px;
   height: 10px;
   margin-left: -5px;
   margin-top: -5px;
 }
 
-#fishing-map-container.pplus .fh,
-#fishing-map-container.pplus .fh.rare:before {
+#fishing-map-container.plus .fh.rare:before {
+  width: 14px;
+  height: 14px;
+}
+
+#fishing-map-container.pplus .fh {
   width: 12px;
   height: 12px;
   margin-left: -6px;
   margin-top: -6px;
 }
 
-#fishing-map-container.minus .fh,
-#fishing-map-container.minus .fh.rare:before {
+#fishing-map-container.pplus .fh.rare:before {
+  width: 16px;
+  height: 16px;
+}
+
+#fishing-map-container.minus .fh {
   width: 6px;
   height: 6px;
   margin-left: -3px;
   margin-top: -3px;
 }
 
-#fishing-map-container.mminus .fh,
-#fishing-map-container.mminus .fh.rare:before {
+#fishing-map-container.minus .fh.rare:before {
+  width: 10px;
+  height: 10px;
+}
+
+#fishing-map-container.mminus .fh {
   width: 4px;
   height: 4px;
   margin-left: -2px;
   margin-top: -2px;
+}
+
+#fishing-map-container.mminus .fh.rare:before {
+  width: 8px;
+  height: 8px;
+}
+
+#fishing-map-container.mmminus .fh {
+  width: 2px;
+  height: 2px;
+  margin-left: -1px;
+  margin-top: -1px;
+}
+
+#fishing-map-container.mmminus .fh.rare:before {
+  width: 4px;
+  height: 4px;
+  margin-left: -2px !important;
+  margin-top: -2px !important;
 }
 
 .foul,

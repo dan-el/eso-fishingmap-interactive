@@ -737,17 +737,20 @@ function toggleZone(zone) {
  */
 function zoomInFishingHoles() {
   var x = document.getElementById('fishing-map-container');
-
-  if (x.classList.contains('mminus')) {
-    x.classList.remove('mminus'); /* zoom -1 */
+  if (x.classList.contains('mmminus')) {
+    x.classList.remove('mmminus') /* zoom -2 */
   } else {
-    if (x.classList.contains('minus')) {
-      x.classList.remove('minus'); /* zoom +-0 */
+    if (x.classList.contains('mminus')) {
+      x.classList.remove('mminus'); /* zoom -1 */
     } else {
-      if (x.classList.contains('plus')) {
-        x.classList.add('pplus'); /* zoom +2 */
+      if (x.classList.contains('minus')) {
+        x.classList.remove('minus'); /* zoom +-0 */
       } else {
-        x.classList.add('plus'); /* zoom +1 */
+        if (x.classList.contains('plus')) {
+          x.classList.add('pplus'); /* zoom +2 */
+        } else {
+          x.classList.add('plus'); /* zoom +1 */
+        }
       }
     }
   }
@@ -764,10 +767,14 @@ function zoomOutFishingHoles() {
     if (x.classList.contains('plus')) {
       x.classList.remove('plus'); /* zoom +-0 */
     } else {
-      if (x.classList.contains('minus')) {
-        x.classList.add('mminus'); /* zoom -2 */
+      if (x.classList.contains('mminus')) {
+        x.classList.add('mmminus'); /* zoom -3 */
       } else {
-        x.classList.add('minus'); /* zoom -1 */
+        if (x.classList.contains('minus')) {
+          x.classList.add('mminus'); /* zoom -2 */
+        } else {
+          x.classList.add('minus'); /* zoom -1 */
+        }
       }
     }
   }
