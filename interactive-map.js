@@ -90,10 +90,12 @@ function getLocation(zoneOrAlliance) {
     'cyrodiil','coldharbour','craglorn',
     'imperialcity','wrothgar','hewsbane','goldcoast','clockworkcity','vvardenfell','summerset',
     'artaeum','murkmire','elsweyr','northernelsweyr',
-    /* Dummy Zone */
-    'overlay',
-    /* Alliances (have to come after zones for detection to work) */
-    'aldmeri-dominion','daggerfall-covenant','ebonheart-pact','cyro-neutral','dlc-chapter'
+    /* Dummy Zones */
+    'overlay','overlay-zone',
+    /* Alliances */
+    'aldmeri-dominion','daggerfall-covenant','ebonheart-pact','cyro-neutral','dlc-chapter',
+    /* Dummy Alliances */
+    'overlay-alliance'
   ];
   var locZA = '';
 
@@ -104,9 +106,11 @@ function getLocation(zoneOrAlliance) {
   }
 
   for (var i = 0; i < validLocations.length; i++) {
-    if (locZA.indexOf(validLocations[i]) > -1) {
-      if (validLocations[i] === 'elsweyr') { /* to keep the legacy 'elsweyr' location remapped to 'northernelsweyr' */
+    if (locZA === validLocations[i]) {
+      if (validLocations[i] === 'elsweyr') { /* keep the legacy 'elsweyr' location remapped to 'northernelsweyr' */
         return 'northernelsweyr';
+      } else if (validLocations[i] === 'overlay') { /* keep the legacy 'overlay' location remapped to 'overlay-zone' */
+        return 'overlay-zone';
       } else {
         return(validLocations[i]);
       }
@@ -614,9 +618,10 @@ function getRareFish(zone) {
  * and write it to the info-container
  */
 function generateInfoText(alliance,zone) {
+  var locA = getLocation(alliance); /* sanitize alliance */
   var locZ = getLocation(zone); /* sanitize zone */
   var x = document.getElementById('a-' + locZ);
-  var y = document.getElementById(alliance);
+  var y = document.getElementById(locA);
   var z = document.getElementById('info-container');
   var fish = getRareFish(locZ);
   var txt = '';
@@ -632,8 +637,8 @@ function generateInfoText(alliance,zone) {
   /* add close button */
   txt = txt + '<div class="close" onclick="toggleClassElements(\'info-element\');">X</div>';
   /* generate info text with statistics */
-  txt = txt + '<p>All fishing holes in ' + y.getAttribute('data-name') + ': <b>' + countAllFishingHoles(alliance) + '</b></p>';
-  if (locZ !== 'overlay') {
+  txt = txt + '<p>All fishing holes in ' + y.getAttribute('data-name') + ': <b>' + countAllFishingHoles(locA) + '</b></p>';
+  if (locZ !== 'overlay-zone') {
     txt = txt + '<p>All fishing holes in ' + x.innerHTML + ': <b>' + countAllFishingHoles(locZ) + '</b></p>';
   }
 
@@ -739,20 +744,14 @@ function zoomInFishingHoles() {
   var x = document.getElementById('fishing-map-container');
   if (x.classList.contains('mmminus')) {
     x.classList.remove('mmminus') /* zoom -2 */
+  } else if (x.classList.contains('mminus')) {
+    x.classList.remove('mminus'); /* zoom -1 */
+  } else if (x.classList.contains('minus')) {
+    x.classList.remove('minus'); /* zoom +-0 */
+  } else if (x.classList.contains('plus')) {
+    x.classList.add('pplus'); /* zoom +2 */
   } else {
-    if (x.classList.contains('mminus')) {
-      x.classList.remove('mminus'); /* zoom -1 */
-    } else {
-      if (x.classList.contains('minus')) {
-        x.classList.remove('minus'); /* zoom +-0 */
-      } else {
-        if (x.classList.contains('plus')) {
-          x.classList.add('pplus'); /* zoom +2 */
-        } else {
-          x.classList.add('plus'); /* zoom +1 */
-        }
-      }
-    }
+    x.classList.add('plus'); /* zoom +1 */
   }
 }
 
@@ -763,20 +762,14 @@ function zoomOutFishingHoles() {
 
   if (x.classList.contains('pplus')) {
     x.classList.remove('pplus'); /* zoom +1 */
+  } else if (x.classList.contains('plus')) {
+    x.classList.remove('plus'); /* zoom +-0 */
+  } else if (x.classList.contains('mminus')) {
+    x.classList.add('mmminus'); /* zoom -3 */
+  } else if (x.classList.contains('minus')) {
+    x.classList.add('mminus'); /* zoom -2 */
   } else {
-    if (x.classList.contains('plus')) {
-      x.classList.remove('plus'); /* zoom +-0 */
-    } else {
-      if (x.classList.contains('mminus')) {
-        x.classList.add('mmminus'); /* zoom -3 */
-      } else {
-        if (x.classList.contains('minus')) {
-          x.classList.add('mminus'); /* zoom -2 */
-        } else {
-          x.classList.add('minus'); /* zoom -1 */
-        }
-      }
-    }
+    x.classList.add('minus'); /* zoom -1 */
   }
 }
 

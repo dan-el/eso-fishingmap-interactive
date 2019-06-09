@@ -46,7 +46,7 @@ svg.map-tamriel-svg {
   height: 100%;
 }
 
-#image-container.overlay {
+#image-container.overlay-zone {
   border: 1px solid white;
 }
 
@@ -81,7 +81,7 @@ svg.map-tamriel-svg {
   border: 1px solid rgba(255,255,255,1);
 }
 
-#overlay .fh {
+#overlay-zone .fh {
   background: rgba(255,255,255,0.15);
   width: 16px;
   height: 16px;
@@ -89,64 +89,64 @@ svg.map-tamriel-svg {
   margin-top: -8px;
 }
 
-#fishing-map-container.plus #overlay .fh {
+#fishing-map-container.plus #overlay-zone .fh {
   width: 20px;
   height: 20px;
   margin-left: -10px;
   margin-top: -10px;
 }
 
-#fishing-map-container.pplus #overlay .fh {
+#fishing-map-container.pplus #overlay-zone .fh {
   width: 24px;
   height: 24px;
   margin-left: -12px;
   margin-top: -12px;
 }
 
-#fishing-map-container.minus #overlay .fh {
+#fishing-map-container.minus #overlay-zone .fh {
   width: 12px;
   height: 12px;
   margin-left: -6px;
   margin-top: -6px;
 }
 
-#fishing-map-container.mminus #overlay .fh {
+#fishing-map-container.mminus #overlay-zone .fh {
   width: 8px;
   height: 8px;
   margin-left: -4px;
   margin-top: -4px;
 }
 
-#overlay .fh:hover,
-#overlay .fh:active,
-#overlay .fh.active {
+#overlay-zone .fh:hover,
+#overlay-zone .fh:active,
+#overlay-zone .fh.active {
   z-index: 1000;
 }
 
-#overlay .foul:hover,
-#overlay .foul:active,
-#overlay .foul.active,
-#overlay .oily:hover,
-#overlay .oily:active,
-#overlay .oily.active {
+#overlay-zone .foul:hover,
+#overlay-zone .foul:active,
+#overlay-zone .foul.active,
+#overlay-zone .oily:hover,
+#overlay-zone .oily:active,
+#overlay-zone .oily.active {
   background-color: rgba(255,255,0,1);
 }
 
-#overlay .river:hover,
-#overlay .river:active,
-#overlay .river.active {
+#overlay-zone .river:hover,
+#overlay-zone .river:active,
+#overlay-zone .river.active {
   background-color: rgba(0,255,255,1);
 }
 
-#overlay .saltwater:hover,
-#overlay .saltwater:active,
-#overlay .saltwater.active {
+#overlay-zone .saltwater:hover,
+#overlay-zone .saltwater:active,
+#overlay-zone .saltwater.active {
   background-color: rgba(0,0,255,1);
 }
 
-#overlay .lake:hover,
-#overlay .lake:active,
-#overlay .lake.active {
+#overlay-zone .lake:hover,
+#overlay-zone .lake:active,
+#overlay-zone .lake.active {
   background-color: rgba(255,0,0,1);
 }
 
@@ -380,7 +380,7 @@ svg.map-tamriel-svg {
   background-color: transparent;
 }
 
-.info-element.overlay > p {
+.info-element.overlay-zone > p {
   padding-bottom: 0;
 }
 
