@@ -102,7 +102,7 @@ function getLocation(zoneOrAlliance) {
   if (zoneOrAlliance) { /* grab from parameter */
     locZA = zoneOrAlliance;
   } else { /* grab from URL */
-    locZA = window.location.href;
+    locZA = window.location.hash.substr(1); /* extract anchor */
   }
 
   for (var i = 0; i < validLocations.length; i++) {
