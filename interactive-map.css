@@ -372,6 +372,7 @@ svg.map-tamriel-svg {
   margin-left: -43%;
   padding: 3%;
   text-align: center;
+  z-index: 1005;
 }
 
 .info-element > p {
