@@ -687,7 +687,7 @@ div.rare-fish div.col div.cell.purple {
   }
 
   .info-element {
-    top: 132px;
+    top: 125px;
     width: 88%;
     padding: 3%;
     margin: 0;
@@ -696,7 +696,7 @@ div.rare-fish div.col div.cell.purple {
   }
   
   .info-element > p {
-    padding-bottom: 5px;
+    padding-bottom: 3px;
   }
   
   div.rare-fish,
