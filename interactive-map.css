@@ -22,7 +22,7 @@ body {
 #toggle-container-info,
 .zoom-button div a,
 svg.map-tamriel-svg {
-  background: transparent;	
+  background: transparent;  
 }
 
 #project-container,
@@ -377,7 +377,7 @@ svg.map-tamriel-svg {
 
 .info-element > p {
   margin: 0;
-  padding-bottom: 15px;
+  padding-bottom: 10px;
   background-color: transparent;
 }
 
@@ -620,23 +620,23 @@ div.rare-fish div.col div.cell.purple {
 /* small screens */
 @media only screen and (max-device-width: 767px) {
   * {
-	font-size: 85%;
+    font-size: 85%;
   }
   
   #zoom-container,
   #toggle-container-info {
-	margin: 10px;
+    margin: 10px;
     position: absolute;
   }
   
   #zoom-container {
     left: 0;
-	right: initial;
+    right: initial;
   }
 
   #toggle-container-info {
     right: 0;
-	left: initial;
+    left: initial;
   }
   
   .zoom-width {
@@ -649,7 +649,7 @@ div.rare-fish div.col div.cell.purple {
   
   .type-button,
   .zone-button {
-	font-size: 150%;
+    font-size: 150%;
   }
   
   #toggle-container-info .button,
@@ -659,27 +659,27 @@ div.rare-fish div.col div.cell.purple {
   
   .zoom-button,
   .info-button {
-	margin-bottom: 10px;
+    margin-bottom: 10px;
   }
   
   .info-button div,
   .zoom-button div {
-	font-size: 300%;
-	width: 25px;
-	height: 25px;
-	line-height: 25px;
+    font-size: 300%;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
   }
   
   .toggle-button div,
   .info-button div,
   .zoom-button div {
-	border-width: 2px;
+    border-width: 2px;
   }
   
   .toggle-button div,
   .toggle-button .zone-button a  {
-	padding-left: 1px;
-	padding-right: 1px;
+    padding-left: 1px;
+    padding-right: 1px;
   }
   
   .fh {
@@ -688,29 +688,29 @@ div.rare-fish div.col div.cell.purple {
 
   .info-element {
     top: 132px;
-	width: 88%;
-	padding: 3%;
-	margin: 0;
-	margin-left: -47%;
-	font-size:130%;
+    width: 88%;
+    padding: 3%;
+    margin: 0;
+    margin-left: -47%;
+    font-size:130%;
   }
   
   .info-element > p {
-	padding-bottom: 8px;
+    padding-bottom: 5px;
   }
   
   div.rare-fish,
   div.rare-fish * {
-	font-size: 100%;  
+    font-size: 100%;  
   }
   
   div.rare-fish div.col div.cell div.inner {
-	padding-left: 3px;
-	padding-right: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
   }
   
   div.rare-fish div.col div.cell.fish div.inner {
-	height: 2.6em;
+    height: 2.6em;
   }
 }
 
@@ -726,31 +726,31 @@ div.rare-fish div.col div.cell.purple {
   
   .info-button div,
   .zoom-button div {
-	width: 45px;
-	height: 45px;
-	line-height: 45px;
-	font-size: 250%;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 250%;
   }
   
   #zoom-container,
   #toggle-container-info {
-   position: absolute;
+    position: absolute;
   }
 
   #zoom-container {
     left: 0;
-	right: initial;
+    right: initial;
   }
 
   #toggle-container-info {
     right: 0;
-	left: initial;
+    left: initial;
   }
 
   #toggle-container-info .button,
   #zoom-container .button  {
     float: none;
-	margin-bottom: 30px;
+    margin-bottom: 30px;
   }
 
   .info-element {
@@ -762,10 +762,10 @@ div.rare-fish div.col div.cell.purple {
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .info-button div,
   .zoom-button div {
-	width: 45px;
-	height: 45px;
-	line-height: 45px;
-	font-size: 250%;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    font-size: 250%;
   }
 
   #zoom-container,
@@ -775,18 +775,18 @@ div.rare-fish div.col div.cell.purple {
 
   #zoom-container {
     left: 0;
-	right: initial;
+    right: initial;
   }
 
   #toggle-container-info {
     right: 0;
-	left: initial;
+    left: initial;
   }
 
   #toggle-container-info .button,
   #zoom-container .button  {
     float: none;
-	margin-bottom: 30px;
+    margin-bottom: 30px;
   }
   
   .info-element {
@@ -797,7 +797,7 @@ div.rare-fish div.col div.cell.purple {
 /* large screens */
 @media screen and (min-width: 2000px) {
   * {
-	font-size: 35px;
+    font-size: 35px;
   }
   
   .zoom-width {
@@ -819,21 +819,21 @@ div.rare-fish div.col div.cell.purple {
   }
   
   #zoom-container .button {
-	margin-right: 50px;
+    margin-right: 50px;
   }
   
   #toggle-container-info .button {
-	margin-left: 50px;
+    margin-left: 50px;
   }
   
   .zoom-button div,
   .info-button div {
-	width: 80px;
-	height: 80px;
-	line-height: 80px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
   }
   
   .fh {
-	transform: scale(2);
+    transform: scale(2);
   }
 }
