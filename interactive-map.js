@@ -782,15 +782,18 @@ function zoomOutFishingHoles() {
 function zoomInFishingMap() {
   var x = document.getElementsByClassName('zoom-width');
   var y = document.getElementsByClassName('zoom-height');
-
-  for (var i = 0; i < x.length; i++) {
-    if (parseInt(x[i].style.maxWidth.replace(/px/,'')) < 1910) { /* width */
-      x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/,''))+100 + 'px';
+  var z = document.getElementById('fishing-map-container');
+  
+  if (z.style.maxWidth.replace(/px/,'') < document.body.clientWidth) { /* only zoom in if there is space avalable */
+    for (var i = 0; i < x.length; i++) {
+      if (parseInt(x[i].style.maxWidth.replace(/px/,'')) < 1910) { /* width */
+        x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/,''))+100 + 'px';
+      }
     }
-  }
-  for (var i = 0; i < y.length; i++) {
-    if (parseInt(y[i].style.maxHeight.replace(/px/,'')) < 1910) { /* height */
-      y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/,''))+100 + 'px';
+    for (var i = 0; i < y.length; i++) {
+      if (parseInt(y[i].style.maxHeight.replace(/px/,'')) < 1910) { /* height */
+        y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/,''))+100 + 'px';
+      }
     }
   }
 }
@@ -812,4 +815,27 @@ function zoomOutFishingMap() {
       y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/,''))-100 + 'px';
     }
   }
+}
+
+/* Use mouse wheel to zoom the fishing map
+ */
+function scrollToZoom() {
+  document.getElementById('fishing-map-container').addEventListener('wheel', function(e) {
+    e.preventDefault();
+    if (e.deltaY < 0) { /* wheel scrolling up */
+      zoomInFishingMap();
+    }
+    if (e.deltaY > 0) { /* wheel scrolling down */
+      zoomOutFishingMap();
+    }
+  });
+}
+
+/* Use mouse right click to navigate back on the map
+ */
+function clickToBack() {
+  document.getElementById('fishing-map-container').addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    window.location.href = '../';
+  });
 }
