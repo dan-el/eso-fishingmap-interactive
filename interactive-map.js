@@ -89,7 +89,7 @@ function getLocation(zoneOrAlliance) {
     'stonefalls','deshaan','shadowfen','eastmarch','therift','bleakrockisle','balfoyen',
     'cyrodiil','coldharbour','craglorn',
     'imperialcity','wrothgar','hewsbane','goldcoast','clockworkcity','vvardenfell','summerset',
-    'artaeum','murkmire','elsweyr','northernelsweyr',
+    'artaeum','murkmire','elsweyr','northernelsweyr','southernelsweyr',
     /* Dummy Zones */
     'overlay','overlay-zone',
     /* Alliances */
@@ -608,6 +608,19 @@ function getRareFish(zone) {
         ['river','Grayling','Reedfish'],
         ['river','Rimmen Bichir','Speckled Dace'] ] ]
       break;
+      case 'southernelsweyr':
+        fish = [
+          [ ['blue'],
+          ['river','???'],
+          ['river','???'],
+          ['river','???'],
+          ['river','???'] ],
+          [ ['green'],
+          ['river','???','???'],
+          ['river','???','???'],
+          ['river','???','???'],
+          ['river','???','???'] ] ]
+        break;
     default:
       return false;
   }
