@@ -505,7 +505,6 @@ div.rare-fish div.col div.cell.purple {
   text-align: center;
   cursor: pointer;
   text-transform: capitalize;
-  letter-spacing: -0.8px;
 }
 
 .col-1 .toggle-button {
