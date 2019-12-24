@@ -904,10 +904,10 @@ function scrollToZoom() {
   document.getElementById('fishing-map-container').addEventListener('wheel', function(e) {
     e.preventDefault();
     if (e.deltaY < 0) { /* wheel scrolling up */
-      zoomInFishingMap(true);
+      zoomInFishingMap(true, 0);
     }
     if (e.deltaY > 0) { /* wheel scrolling down */
-      zoomOutFishingMap(true);
+      zoomOutFishingMap(true, 0);
     }
   });
 }
