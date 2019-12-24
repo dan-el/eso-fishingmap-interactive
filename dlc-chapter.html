@@ -121,6 +121,7 @@
   } else {
     toggleZone('imperialcity');
   }
+  setFishingMapZoom();
   window.onhashchange = function() {
     if (getLocation()) {
       toggleZone(getLocation());

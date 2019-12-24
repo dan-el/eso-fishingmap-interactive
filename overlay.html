@@ -87,7 +87,7 @@
     </div>
   </div>
   <div id="toggle-container-container">
-    <div id="toggle-container-type" class="zoom-width col-4" style="max-width: 780px;">
+    <div id="toggle-container-type" class="zoom-width col-4 toggle-container-overlay" style="max-width: 780px;">
       <div class="toggle-button button"><div id="tb-foul" class="foul type-button" onclick="toggleClassElements('fh foul');toggleIdActive('tb-foul');">Foul</div></div>
       <div class="toggle-button button"><div id="tb-river" class="river type-button" onclick="toggleClassElements('fh river');toggleIdActive('tb-river');">River</div></div>
       <div class="toggle-button button"><div id="tb-saltwater" class="saltwater type-button" onclick="toggleClassElements('fh saltwater');toggleIdActive('tb-saltwater');">Saltwater</div></div>
@@ -101,6 +101,7 @@
 <div id="footer" class="zoom-width no-print" style="max-width: 780px;">The Elder Scrolls&reg; Online developed by ZeniMax Online Studios LLC, a ZeniMax Media company. ZeniMax, The Elder Scrolls, ESO, Bethesda, Bethesda Softworks and related logos are registered trademarks or trademarks of ZeniMax Media Inc. in the US and/or other countries. All Rights Reserved.</div>
 <script>
   toggleZone('overlay-zone');
+  setFishingMapZoom();
   scrollToZoom();
   clickToBack();
 </script>

@@ -101,6 +101,7 @@
   } else {
     toggleZone('glenumbra');
   }
+  setFishingMapZoom();
   window.onhashchange = function() {
     if (getLocation()) {
       toggleZone(getLocation());

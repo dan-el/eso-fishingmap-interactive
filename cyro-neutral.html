@@ -81,6 +81,7 @@
   } else {
     toggleZone('cyrodiil');
   }
+  setFishingMapZoom();
   window.onhashchange = function() {
     if (getLocation()) {
       toggleZone(getLocation());
