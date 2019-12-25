@@ -18,7 +18,7 @@
   <meta name="twitter:image" content="https://map.housetertia.com/fish.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Captain Trout">
-  <meta name="keywords" content="ESO,TESO,Elder Scrolls Online,Fishing,Fishing Map,House Tertia">
+  <meta name="keywords" content="ESO, TESO, Elder Scrolls Online, Fishing, Angeln, Fishing Map, Angelkarte, Map, Karte, House Tertia, Captain Trout, Master Angler, Meisterangler, Auridon, Grahtwood, Grahtwald, Greenshade, Gr&uuml;nschatten, Malabal Tor, Reaper&#8217;s March, Schnittermark, Khenarthi&#8217;s Roost, Khenarthis Rast">
   <meta name="description" content="Welcome to Captain Trout&#8217;s extensive fishing map compendium for The Elder Scrolls Online! After travelling Tamriel and other realms for many months of intensive and fishy study we are happy to share the Captain&#8217;s journal with you.">
   <link rel="stylesheet" href="interactive-map.css" type="text/css">
   <script src="interactive-map.js" type="text/javascript"></script>
@@ -84,8 +84,8 @@
       <div class="toggle-button button"><div id="tb-malabaltor" class="zone-button"><a id="a-malabaltor" href="#malabaltor">Malabal Tor</a></div></div>
     </div>
     <div id="toggle-container-zone-3" class="zoom-width col-2" style="max-width: 780px;">
-      <div class="toggle-button button"><div id="tb-reapersmarch" class="zone-button"><a id="a-reapersmarch" href="#reapersmarch">Reaper's March</a></div></div>
-      <div class="toggle-button button"><div id="tb-khenarthisroost" class="zone-button"><a id="a-khenarthisroost" href="#khenarthisroost">Khenarthi's Roost</a></div></div>
+      <div class="toggle-button button"><div id="tb-reapersmarch" class="zone-button"><a id="a-reapersmarch" href="#reapersmarch">Reaper&#8217;s March</a></div></div>
+      <div class="toggle-button button"><div id="tb-khenarthisroost" class="zone-button"><a id="a-khenarthisroost" href="#khenarthisroost">Khenarthi&#8217;s Roost</a></div></div>
     </div>
   </div>
 </div>
@@ -96,6 +96,7 @@
   } else {
     toggleZone('auridon');
   }
+  setFishingMapZoom();
   window.onhashchange = function() {
     if (getLocation()) {
       toggleZone(getLocation());

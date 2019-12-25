@@ -89,7 +89,7 @@ function getLocation(zoneOrAlliance) {
     'stonefalls','deshaan','shadowfen','eastmarch','therift','bleakrockisle','balfoyen',
     'cyrodiil','coldharbour','craglorn',
     'imperialcity','wrothgar','hewsbane','goldcoast','clockworkcity','vvardenfell','summerset',
-    'artaeum','murkmire','elsweyr','northernelsweyr',
+    'artaeum','murkmire','elsweyr','northernelsweyr','southernelsweyr',
     /* Dummy Zones */
     'overlay','overlay-zone',
     /* Alliances */
@@ -608,6 +608,19 @@ function getRareFish(zone) {
         ['river','Grayling','Reedfish'],
         ['river','Rimmen Bichir','Speckled Dace'] ] ]
       break;
+      case 'southernelsweyr':
+        fish = [
+          [ ['blue'],
+          ['river','???'],
+          ['river','???'],
+          ['river','???'],
+          ['river','???'] ],
+          [ ['green'],
+          ['river','???','???'],
+          ['river','???','???'],
+          ['river','???','???'],
+          ['river','???','???'] ] ]
+        break;
     default:
       return false;
   }
@@ -779,20 +792,46 @@ function zoomOutFishingHoles() {
 /* Increase fishing map size by increasing max-width and
  * max-height of zoom-width and zoom-height class elements
  */
-function zoomInFishingMap() {
+function zoomInFishingMap(scrolled,targetZoom) {
   var x = document.getElementsByClassName('zoom-width');
   var y = document.getElementsByClassName('zoom-height');
   var z = document.getElementById('fishing-map-container');
+  var s = false;
+  var tz = 0;
+
+  /* is it a mousewheel zoom? */
+  if (scrolled) {
+    s = true;
+  }
+
+  /* do we have a targetZoom size? */
+  if (parseInt(targetZoom) > 0) {
+    tz = parseInt(targetZoom);
+  }
+
+  /* set zoom step - less for mouse wheel zooming */
+  zoomStep = 100; /* pixels per click/wheel action */
+  if (s) {
+    zoomStep = 10; /* pixels per click/wheel action */
+  }
   
-  if (z.style.maxWidth.replace(/px/,'') < document.body.clientWidth) { /* only zoom in if there is space avalable */
+  if (z.style.maxWidth.replace(/px/,'') < document.body.clientWidth) { /* only zoom in if there is space available */
     for (var i = 0; i < x.length; i++) {
       if (parseInt(x[i].style.maxWidth.replace(/px/,'')) < 1910) { /* width */
-        x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/,''))+100 + 'px';
+        if (tz > 0 && tz < 1910) { /* zoom directly to target zoom level */
+          x[i].style.maxWidth = tz + 'px';
+        } else {
+          x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/,''))+zoomStep + 'px';
+        }
       }
     }
     for (var i = 0; i < y.length; i++) {
       if (parseInt(y[i].style.maxHeight.replace(/px/,'')) < 1910) { /* height */
-        y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/,''))+100 + 'px';
+        if (tz > 0 && tz < 1910) { /* zoom directly to target zoom level */
+          y[i].style.maxHeight = tz + 'px';
+        } else {
+          y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/,''))+zoomStep + 'px';
+        }
       }
     }
   }
@@ -801,19 +840,61 @@ function zoomInFishingMap() {
 /* Increase fishing map size by decreasing max-width and
  * max-height of zoom-width and zoom-height class elements
  */
-function zoomOutFishingMap() {
+function zoomOutFishingMap(scrolled,targetZoom) {
   var x = document.getElementsByClassName('zoom-width');
   var y = document.getElementsByClassName('zoom-height');
+  var s = false;
+  var tz = 0;
+
+  /* is it a mousewheel zoom? */
+  if (scrolled) {
+    s = true;
+  }
+
+  /* do we have a targetZoom size? */
+  if (parseInt(targetZoom) > 0) {
+    tz = parseInt(targetZoom);
+  }
+
+  /* set zoom step - less for mouse wheel zooming */
+  zoomStep = 100; /* pixels per click/wheel action */
+  if (s) {
+    zoomStep = 10; /* pixels per click/wheel action */
+  }
 
   for (var i = 0; i < x.length; i++) {
     if (parseInt(x[i].style.maxWidth.replace(/px/,'')) > 610) { /* width */
-      x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/,''))-100 + 'px';
+      if (tz > 610) { /* zoom directly to target zoom level */
+        x[i].style.maxWidth = tz + 'px';
+      } else {
+        x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/,''))-zoomStep + 'px';
+      }
     }
   }
   for (var i = 0; i < y.length; i++) {
     if (parseInt(y[i].style.maxHeight.replace(/px/,'')) > 610) { /* height */
-      y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/,''))-100 + 'px';
+      if (tz > 610) { /* zoom directly to target zoom level */
+        y[i].style.maxHeight = tz + 'px';
+      } else {
+        y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/,''))-zoomStep + 'px';
+      }
     }
+  }
+}
+
+/* Set fishing map zoom according to browser windows size so
+ * all controls are visible on page load
+ */
+function setFishingMapZoom() {
+  var x = document.getElementById('fishing-map-container').offsetHeight; /* conatianer with the map picture */
+  var y = document.getElementById('toggle-container-container').offsetHeight; /* container with buttons underneath the map */
+  var z = document.documentElement.clientHeight;
+
+  if ((x + y) > z) { /* map plus controls take more height than available */
+    zoomOutFishingMap(false, z - y);
+  }
+  if ((x + y) < z) { /* map plus controls take less height than available */
+    zoomInFishingMap(false, z - y);
   }
 }
 
@@ -823,10 +904,10 @@ function scrollToZoom() {
   document.getElementById('fishing-map-container').addEventListener('wheel', function(e) {
     e.preventDefault();
     if (e.deltaY < 0) { /* wheel scrolling up */
-      zoomInFishingMap();
+      zoomInFishingMap(true, 0);
     }
     if (e.deltaY > 0) { /* wheel scrolling down */
-      zoomOutFishingMap();
+      zoomOutFishingMap(true, 0);
     }
   });
 }

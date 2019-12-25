@@ -150,6 +150,10 @@ svg.map-tamriel-svg {
   background-color: rgba(255,0,0,1);
 }
 
+#toggle-container-container .toggle-container-overlay {
+  letter-spacing: -.8px;
+}
+
 #fishing-map-container.plus .fh {
   width: 10px;
   height: 10px;
@@ -451,7 +455,7 @@ div.rare-fish div.col div.cell {
 }
 
 div.rare-fish div.col div.cell.head {
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 div.rare-fish div.col div.cell.head div.inner {
@@ -504,8 +508,7 @@ div.rare-fish div.col div.cell.purple {
 .toggle-button {
   text-align: center;
   cursor: pointer;
-  text-transform: uppercase;
-  letter-spacing: -0.8px;
+  text-transform: capitalize;
 }
 
 .col-1 .toggle-button {
