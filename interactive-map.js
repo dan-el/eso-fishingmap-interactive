@@ -611,15 +611,15 @@ function getRareFish(zone) {
       case 'southernelsweyr':
         fish = [
           [ ['blue'],
-          ['river','???'],
-          ['river','???'],
-          ['river','???'],
-          ['river','???'] ],
+          ['foul','Radhin Zhab'],
+          ['river','Roh-ri'],
+          ['saltwater','Khaj\'Roh'],
+          ['lake',''] ],
           [ ['green'],
-          ['river','???','???'],
-          ['river','???','???'],
-          ['river','???','???'],
-          ['river','???','???'] ] ]
+          ['foul','Fif Cat','Pellitine Tilapia','Ruin Sucker'],
+          ['river','Elsweyr River Perch','Fresh-Water Sardinella','Shaveskin Darter'],
+          ['saltwater','Pellitine Horse Mackerel','Wedgefish','Zha\'ja Roh'],
+          ['lake',''] ] ]
         break;
     default:
       return false;
