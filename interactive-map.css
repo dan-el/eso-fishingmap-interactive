@@ -46,6 +46,11 @@ svg.map-tamriel-svg {
   height: 100%;
 }
 
+#fishing-map-container .zoco {
+  background-image: url(watermark.png);
+  background-size: 100%;
+}
+
 #image-container.overlay-zone {
   border: 1px solid white;
 }
