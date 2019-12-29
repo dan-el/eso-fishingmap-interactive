@@ -54,6 +54,18 @@ function toggleIdActive(id) {
   }
 }
 
+/* Set/Unset #id as test element via css class
+ */
+function toggleIdTest(id) {
+  var x = document.getElementById(id);
+
+  if (x.classList.contains('test')) {
+    x.classList.remove('test');
+  } else {
+    x.classList.add('test');
+  }
+}
+
 /* Set/Unset all elements of classname active via css class
  */
 function toggleClassActive(classname) {
@@ -650,6 +662,7 @@ function generateInfoText(alliance,zone) {
   z.classList.add(locZ);
 
   /* add close button */
+  txt = txt + '<div class="test" onclick="toggleIdTest(\'project-container\');">T</div>';
   txt = txt + '<div class="close" onclick="toggleClassElements(\'info-element\');">X</div>';
   /* generate info text with statistics */
   txt = txt + '<p>All fishing holes in ' + y.getAttribute('data-name') + ': <b>' + countAllFishingHoles(locA) + '</b></p>';
