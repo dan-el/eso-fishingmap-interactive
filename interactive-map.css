@@ -703,7 +703,7 @@ div.rare-fish div.col div.cell.purple {
   background-color: rgba(215,204,200,.6);
 }
 
-/* Hide items from printing view */
+/* Printing styles */
 @media print {
   .no-print,
   .no-print * {
@@ -712,6 +712,10 @@ div.rare-fish div.col div.cell.purple {
   
   * {
     background-color: white;
+  }
+
+  #fishing-map-container .zoco { /* watermark + legend on printouts */
+    background-image: url(legend.png);
   }
 }
 
