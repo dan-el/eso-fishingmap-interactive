@@ -20,6 +20,8 @@ body {
 #fishing-map-container .zoco,
 #zoom-container,
 #toggle-container-info,
+#toggle-container-beautify,
+#toggle-container-beautify *,
 .zoom-button div a,
 svg.map-tamriel-svg {
   background: transparent;  
@@ -47,12 +49,12 @@ svg.map-tamriel-svg {
 }
 
 #fishing-map-container .toco {
-  background-image: url(frame.png);
+  background-image: url(images/frame.png);
   background-size: 100%;
 }
 
 #fishing-map-container .zoco {
-  background-image: url(watermark.png);
+  background-image: url(images/watermark.png);
   background-size: 100%;
 }
 
@@ -364,16 +366,16 @@ svg.map-tamriel-svg {
   border-color: rgba(255,0,0,.75);
 }
 
-/* Test with fishing hook icon */
+/* Fishing hook icons */
 
-.test .fh {
+.beautiful .fh {
   width: 16px;
   height: 16px;
   margin-left: -8px;
   margin-top: -8px;
 }
 
-.test .fh.rare:before {
+.beautiful .fh.rare:before {
   content: " ";
   width: 12px;
   height: 12px;
@@ -384,79 +386,71 @@ svg.map-tamriel-svg {
   border: none;
 }
 
-.test #fishing-map-container.plus .fh {
+.beautiful #fishing-map-container.plus .fh {
   width: 18px;
   height: 18px;
   margin-left: -9px;
   margin-top: -9px;
 }
 
-.test #fishing-map-container.pplus .fh {
+.beautiful #fishing-map-container.pplus .fh {
   width: 20px;
   height: 20px;
   margin-left: -10px;
   margin-top: -10px;
 }
 
-.test #fishing-map-container.minus .fh {
+.beautiful #fishing-map-container.minus .fh {
   width: 14px;
   height: 14px;
   margin-left: -7px;
   margin-top: -7px;
 }
 
-.test #fishing-map-container.mminus .fh {
+.beautiful #fishing-map-container.mminus .fh {
   width: 12px;
   height: 12px;
   margin-left: -6px;
   margin-top: -6px;
 }
 
-.test #fishing-map-container.mmminus .fh {
+.beautiful #fishing-map-container.mmminus .fh {
   width: 10px;
   height: 10px;
   margin-left: -5px;
   margin-top: -5px;
 }
 
-.test .fh.foul,
-.test .fh.oily,
-.test .fh.river,
-.test .fh.saltwater,
-.test .fh.lake {
+.beautiful .fh,
+.beautiful #overlay-zone .fh {
   background-color: transparent;
   background-size: 100%;
   background-repeat: no-repeat;
 }
 
-.test .fh.foul,
-.test .fh.oily {
-  background-image: url(foul.png);
+.beautiful .fh.foul,
+.beautiful .fh.oily,
+.beautiful #overlay-zone .fh.foul,
+.beautiful #overlay-zone .fh.oily {
+  background-image: url(images/foul.png);
 }
 
-.test .fh.river {
-  background-image: url(river.png);
+.beautiful .fh.river,
+.beautiful #overlay-zone .fh.river {
+  background-image: url(images/river.png);
 }
 
-.test .fh.saltwater {
-  background-image: url(saltwater.png);
+.beautiful .fh.saltwater,
+.beautiful #overlay-zone .fh.saltwater {
+  background-image: url(images/saltwater.png);
 }
 
-.test .fh.lake {
-  background-image: url(lake.png);
+.beautiful .fh.lake,
+.beautiful #overlay-zone .fh.lake {
+  background-image: url(images/lake.png);
 }
 
-#info-container .test {
-  content: "T";
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  cursor: pointer;
-  background-color: white;
-  color: rgba(0,0,0,0.3);
-}
-
-/* Test with fishing hook icon */
+/*Fishing hook icons */
 
 #info-container .close {
   content: "X";
@@ -664,6 +658,34 @@ div.rare-fish div.col div.cell.purple {
   margin-right: 20px;
 }
 
+#toggle-container-beautify {
+  position: absolute;
+  left: 10px;
+  bottom: 14px;
+  margin: 0;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+}
+
+#toggle-container-beautify .button,
+#toggle-container-beautify .button * {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+#toggle-container-beautify .beautify-button #bb-hook {
+  background-size: 100%;
+  background-image: url(images/beautify-inactive.png);
+}
+
+#toggle-container-beautify .beautify-button #bb-hook:hover,
+#toggle-container-beautify .beautify-button #bb-hook:active,
+#toggle-container-beautify .beautify-button #bb-hook.active {
+  background-image: url(images/beautify-active.png);
+}
+
 .zoom-button,
 .info-button {
   text-align: center;
@@ -725,7 +747,7 @@ div.rare-fish div.col div.cell.purple {
   }
 
   #fishing-map-container .zoco { /* watermark + legend on printouts */
-    background-image: url(legend.png);
+    background-image: url(images/legend.png);
   }
 }
 
@@ -753,6 +775,11 @@ div.rare-fish div.col div.cell.purple {
   #toggle-container-info {
     right: 0;
     left: initial;
+  }
+
+  #toggle-container-beautify {
+    left: 4px;
+    bottom: 8px;
   }
   
   .zoom-width {

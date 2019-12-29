@@ -54,15 +54,15 @@ function toggleIdActive(id) {
   }
 }
 
-/* Set/Unset #id as test element via css class
+/* Set/Unset #id as a beautiful element via css class
  */
-function toggleIdTest(id) {
+function toggleIdBeautiful(id) {
   var x = document.getElementById(id);
 
-  if (x.classList.contains('test')) {
-    x.classList.remove('test');
+  if (x.classList.contains('beautiful')) {
+    x.classList.remove('beautiful');
   } else {
-    x.classList.add('test');
+    x.classList.add('beautiful');
   }
 }
 
@@ -662,7 +662,6 @@ function generateInfoText(alliance,zone) {
   z.classList.add(locZ);
 
   /* add close button */
-  txt = txt + '<div class="test" onclick="toggleIdTest(\'project-container\');">T</div>';
   txt = txt + '<div class="close" onclick="toggleClassElements(\'info-element\');">X</div>';
   /* generate info text with statistics */
   txt = txt + '<p>All fishing holes in ' + y.getAttribute('data-name') + ': <b>' + countAllFishingHoles(locA) + '</b></p>';
