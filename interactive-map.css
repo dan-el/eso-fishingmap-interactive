@@ -129,6 +129,13 @@ svg.map-tamriel-svg {
   margin-top: -4px;
 }
 
+#fishing-map-container.mmminus #overlay-zone .fh {
+  width: 4px;
+  height: 4px;
+  margin-left: -2px;
+  margin-top: -2px;
+}
+
 #overlay-zone .fh:hover,
 #overlay-zone .fh:active,
 #overlay-zone .fh.active {
