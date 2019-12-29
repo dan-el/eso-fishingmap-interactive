@@ -1,2 +1,3 @@
 Allow: /
 Disallow: /images/
+Disallow: /basemaps/
