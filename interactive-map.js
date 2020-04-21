@@ -3,7 +3,9 @@
 function hideIdElement(id) {
   var x = document.getElementById(id);
 
-  x.style.display = 'none';
+  if (x !== null) {
+    x.style.display = 'none';
+  }
 }
 
 /* Hide all elements of a certain class
@@ -21,10 +23,12 @@ function hideClassElements(classname) {
 function toggleIdElement(id) {
   var x = document.getElementById(id);
 
-  if (x.style.display === 'none') {
-    x.style.display = 'block';
-  } else {
-    x.style.display = 'none';
+  if (x !== null) {
+    if (x.style.display === 'none') {
+      x.style.display = 'block';
+    } else {
+      x.style.display = 'none';
+    }
   }
 }
 
@@ -47,10 +51,12 @@ function toggleClassElements(classname) {
 function toggleIdActive(id) {
   var x = document.getElementById(id);
 
-  if (x.classList.contains('active')) {
-    x.classList.remove('active');
-  } else {
-    x.classList.add('active');
+  if (x !== null) {
+    if (x.classList.contains('active')) {
+      x.classList.remove('active');
+    } else {
+      x.classList.add('active');
+    }
   }
 }
 
@@ -59,10 +65,12 @@ function toggleIdActive(id) {
 function toggleIdBeautiful(id) {
   var x = document.getElementById(id);
 
-  if (x.classList.contains('beautiful')) {
-    x.classList.remove('beautiful');
-  } else {
-    x.classList.add('beautiful');
+  if (x !== null) {
+    if (x.classList.contains('beautiful')) {
+      x.classList.remove('beautiful');
+    } else {
+      x.classList.add('beautiful');
+    }
   }
 }
 
