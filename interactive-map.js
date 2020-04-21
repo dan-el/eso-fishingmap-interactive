@@ -101,7 +101,7 @@ function getLocation(zoneOrAlliance) {
     'stonefalls','deshaan','shadowfen','eastmarch','therift','bleakrockisle','balfoyen',
     'cyrodiil','coldharbour','craglorn',
     'imperialcity','wrothgar','hewsbane','goldcoast','clockworkcity','vvardenfell','summerset',
-    'artaeum','murkmire','elsweyr','northernelsweyr','southernelsweyr',
+    'artaeum','murkmire','elsweyr','northernelsweyr','southernelsweyr','westernskyrim',
     /* Dummy Zones */
     'overlay','overlay-zone',
     /* Alliances */
@@ -633,6 +633,19 @@ function getRareFish(zone) {
           ['saltwater','Pellitine Horse Mackerel','Wedgefish','Zha\'ja Roh'],
           ['lake',''] ] ]
         break;
+        case 'westernskyrim':
+          fish = [
+            [ ['blue'],
+            ['foul',''],
+            ['river',''],
+            ['saltwater',''],
+            ['lake',''] ],
+            [ ['green'],
+            ['foul',''],
+            ['river',''],
+            ['saltwater',''],
+            ['lake',''] ] ]
+          break;
     default:
       return false;
   }

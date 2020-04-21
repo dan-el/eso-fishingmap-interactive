@@ -168,4 +168,8 @@
 		<loc>https://map.housetertia.com/dlc-chapter#southernelsweyr</loc>
 		<priority>0.7</priority>
 	</url>
+	<url>
+		<loc>https://map.housetertia.com/dlc-chapter#westernskyrim</loc>
+		<priority>0.7</priority>
+	</url>
 </urlset>
