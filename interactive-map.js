@@ -109,7 +109,7 @@ function getLocation(zoneOrAlliance) {
     'stonefalls','deshaan','shadowfen','eastmarch','therift','bleakrockisle','balfoyen',
     'cyrodiil','coldharbour','craglorn',
     'imperialcity','wrothgar','hewsbane','goldcoast','clockworkcity','vvardenfell','summerset',
-    'artaeum','murkmire','elsweyr','northernelsweyr','southernelsweyr','westernskyrim',
+    'artaeum','murkmire','elsweyr','northernelsweyr','southernelsweyr','westernskyrim','blackreach',
     /* Dummy Zones */
     'overlay','overlay-zone',
     /* Alliances */
@@ -168,7 +168,9 @@ function countFishingHoles(zone,type) {
   var z = document.getElementById(locZ).getElementsByClassName(type + ' fh'); /* zone fishing holes of a certain type */
 
   /* replace button text */
-  y.innerHTML = type + ' (' + z.length + ')';
+  if (y !== null) {
+    y.innerHTML = type + ' (' + z.length + ')';
+  }
 
   /* also return the number of fishing holes */
   return z.length;
@@ -628,32 +630,45 @@ function getRareFish(zone) {
         ['river','Grayling','Reedfish'],
         ['river','Rimmen Bichir','Speckled Dace'] ] ]
       break;
-      case 'southernelsweyr':
-        fish = [
-          [ ['blue'],
-          ['foul','Radhin Zhab'],
-          ['river','Roh-ri'],
-          ['saltwater','Khaj\'Roh'],
-          ['lake',''] ],
-          [ ['green'],
-          ['foul','Fif Cat','Pellitine Tilapia','Ruin Sucker'],
-          ['river','Elsweyr River Perch','Fresh-Water Sardinella','Shaveskin Darter'],
-          ['saltwater','Pellitine Horse Mackerel','Wedgefish','Zha\'ja Roh'],
-          ['lake',''] ] ]
-        break;
-        case 'westernskyrim':
-          fish = [
-            [ ['blue'],
-            ['foul',''],
-            ['river',''],
-            ['saltwater',''],
-            ['lake',''] ],
-            [ ['green'],
-            ['foul',''],
-            ['river',''],
-            ['saltwater',''],
-            ['lake',''] ] ]
-          break;
+    case 'southernelsweyr':
+      fish = [
+        [ ['blue'],
+        ['foul','Radhin Zhab'],
+        ['river','Roh-ri'],
+        ['saltwater','Khaj\'Roh'],
+        ['lake',''] ],
+        [ ['green'],
+        ['foul','Fif Cat','Pellitine Tilapia','Ruin Sucker'],
+        ['river','Elsweyr River Perch','Fresh-Water Sardinella','Shaveskin Darter'],
+        ['saltwater','Pellitine Horse Mackerel','Wedgefish','Zha\'ja Roh'],
+        ['lake',''] ] ]
+      break;
+    case 'westernskyrim':
+      fish = [
+        [ ['blue'],
+        ['foul','Foul'],
+        ['river','River'],
+        ['saltwater','Saltwater'],
+        ['lake','Lake'] ],
+        [ ['green'],
+        ['foul','Hypogean Tetra','Sanguine Lamprey','Vandellia'],
+        ['river','Blue Muskie','Chillwind Pike','Morthal Longfin'],
+        ['saltwater','Birtingr','Ghost Salmon','Skyrim Gurry Shark'],
+        ['lake','Frigid Char','Lodsilungur','Solitude Loach'] ] ]
+      break;
+    case 'blackreach':
+      fish = [
+        [ ['blue'],
+        ['foul','Foul'],
+        ['river','River'],
+        ['saltwater','Saltwater'],
+        ['lake','Lake'] ],
+        [ ['green'],
+        ['foul','Hypogean Tetra','Sanguine Lamprey','Vandellia'],
+        ['river','Blue Muskie','Chillwind Pike','Morthal Longfin'],
+        ['saltwater','Birtingr','Ghost Salmon','Skyrim Gurry Shark'],
+        ['lake','Frigid Char','Lodsilungur','Solitude Loach'] ] ]
+      break;
     default:
       return false;
   }
@@ -686,7 +701,7 @@ function generateInfoText(alliance,zone) {
   txt = txt + '<div class="close" onclick="toggleClassElements(\'info-element\');">X</div>';
   /* generate info text with statistics */
   txt = txt + '<p>All fishing holes in ' + y.getAttribute('data-name') + ': <b>' + countAllFishingHoles(locA) + '</b></p>';
-  if (locZ !== 'overlay-zone') {
+  if (locZ !== 'overlay-zone' && x !== null) {
     txt = txt + '<p>All fishing holes in ' + x.innerHTML + ': <b>' + countAllFishingHoles(locZ) + '</b></p>';
   }
   txt = txt + '<p>Perfect Roe Rate: ' + perfectroe + '/' + fishcaught + ' (<b>' + Number(Math.round((perfectroe/fishcaught*100)+'e2')+'e-2') + '%</b>)</p>'
