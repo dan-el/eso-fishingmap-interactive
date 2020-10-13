@@ -1,3 +1,98 @@
+/* SVG  styles */
+
+.map-container {
+  position: relative;
+  height: auto;
+  display: inline-block;
+  width: 100%;
+  /* max-width: 810px */ /* (your max-width goes here) */
+}
+.map-tamriel {
+  position: relative;
+}
+.map-tamriel-svg {
+  position: absolute;
+}
+.map-tamriel,
+.map-tamriel-svg {
+  display: block;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+}
+.map-container a:focus {
+  border: none;
+  outline: none;
+}
+.map-container polygon,
+.map-container circle {
+  stroke-width: 3;
+  fill: transparent;
+}
+.map-container polygon.ad:hover,
+.map-container circle.ad:hover {
+  stroke: yellow;
+  fill: rgba(255,255,0,0.5);
+}
+.map-container text tspan {
+  font: italic 22px sans-serif;
+}
+.map-container text.ad {
+  fill: yellow;
+  font: italic 48px sans-serif;
+}
+.map-container polygon.ep:hover,
+.map-container circle.ep:hover {
+  stroke: red;
+  fill: rgba(255,0,0,0.5);
+}
+.map-container text.ep {
+  fill: red;
+  font: italic 48px sans-serif;
+}
+.map-container polygon.dc:hover,
+.map-container circle.dc:hover {
+  stroke: blue;
+  fill: rgba(0,0,255,0.5);
+}
+.map-container text.dc {
+  fill: blue;
+  font: italic 48px sans-serif;
+}
+.map-container polygon.dlc:hover,
+.map-container circle.dlc:hover {
+  stroke: deeppink ;
+  fill: rgba(255,20,147,0.5)
+}
+.map-container text.dlc {
+  fill: deeppink;
+  font: italic 48px sans-serif;
+}
+.map-container polygon.cyrodiil:hover,
+.map-container circle.cyrodiil:hover {
+  stroke: green;
+  fill: rgba(0,128,0,0.5);
+}
+.map-container text.cyrodiil {
+  fill: green;
+  font: italic 48px sans-serif;
+}
+.map-container polygon.craglorn:hover,
+.map-container circle.craglorn:hover,
+.map-container polygon.coldharbour:hover,
+.map-container circle.coldharbour:hover {
+  stroke: saddlebrown ;
+  fill: rgba(139,69,19,0.5)
+}
+.map-container text.craglorn,
+.map-container text.coldharbour {
+  fill: saddlebrown;
+  font: italic 48px sans-serif;
+}
+
+/* SVG styles */
+
 /* toco ... top-container
  * zoco ... zone-container
  * fh ..... fishing-hole
@@ -323,6 +418,11 @@ svg.map-tamriel-svg {
   z-index: 100;
 }
 
+.fh.mel:hover:after {
+  white-space: normal !important;
+  min-width: 200px;
+}
+
 .fh.foul:hover:after {
   content: "Foul (" attr(daco) ")";
   border-color: rgb(255,255,0);
@@ -371,6 +471,17 @@ svg.map-tamriel-svg {
 
 .fh.lake:before {
   border-color: rgba(255,0,0,.75);
+}
+
+.coming-soon {
+  position: absolute;
+  left: 15%;
+  top: 45%;
+  border-color: rgb(255,0,0);
+  background-color: rgba(255,0,0,.75);
+  padding: 20px;
+  font-size: large;
+  display: block;
 }
 
 /* Fishing hook icons */
@@ -458,6 +569,119 @@ svg.map-tamriel-svg {
 }
 
 /*Fishing hook icons */
+
+/* Blackreach link in Western Skyrim */
+
+#fishing-map-container .link-zone {
+  border-radius: 50%;
+  position: absolute;
+  background-color: transparent;
+  z-index: 1000;
+}
+
+#fishing-map-container .link-zone.blackreach {
+  left: 71.49% !important;
+  top: 18.76% !important;
+  width: 9.38% !important;
+  height: 9.38% !important;
+  margin-left: -4.69% !important;
+  margin-top: -4.69% !important;
+}
+
+#fishing-map-container .link-zone.westernskyrim {
+  left: 83.40% !important;
+  top: 13.86% !important;
+  width: 12.8% !important;
+  height: 12.8% !important;
+  margin-left: -6.4% !important;
+  margin-top: -6.4% !important;
+}
+
+#fishing-map-container .link-zone.blackreach-mzark {
+  left: 78.64% !important;
+  top: 31.84% !important;
+  width: 9.38% !important;
+  height: 9.38% !important;
+  margin-left: -4.69% !important;
+  margin-top: -4.69% !important;
+}
+
+#fishing-map-container .link-zone.eastmarch {
+  left: 40.60% !important;
+  top: 86.10% !important;
+  width: 16.6% !important;
+  height: 16.6% !important;
+  margin-left: -8.3% !important;
+  margin-top: -8.3% !important;
+}
+
+#fishing-map-container .link-zone.thereach {
+  left: 75.20% !important;
+  top: 18.80% !important;
+  width: 13.4% !important;
+  height: 13.4% !important;
+  margin-left: -6.7% !important;
+  margin-top: -6.7% !important;
+}
+
+#fishing-map-container .link-zone.blackreach-arkthzand {
+  left: 82.10% !important;
+  top: 36.20% !important;
+  width: 11% !important;
+  height: 11% !important;
+  margin-left: -5.5% !important;
+  margin-top: -5.5% !important;
+}
+
+#fishing-map-container .link-zone:hover {
+  border: 3px solid deeppink;
+  background-color: rgba(255,20,147,0.5);
+}
+
+#fishing-map-container .link-zone:hover:after {
+  color: deeppink;
+  border: none;
+  font-family: sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  font-size: 110%;
+  line-height: 150%;
+  width: 150%;
+  display: block;
+}
+
+#fishing-map-container .link-zone.blackreach:hover:after {
+  content: "Blackreach";
+}
+
+#fishing-map-container .link-zone.westernskyrim:hover:after {
+  content: "Western Skyrim";
+}
+
+#fishing-map-container .link-zone.blackreach-mzark:hover:after {
+  content: "Mzark Cavern";
+}
+
+#fishing-map-container .link-zone.eastmarch:hover:after {
+  content: "Eastmarch";
+}
+
+#fishing-map-container .link-zone.thereach:hover:after {
+  content: "The Reach";
+}
+
+#fishing-map-container .link-zone.blackreach-arkthzand:hover:after {
+  content: "Arkthzand Cavern";
+}
+
+#fishing-map-container .link-zone a {
+  display: block;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+/* Blackreach link in Western Skyrim */
 
 #info-container .close {
   content: "X";
@@ -553,6 +777,10 @@ div.rare-fish div.col-4 {
   width: 25%;
 }
 
+div.rare-fish div.col-5 {
+  width: 20%;
+}
+
 div.rare-fish div.col div.cell {
   display: table;
   width: 100%;
@@ -632,6 +860,10 @@ div.rare-fish div.col div.cell.purple {
   width: 25%;
 }
 
+.col-5 .toggle-button {
+  width: 20%;
+}
+
 .toggle-button div {
   padding: 5px;
   border: 3px solid rgba(0,0,0,.5);
@@ -709,7 +941,7 @@ div.rare-fish div.col div.cell.purple {
   border-top-color: rgba(0,0,0,.2);
   border-right-color: rgba(0,0,0,.2);
   background-color: rgba(215,204,200,1);
-  font-family: Consolas,monospace;
+  font-family: Consolas, monospace;
   font-size: 200%;
 }
 

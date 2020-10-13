@@ -3,7 +3,9 @@
 function hideIdElement(id) {
   var x = document.getElementById(id);
 
-  x.style.display = 'none';
+  if (x !== null) {
+    x.style.display = 'none';
+  }
 }
 
 /* Hide all elements of a certain class
@@ -21,10 +23,12 @@ function hideClassElements(classname) {
 function toggleIdElement(id) {
   var x = document.getElementById(id);
 
-  if (x.style.display === 'none') {
-    x.style.display = 'block';
-  } else {
-    x.style.display = 'none';
+  if (x !== null) {
+    if (x.style.display === 'none') {
+      x.style.display = 'block';
+    } else {
+      x.style.display = 'none';
+    }
   }
 }
 
@@ -47,10 +51,12 @@ function toggleClassElements(classname) {
 function toggleIdActive(id) {
   var x = document.getElementById(id);
 
-  if (x.classList.contains('active')) {
-    x.classList.remove('active');
-  } else {
-    x.classList.add('active');
+  if (x !== null) {
+    if (x.classList.contains('active')) {
+      x.classList.remove('active');
+    } else {
+      x.classList.add('active');
+    }
   }
 }
 
@@ -59,10 +65,12 @@ function toggleIdActive(id) {
 function toggleIdBeautiful(id) {
   var x = document.getElementById(id);
 
-  if (x.classList.contains('beautiful')) {
-    x.classList.remove('beautiful');
-  } else {
-    x.classList.add('beautiful');
+  if (x !== null) {
+    if (x.classList.contains('beautiful')) {
+      x.classList.remove('beautiful');
+    } else {
+      x.classList.add('beautiful');
+    }
   }
 }
 
@@ -100,8 +108,9 @@ function getLocation(zoneOrAlliance) {
     'glenumbra','stormhaven','rivenspire','alikrdesert','bangkorai','betnikh','strosmkai',
     'stonefalls','deshaan','shadowfen','eastmarch','therift','bleakrockisle','balfoyen',
     'cyrodiil','coldharbour','craglorn',
-    'imperialcity','wrothgar','hewsbane','goldcoast','clockworkcity','vvardenfell','summerset',
-    'artaeum','murkmire','elsweyr','northernelsweyr','southernelsweyr',
+    'imperialcity','wrothgar','hewsbane','goldcoast','clockworkcity','vvardenfell',
+    'summerset','artaeum','murkmire','elsweyr','northernelsweyr','southernelsweyr',
+    'westernskyrim','blackreach','thereach','blackreach-arkthzand','blackreach-mzark',
     /* Dummy Zones */
     'overlay','overlay-zone',
     /* Alliances */
@@ -160,7 +169,9 @@ function countFishingHoles(zone,type) {
   var z = document.getElementById(locZ).getElementsByClassName(type + ' fh'); /* zone fishing holes of a certain type */
 
   /* replace button text */
-  y.innerHTML = type + ' (' + z.length + ')';
+  if (y !== null) {
+    y.innerHTML = type + ' (' + z.length + ')';
+  }
 
   /* also return the number of fishing holes */
   return z.length;
@@ -620,19 +631,84 @@ function getRareFish(zone) {
         ['river','Grayling','Reedfish'],
         ['river','Rimmen Bichir','Speckled Dace'] ] ]
       break;
-      case 'southernelsweyr':
-        fish = [
-          [ ['blue'],
-          ['foul','Radhin Zhab'],
-          ['river','Roh-ri'],
-          ['saltwater','Khaj\'Roh'],
-          ['lake',''] ],
-          [ ['green'],
-          ['foul','Fif Cat','Pellitine Tilapia','Ruin Sucker'],
-          ['river','Elsweyr River Perch','Fresh-Water Sardinella','Shaveskin Darter'],
-          ['saltwater','Pellitine Horse Mackerel','Wedgefish','Zha\'ja Roh'],
-          ['lake',''] ] ]
-        break;
+    case 'southernelsweyr':
+      fish = [
+        [ ['blue'],
+        ['foul','Radhin Zhab'],
+        ['river','Roh-ri'],
+        ['saltwater','Khaj\'Roh'],
+        ['lake',''] ],
+        [ ['green'],
+        ['foul','Fif Cat','Pellitine Tilapia','Ruin Sucker'],
+        ['river','Elsweyr River Perch','Fresh-Water Sardinella','Shaveskin Darter'],
+        ['saltwater','Pellitine Horse Mackerel','Wedgefish','Zha\'ja Roh'],
+        ['lake',''] ] ]
+      break;
+    case 'westernskyrim':
+      fish = [
+        [ ['blue'],
+        ['foul','Foul'],
+        ['river','River'],
+        ['saltwater','Saltwater'],
+        ['lake','Lake'] ],
+        [ ['green'],
+        ['foul','Hypogean Tetra','Sanguine Lamprey','Vandellia'],
+        ['river','Blue Muskie','Chillwind Pike','Morthal Longfin'],
+        ['saltwater','Birtingr','Ghost Salmon','Skyrim Gurry Shark'],
+        ['lake','Frigid Char','Lodsilungur','Solitude Loach'] ] ]
+      break;
+    case 'blackreach':
+      fish = [
+        [ ['blue'],
+        ['foul','Foul'],
+        ['river','River'],
+        ['saltwater','Saltwater'],
+        ['lake','Lake'] ],
+        [ ['green'],
+        ['foul','Hypogean Tetra','Sanguine Lamprey','Vandellia'],
+        ['river','Blue Muskie','Chillwind Pike','Morthal Longfin'],
+        ['saltwater','Birtingr','Ghost Salmon','Skyrim Gurry Shark'],
+        ['lake','Frigid Char','Lodsilungur','Solitude Loach'] ] ]
+      break;
+    case 'thereach':
+      fish = [
+        [ ['blue'],
+        ['foul','Foul'],
+        ['river','River'],
+        ['saltwater','Saltwater'],
+        ['lake','Lake'] ],
+        [ ['green'],
+        ['foul','Foul','Foul','Foul'],
+        ['river','River','River','River'],
+        ['saltwater','Saltwater','Saltwater','Saltwater'],
+        ['lake','Lake','Lake','Lake'] ] ]
+      break;
+    case 'blackreach-arkthzand':
+      fish = [
+        [ ['blue'],
+        ['foul','Foul'],
+        ['river','River'],
+        ['saltwater','Saltwater'],
+        ['lake','Lake'] ],
+        [ ['green'],
+        ['foul','Foul','Foul','Foul'],
+        ['river','River','River','River'],
+        ['saltwater','Saltwater','Saltwater','Saltwater'],
+        ['lake','Lake','Lake','Lake'] ] ]
+      break;
+    case 'blackreach-mzark':
+      fish = [
+        [ ['blue'],
+        ['foul','Foul'],
+        ['river','River'],
+        ['saltwater','Saltwater'],
+        ['lake','Lake'] ],
+        [ ['green'],
+        ['foul','Foul','Foul','Foul'],
+        ['river','River','River','River'],
+        ['saltwater','Saltwater','Saltwater','Saltwater'],
+        ['lake','Lake','Lake','Lake'] ] ]
+      break;
     default:
       return false;
   }
@@ -665,7 +741,7 @@ function generateInfoText(alliance,zone) {
   txt = txt + '<div class="close" onclick="toggleClassElements(\'info-element\');">X</div>';
   /* generate info text with statistics */
   txt = txt + '<p>All fishing holes in ' + y.getAttribute('data-name') + ': <b>' + countAllFishingHoles(locA) + '</b></p>';
-  if (locZ !== 'overlay-zone') {
+  if (locZ !== 'overlay-zone' && x !== null) {
     txt = txt + '<p>All fishing holes in ' + x.innerHTML + ': <b>' + countAllFishingHoles(locZ) + '</b></p>';
   }
   txt = txt + '<p>Perfect Roe Rate: ' + perfectroe + '/' + fishcaught + ' (<b>' + Number(Math.round((perfectroe/fishcaught*100)+'e2')+'e-2') + '%</b>)</p>'

@@ -237,100 +237,14 @@
             <set attributeName="visibility" from="hidden" to="visible" begin="southernelsweyr.mouseover" end="southernelsweyr.mouseout" />
           </text>
         </a>
+        <a xlink:href="../dlc-chapter#westernskyrim" xlink:title="Western Skyrim">
+          <polygon id="westernskyrim" class="area dlc" points="356,166,356,150,339,147,335,154,327,156,313,153,294,161,286,171,282,180,278,192,285,205,290,206,295,212,298,211,302,213,307,229,321,232,342,225,348,218,364,218,365,221,377,226,381,217,393,205,397,194,396,185,398,179,400,161,390,162,381,158,369,160" />
+          <text x="17" y="60" class="dlc" visibility="hidden">Western Skyrim<tspan x="17" y="90">(DLC & Chapter Zones)</tspan>
+            <set attributeName="visibility" from="hidden" to="visible" begin="westernskyrim.mouseover" end="westernskyrim.mouseout" />
+          </text>
+        </a>
       </svg>
     </div>
-    <style>
-      .map-container {
-        position: relative;
-        height: auto;
-        display: inline-block;
-        width: 100%;
-        /* max-width: 810px */ /* (your max-width goes here) */
-      }
-      .map-tamriel {
-        position: relative;
-      }
-      .map-tamriel-svg {
-        position: absolute;
-      }
-      .map-tamriel,
-      .map-tamriel-svg {
-        display: block;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: auto;
-      }
-      .map-container a:focus {
-        border: none;
-        outline: none;
-      }
-      .map-container polygon,
-      .map-container circle {
-        stroke-width: 3;
-        fill: transparent;
-      }
-      .map-container polygon.ad:hover,
-      .map-container circle.ad:hover {
-        stroke: yellow;
-        fill: rgba(255,255,0,0.5);
-      }
-      .map-container text tspan {
-        font: italic 22px sans-serif;
-      }
-      .map-container text.ad {
-        fill: yellow;
-        font: italic 48px sans-serif;
-      }
-      .map-container polygon.ep:hover,
-      .map-container circle.ep:hover {
-        stroke: red;
-        fill: rgba(255,0,0,0.5);
-      }
-      .map-container text.ep {
-        fill: red;
-        font: italic 48px sans-serif;
-      }
-      .map-container polygon.dc:hover,
-      .map-container circle.dc:hover {
-        stroke: blue;
-        fill: rgba(0,0,255,0.5);
-      }
-      .map-container text.dc {
-        fill: blue;
-        font: italic 48px sans-serif;
-      }
-      .map-container polygon.dlc:hover,
-      .map-container circle.dlc:hover {
-        stroke: deeppink ;
-        fill: rgba(255,20,147,0.5)
-      }
-      .map-container text.dlc {
-        fill: deeppink;
-        font: italic 48px sans-serif;
-      }
-      .map-container polygon.cyrodiil:hover,
-      .map-container circle.cyrodiil:hover {
-        stroke: green;
-        fill: rgba(0,128,0,0.5);
-      }
-      .map-container text.cyrodiil {
-        fill: green;
-        font: italic 48px sans-serif;
-      }
-      .map-container polygon.craglorn:hover,
-      .map-container circle.craglorn:hover,
-      .map-container polygon.coldharbour:hover,
-      .map-container circle.coldharbour:hover {
-        stroke: saddlebrown ;
-        fill: rgba(139,69,19,0.5)
-      }
-      .map-container text.craglorn,
-      .map-container text.coldharbour {
-        fill: saddlebrown;
-        font: italic 48px sans-serif;
-      }
-    </style>
     <!-- End: SVG Map -->
   </div>
   <div id="toggle-container-container" class="no-print"></div>
