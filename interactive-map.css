@@ -1138,6 +1138,12 @@ div.rare-fish div.col div.cell.purple {
   .info-element {
     top: 302px; 
   }
+
+  .toggle-button div,
+  .toggle-button .zone-button a  {
+    padding-left: 2px;
+    padding-right: 2px;
+  }
 }
 
 /* iPad landscape orientation */
@@ -1173,6 +1179,12 @@ div.rare-fish div.col div.cell.purple {
   
   .info-element {
     top: 302px; 
+  }
+
+  .toggle-button div,
+  .toggle-button .zone-button a  {
+    padding-left: 1px;
+    padding-right: 1px;
   }
 }
 
