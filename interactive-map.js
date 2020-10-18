@@ -110,7 +110,7 @@ function getLocation(zoneOrAlliance) {
     'cyrodiil','coldharbour','craglorn',
     'imperialcity','wrothgar','hewsbane','goldcoast','clockworkcity','vvardenfell',
     'summerset','artaeum','murkmire','elsweyr','northernelsweyr','southernelsweyr',
-    'westernskyrim','blackreach','thereach','blackreach-arkthzand','blackreach-mzark',
+    'blackreach-mzark','westernskyrim','blackreach','thereach','blackreach-arkthzand',
     /* Dummy Zones */
     'overlay','overlay-zone',
     /* Alliances */
@@ -644,7 +644,7 @@ function getRareFish(zone) {
         ['saltwater','Pellitine Horse Mackerel','Wedgefish','Zha\'ja Roh'],
         ['lake',''] ] ]
       break;
-    case 'westernskyrim':
+    case 'blackreach-mzark':
       fish = [
         [ ['blue'],
         ['foul','Foul'],
@@ -652,23 +652,36 @@ function getRareFish(zone) {
         ['saltwater','Saltwater'],
         ['lake','Lake'] ],
         [ ['green'],
-        ['foul','Hypogean Tetra','Sanguine Lamprey','Vandellia'],
-        ['river','Blue Muskie','Chillwind Pike','Morthal Longfin'],
-        ['saltwater','Birtingr','Ghost Salmon','Skyrim Gurry Shark'],
-        ['lake','Frigid Char','Lodsilungur','Solitude Loach'] ] ]
+        ['foul','Foul','Foul','Foul'],
+        ['river','River','River','River'],
+        ['saltwater','Saltwater','Saltwater','Saltwater'],
+        ['lake','Lake','Lake','Lake'] ] ]
+      break;
+    case 'westernskyrim':
+      fish = [
+        [ ['blue'],
+        ['foul','Sanguine Lamprey'],
+        ['river','Blue Muskie'],
+        ['saltwater','Birtingr'],
+        ['lake','Lodsilungur'] ],
+        [ ['green'],
+        ['foul','Hypogean Tetra','Vandellia'],
+        ['river','Chillwind Pike','Morthal Longfin'],
+        ['saltwater','Ghost Salmon','Skyrim Gurry Shark'],
+        ['lake','Frigid Char','Solitude Loach'] ] ]
       break;
     case 'blackreach':
       fish = [
         [ ['blue'],
-        ['foul','Foul'],
-        ['river','River'],
-        ['saltwater','Saltwater'],
-        ['lake','Lake'] ],
+        ['foul','Sanguine Lamprey'],
+        ['river','Blue Muskie'],
+        ['saltwater','Birtingr'],
+        ['lake','Lodsilungur'] ],
         [ ['green'],
-        ['foul','Hypogean Tetra','Sanguine Lamprey','Vandellia'],
-        ['river','Blue Muskie','Chillwind Pike','Morthal Longfin'],
-        ['saltwater','Birtingr','Ghost Salmon','Skyrim Gurry Shark'],
-        ['lake','Frigid Char','Lodsilungur','Solitude Loach'] ] ]
+        ['foul','Hypogean Tetra','Vandellia'],
+        ['river','Chillwind Pike','Morthal Longfin'],
+        ['saltwater','Ghost Salmon','Skyrim Gurry Shark'],
+        ['lake','Frigid Char','Solitude Loach'] ] ]
       break;
     case 'thereach':
       fish = [
@@ -684,19 +697,6 @@ function getRareFish(zone) {
         ['lake','Lake','Lake','Lake'] ] ]
       break;
     case 'blackreach-arkthzand':
-      fish = [
-        [ ['blue'],
-        ['foul','Foul'],
-        ['river','River'],
-        ['saltwater','Saltwater'],
-        ['lake','Lake'] ],
-        [ ['green'],
-        ['foul','Foul','Foul','Foul'],
-        ['river','River','River','River'],
-        ['saltwater','Saltwater','Saltwater','Saltwater'],
-        ['lake','Lake','Lake','Lake'] ] ]
-      break;
-    case 'blackreach-mzark':
       fish = [
         [ ['blue'],
         ['foul','Foul'],
