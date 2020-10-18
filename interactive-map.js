@@ -647,15 +647,15 @@ function getRareFish(zone) {
     case 'blackreach-mzark':
       fish = [
         [ ['blue'],
-        ['foul','Foul'],
-        ['river','River'],
-        ['saltwater','Saltwater'],
-        ['lake','Lake'] ],
+        ['foul',''],
+        ['river',''],
+        ['saltwater',''],
+        ['lake',''] ],
         [ ['green'],
-        ['foul','Foul','Foul','Foul'],
-        ['river','River','River','River'],
-        ['saltwater','Saltwater','Saltwater','Saltwater'],
-        ['lake','Lake','Lake','Lake'] ] ]
+        ['foul',''],
+        ['river',''],
+        ['saltwater',''],
+        ['lake',''] ] ]
       break;
     case 'westernskyrim':
       fish = [
@@ -691,9 +691,9 @@ function getRareFish(zone) {
         ['saltwater','Saltwater'],
         ['lake','Lake'] ],
         [ ['green'],
-        ['foul','Foul','Foul','Foul'],
-        ['river','River','River','River'],
-        ['saltwater','Saltwater','Saltwater','Saltwater'],
+        ['foul','Foul','Foul'],
+        ['river','River','River'],
+        ['saltwater','Saltwater','Saltwater'],
         ['lake','Lake','Lake','Lake'] ] ]
       break;
     case 'blackreach-arkthzand':
@@ -704,9 +704,9 @@ function getRareFish(zone) {
         ['saltwater','Saltwater'],
         ['lake','Lake'] ],
         [ ['green'],
-        ['foul','Foul','Foul','Foul'],
-        ['river','River','River','River'],
-        ['saltwater','Saltwater','Saltwater','Saltwater'],
+        ['foul','Foul','Foul'],
+        ['river','River','River'],
+        ['saltwater','Saltwater','Saltwater'],
         ['lake','Lake','Lake','Lake'] ] ]
       break;
     default:
