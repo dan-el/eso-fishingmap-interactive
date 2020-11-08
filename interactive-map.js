@@ -686,28 +686,28 @@ function getRareFish(zone) {
     case 'thereach':
       fish = [
         [ ['blue'],
-        ['foul','Foul'],
-        ['river','River'],
-        ['saltwater','Saltwater'],
-        ['lake','Lake'] ],
+        ['foul','Briarthorn Goby'],
+        ['river','Blackreach Pilgrim','Fretfish'],
+        ['saltwater',''],
+        ['lake','Druadach Garpike'] ],
         [ ['green'],
-        ['foul','Foul','Foul'],
-        ['river','River','River'],
-        ['saltwater','Saltwater','Saltwater'],
-        ['lake','Lake','Lake','Lake'] ] ]
+        ['foul','Leechtooth Eel','Muckbelly Frogfish','Siltwallow Burrfish'],
+        ['river','Lost Valley Tench','Nchuand Cavetrout'],
+        ['saltwater',''],
+        ['lake','Pinegilled Drum','Hagfin Vendace','Karth Crayfish'] ] ]
       break;
     case 'blackreach-arkthzand':
       fish = [
         [ ['blue'],
-        ['foul','Foul'],
-        ['river','River'],
-        ['saltwater','Saltwater'],
-        ['lake','Lake'] ],
+        ['foul','Briarthorn Goby'],
+        ['river','Blackreach Pilgrim','Fretfish'],
+        ['saltwater',''],
+        ['lake','Druadach Garpike'] ],
         [ ['green'],
-        ['foul','Foul','Foul'],
-        ['river','River','River'],
-        ['saltwater','Saltwater','Saltwater'],
-        ['lake','Lake','Lake','Lake'] ] ]
+        ['foul','Leechtooth Eel','Muckbelly Frogfish','Siltwallow Burrfish'],
+        ['river','Lost Valley Tench','Nchuand Cavetrout'],
+        ['saltwater',''],
+        ['lake','Pinegilled Drum','Hagfin Vendace','Karth Crayfish'] ] ]
       break;
     default:
       return false;
