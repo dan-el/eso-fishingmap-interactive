@@ -686,12 +686,12 @@ function getRareFish(zone) {
     case 'thereach':
       fish = [
         [ ['blue'],
-        ['foul','Briarthorn Goby'],
+        ['foul',''],
         ['river','Blackreach Pilgrim','Fretfish'],
         ['saltwater',''],
         ['lake','Druadach Garpike'] ],
         [ ['green'],
-        ['foul','Leechtooth Eel','Muckbelly Frogfish','Siltwallow Burrfish'],
+        ['foul',''],
         ['river','Lost Valley Tench','Nchuand Cavetrout'],
         ['saltwater',''],
         ['lake','Pinegilled Drum','Hagfin Vendace','Karth Crayfish'] ] ]
@@ -702,12 +702,12 @@ function getRareFish(zone) {
         ['foul','Briarthorn Goby'],
         ['river','Blackreach Pilgrim','Fretfish'],
         ['saltwater',''],
-        ['lake','Druadach Garpike'] ],
+        ['lake',''] ],
         [ ['green'],
         ['foul','Leechtooth Eel','Muckbelly Frogfish','Siltwallow Burrfish'],
         ['river','Lost Valley Tench','Nchuand Cavetrout'],
         ['saltwater',''],
-        ['lake','Pinegilled Drum','Hagfin Vendace','Karth Crayfish'] ] ]
+        ['lake',''] ] ]
       break;
     default:
       return false;
@@ -757,10 +757,20 @@ function generateInfoText(alliance,zone) {
                (!fish[1][2][2] && !fish[1][3][2] && !fish[1][4][2])) { /* 2,3,4 */
       colClass = '-1';
       containerClass = 'dyn';
-  } else { /* we have more than 1 and less than 4 columns */
-    colClass = '-3';
-    containerClass = 'full';
-  }
+    } else { /* we have more than 1 and less than 4 columns */
+      if ((!fish[1][1][2] && !fish[1][2][2]) || /* 1,2 - we only have 2 columns */
+          (!fish[1][1][2] && !fish[1][3][2]) || /* 1,3 */
+          (!fish[1][1][2] && !fish[1][4][2]) || /* 1,4 */
+          (!fish[1][2][2] && !fish[1][3][2]) || /* 2,3 */
+          (!fish[1][2][2] && !fish[1][4][2]) || /* 2,4 */
+          (!fish[1][3][2] && !fish[1][4][2])) { /* 3,4 */
+        colClass = '-2';
+        containerClass = 'dyn';
+      } else { /* leaves us with 3 columns in the end */
+        colClass = '-3';
+        containerClass = 'full';
+      }
+    }
   txt = txt + '<div id="rare-fish-container"><div class="rare-fish ' + containerClass + '">'; /* table container */
     for (i = 1; i < fish[0].length; i++) { /* i ... number of columns: 4, 3, 1 */
       if (fish[0][i][1]) {
