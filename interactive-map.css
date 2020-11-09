@@ -1190,16 +1190,16 @@ div.rare-fish div.col div.cell.purple {
 
 /* large screens */
 @media screen and (min-width: 2000px) {
-  * {
-    font-size: 35px;
+  #toggle-container-container *,
+  #info-container *,
+  #toggle-container-info *,
+  #zoom-container * {
+    font-size: 25px;
   }
-  
-  .zoom-width {
-    max-width: 1800px !important;
-  }
-  
-  .zoom-height {
-    max-height: 1800px !important;
+
+  .zoom-button div,
+  .info-button div {
+    font-size: 200% !important;
   }
   
   #toggle-container-info,
@@ -1226,8 +1226,5 @@ div.rare-fish div.col div.cell.purple {
     height: 80px;
     line-height: 80px;
   }
-  
-  .fh {
-    transform: scale(2);
-  }
+
 }
