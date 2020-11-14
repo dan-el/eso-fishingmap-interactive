@@ -1,28 +1,25 @@
-/* Hide element of a certain id
+/* hide element #id
  */
 function hideIdElement(id) {
   var x = document.getElementById(id);
-
   if (x !== null) {
     x.style.display = 'none';
   }
 }
 
-/* Hide all elements of a certain class
+/* hide all elements .classname
  */
 function hideClassElements(classname) {
   var x = document.getElementsByClassName(classname);
-
   for (var i = 0; i < x.length; i++) {
     x[i].style.display = 'none';
   }
 }
 
-/* Toggle element of a certain id
+/* toggle element #id
  */
 function toggleIdElement(id) {
   var x = document.getElementById(id);
-
   if (x !== null) {
     if (x.style.display === 'none') {
       x.style.display = 'block';
@@ -32,11 +29,10 @@ function toggleIdElement(id) {
   }
 }
 
-/* Toggle all elements of a certain class
+/* toggle all elements .classname
  */
 function toggleClassElements(classname) {
   var x = document.getElementsByClassName(classname);
-
   for (var i = 0; i < x.length; i++) {
     if (x[i].style.display === 'none') {
       x[i].style.display = 'block';
@@ -46,11 +42,10 @@ function toggleClassElements(classname) {
   }
 }
 
-/* Set/Unset #id active via css class
+/* toggle #id active via css class
  */
 function toggleIdActive(id) {
   var x = document.getElementById(id);
-
   if (x !== null) {
     if (x.classList.contains('active')) {
       x.classList.remove('active');
@@ -60,11 +55,10 @@ function toggleIdActive(id) {
   }
 }
 
-/* Set/Unset #id as a beautiful element via css class
+/* toggle #id beautiful via css class
  */
 function toggleIdBeautiful(id) {
   var x = document.getElementById(id);
-
   if (x !== null) {
     if (x.classList.contains('beautiful')) {
       x.classList.remove('beautiful');
@@ -74,11 +68,10 @@ function toggleIdBeautiful(id) {
   }
 }
 
-/* Set/Unset all elements of classname active via css class
+/* toggle .classname active via css class
  */
 function toggleClassActive(classname) {
   var x = document.getElementsByClassName(classname);
-
   for (var i = 0; i < x.length; i++) {
     if (x[i].classList.contains('active')) {
       x[i].classList.remove('active');
@@ -88,62 +81,79 @@ function toggleClassActive(classname) {
   }
 }
 
-/* Unset all elements of .classname "active" via css class
+/* unset .classname active via css class
  */
 function unsetClassActive(classname) {
   var x = document.getElementsByClassName(classname);
-
   for (var i = 0; i < x.length; i++) {
     x[i].classList.remove('active');
   }
 }
 
-/* Do we have a valid location in the address which we can
+/* do we have a valid location in the url which we can
  * use to jump to the proper sub map?
  */
 function getLocation(zoneOrAlliance) {
   var validLocations = [
-    /* Zones */
-    'auridon','grahtwood','greenshade','malabaltor','reapersmarch','khenarthisroost',
-    'glenumbra','stormhaven','rivenspire','alikrdesert','bangkorai','betnikh','strosmkai',
-    'stonefalls','deshaan','shadowfen','eastmarch','therift','bleakrockisle','balfoyen',
-    'cyrodiil','coldharbour','craglorn',
-    'imperialcity','wrothgar','hewsbane','goldcoast','clockworkcity','vvardenfell',
-    'summerset','artaeum','murkmire','elsweyr','northernelsweyr','southernelsweyr',
-    'blackreach-mzark','westernskyrim','blackreach','thereach','blackreach-arkthzand',
-    /* Dummy Zones */
-    'overlay','overlay-zone',
-    /* Alliances */
-    'aldmeri-dominion','daggerfall-covenant','ebonheart-pact','cyro-neutral','dlc-chapter',
-    /* Dummy Alliances */
-    'overlay-alliance'
+    /* structure:
+    ['alliance-shortname', 'alliance-name',
+      ['zone-1', 'zone-1', 'zone-3',...]],...
+    */
+    /* ad zones */
+    ['ad', 'aldmeri-dominion',
+      ['auridon', 'grahtwood', 'greenshade', 'malabaltor', 'reapersmarch', 'khenarthisroost'] ],
+    /* dc zones */
+    ['dc', 'daggerfall-covenant',
+      ['glenumbra', 'stormhaven', 'rivenspire', 'alikrdesert', 'bangkorai', 'betnikh', 'strosmkai'] ],
+    /* ep zones */
+    ['ep', 'ebonheart-pact',
+      ['stonefalls', 'deshaan', 'shadowfen', 'eastmarch', 'therift', 'bleakrockisle', 'balfoyen'] ],
+    /* cyro & Nnutral zones */
+    ['cyro-neutral', 'cyro-neutral',
+      ['cyrodiil', 'coldharbour', 'craglorn'] ],
+    /* dlc & chapter zones */
+    ['dlc-chapter', 'dlc-chapter',
+      ['imperialcity', 'wrothgar', 'hewsbane', 'goldcoast', 'clockworkcity', 'vvardenfell',
+      'summerset', 'artaeum', 'murkmire', 'elsweyr', 'northernelsweyr', 'southernelsweyr',
+      'blackreach-mzark', 'westernskyrim', 'blackreach', 'thereach', 'blackreach-arkthzand'] ],
+    /* dummy zones */
+    ['overlay', 'overlay-zone',
+      ['overlay', 'overlay-zone'] ],
+    /* alliances & dummy alliances */
+    ['alliance', 'alliance',
+      ['aldmeri-dominion', 'daggerfall-covenant', 'ebonheart-pact', 'cyro-neutral', 'dlc-chapter',
+      'overlay-alliance'] ]
   ];
+
   var locZA = '';
 
   if (zoneOrAlliance) { /* grab from parameter */
     locZA = zoneOrAlliance;
-  } else { /* grab from URL */
+  } else { /* grab from url */
     locZA = window.location.hash.substr(1); /* extract anchor */
   }
 
   for (var i = 0; i < validLocations.length; i++) {
-    if (locZA === validLocations[i]) {
-      if (validLocations[i] === 'elsweyr') { /* keep the legacy 'elsweyr' location remapped to 'northernelsweyr' */
-        return 'northernelsweyr';
-      } else if (validLocations[i] === 'overlay') { /* keep the legacy 'overlay' location remapped to 'overlay-zone' */
-        return 'overlay-zone';
-      } else {
-        return(validLocations[i]);
+    for (var j = 0; j < validLocations[i][2].length; j++) {
+      if (locZA === validLocations[i][2][j]) {
+        if (validLocations[i][2][j] === 'elsweyr') { /* keep the legacy 'elsweyr' location remapped to 'northernelsweyr' */
+          var retval = [validLocations[i][1], 'northernelsweyr'];
+        } else if (validLocations[i][2][j] === 'overlay') { /* keep the legacy 'overlay' location remapped to 'overlay-zone' */
+          var retval = [validLocations[i][1], 'overlay-zone'];
+        } else {
+          var retval = [validLocations[i][1], validLocations[i][2][j]];
+        }
+        return retval;
       }
     }
   }
-  return false;
+  return [false, false]; /* return [alliance, zone] */
 }
 
-/* Do we have foul or oily holes in our zone? (Only needed in CWC)
+/* do we have foul or oily holes in our zone? (only needed in cwc)
  */
 function foulOrOily(zone) {
-  var locZ = getLocation(zone); /* sanitize zone */
+  var locZ = getLocation(zone)[1]; /* sanitize zone */
   var x = document.getElementById(locZ).getElementsByClassName('foul fh'); /* foul fishing holes */
   var y = document.getElementById(locZ).getElementsByClassName('oily fh'); /* oily fishing holes */
 
@@ -154,11 +164,11 @@ function foulOrOily(zone) {
   }
 }
 
-/* Count fishing holes of a certain type in a certain zone and
+/* count fishing holes of a certain type in a certain zone and
  * add the numbers to the type-buttons
  */
-function countFishingHoles(zone,type) {
-  var locZ = getLocation(zone); /* sanitize zone */
+function countFishingHoles(zone, type) {
+  var locZ = getLocation(zone)[1]; /* sanitize zone */
   var x = ''; /* hole type */
   if (type === 'oily') { /* oily is equal to foul in terms of button id */
     x = 'foul';
@@ -166,548 +176,553 @@ function countFishingHoles(zone,type) {
     x = type;
   }
   var y = document.getElementById('tb-' + x); /* toggle button for hole types */
-  var z = document.getElementById(locZ).getElementsByClassName(type + ' fh'); /* zone fishing holes of a certain type */
+  if (locZ === 'overlay-zone' && type === 'foul') { /* add oily holes number to foul ones in overlay-zone - we have both! */
+    var z = document.getElementById(locZ).getElementsByClassName('oily' + ' fh').length +
+            document.getElementById(locZ).getElementsByClassName(type + ' fh').length;
+  } else {
+    var z = document.getElementById(locZ).getElementsByClassName(type + ' fh').length; /* zone fishing holes of a certain type */
+  }
 
   /* replace button text */
   if (y !== null) {
-    y.innerHTML = type + ' (' + z.length + ')';
+    y.innerHTML = type + ' (' + z + ')';
   }
 
   /* also return the number of fishing holes */
-  return z.length;
+  return z;
 }
 
-/* Count ALL fishing holes in a zone or an alliance
+/* count all fishing holes in a zone or an alliance
  */
 function countAllFishingHoles(zoneOrAlliance) {
-  var locZA = getLocation(zoneOrAlliance); /* sanitize zone or alliance */
-  var x = document.getElementById(locZA).getElementsByClassName('fh'); /* zone or alliance fishing holes */
+  var locZA = getLocation(zoneOrAlliance)[1]; /* sanitize zone or alliance */
+  var x = document.getElementById(locZA).getElementsByClassName('fh').length; /* zone or alliance fishing holes */
 
-  return x.length;
+  return x;
 }
 
-/* Return rare fish info for requested zone
-*/
+/* return rare fish info for requested zone
+ */
 function getRareFish(zone) {
-  var locZ = getLocation(zone); /* sanitize zone */
+  var locZ = getLocation(zone)[1]; /* sanitize zone */
 
   switch(locZ) {
     /* Aldmeri Dominion */
     case 'auridon':
       fish = [
         [ ['blue'],
-        ['foul',''],
-        ['river','Shimmerpike'],
-        ['saltwater','Blue Monkfish','Thrassian Eel'],
-        ['lake','Ilyadifish'] ],
+        ['foul', ''],
+        ['river', 'Shimmerpike'],
+        ['saltwater', 'Blue Monkfish', 'Thrassian Eel'],
+        ['lake', 'Ilyadifish'] ],
         [ ['green'],
-        ['foul',''],
-        ['river','Blackspotted Pike','Bristlemouths','Muskie'],
-        ['saltwater','Eucla Cod','Mola'],
-        ['lake','Barbel','Mudfish','Sturgeon'] ] ]
+        ['foul', ''],
+        ['river', 'Blackspotted Pike', 'Bristlemouths', 'Muskie'],
+        ['saltwater', 'Eucla Cod', 'Mola'],
+        ['lake', 'Barbel', 'Mudfish', 'Sturgeon'] ] ]
       break;
     case 'grahtwood':
       fish = [
         [ ['blue'],
-        ['foul','Bilious Catfish'],
-        ['river','Greater Fangfin'],
-        ['saltwater','Magrove Shark'],
-        ['lake','Stickleback'] ],
+        ['foul', 'Bilious Catfish'],
+        ['river', 'Greater Fangfin'],
+        ['saltwater', 'Magrove Shark'],
+        ['lake', 'Stickleback'] ],
         [ ['green'],
-        ['foul','Snapper Eel','Swamp Eel'],
-        ['river','Hog Sucker','Tiger Perch'],
-        ['saltwater','Devil Ray','Mojarra'],
-        ['lake','Dreughfish','Koi'] ] ]
+        ['foul', 'Snapper Eel', 'Swamp Eel'],
+        ['river', 'Hog Sucker', 'Tiger Perch'],
+        ['saltwater', 'Devil Ray', 'Mojarra'],
+        ['lake', 'Dreughfish', 'Koi'] ] ]
       break;
     case 'greenshade':
       fish = [
         [ ['blue'],
-        ['foul','Viperfish'],
-        ['river','Xylo Piranha'],
-        ['saltwater','Zebra Pompano'],
-        ['lake','Jungle Bass'] ],
+        ['foul', 'Viperfish'],
+        ['river', 'Xylo Piranha'],
+        ['saltwater', 'Zebra Pompano'],
+        ['lake', 'Jungle Bass'] ],
         [ ['green'],
-        ['foul','Cusk Eel','Wolf-Eel'],
-        ['river','Lyretail','Walleye'],
-        ['saltwater','Manefish','Triggerfish'],
-        ['lake','Archerfish','Murray Cod'] ] ]
+        ['foul', 'Cusk Eel', 'Wolf-Eel'],
+        ['river', 'Lyretail', 'Walleye'],
+        ['saltwater', 'Manefish', 'Triggerfish'],
+        ['lake', 'Archerfish', 'Murray Cod'] ] ]
       break;
     case 'malabaltor':
       fish = [
         [ ['blue'],
-        ['foul','Ouze Toadfish'],
-        ['river','Strident Leechfin'],
-        ['saltwater','Abecean Halibut'],
-        ['lake','Z\'en\'s Whitefish'] ],
+        ['foul', 'Ouze Toadfish'],
+        ['river', 'Strident Leechfin'],
+        ['saltwater', 'Abecean Halibut'],
+        ['lake', 'Z\'en\'s Whitefish'] ],
         [ ['green'],
-        ['foul','Ghastel Bass','Stargazer'],
-        ['river','Mrigal','Stonefish'],
-        ['saltwater','Ono','Sea Bass'],
-        ['lake','Arowana','Inconnu'] ] ]
+        ['foul', 'Ghastel Bass', 'Stargazer'],
+        ['river', 'Mrigal', 'Stonefish'],
+        ['saltwater', 'Ono', 'Sea Bass'],
+        ['lake', 'Arowana', 'Inconnu'] ] ]
       break;
     case 'reapersmarch':
       fish = [
         [ ['blue'],
-        ['foul','Slimeslither'],
-        ['river','Strid Shad'],
-        ['saltwater',''],
-        ['lake','Forest Bream','Preposterous Mackerel'] ],
+        ['foul', 'Slimeslither'],
+        ['river', 'Strid Shad'],
+        ['saltwater', ''],
+        ['lake', 'Forest Bream', 'Preposterous Mackerel'] ],
         [ ['green'],
-        ['foul','Brotula','Reaper\'s Eel','Red Gurnard'],
-        ['river','Flying Fish','Sheepshead','Sweetfish'],
-        ['saltwater',''],
-        ['lake','Brown Trout','Ladyfish'] ] ]
+        ['foul', 'Brotula', 'Reaper\'s Eel', 'Red Gurnard'],
+        ['river', 'Flying Fish', 'Sheepshead', 'Sweetfish'],
+        ['saltwater', ''],
+        ['lake', 'Brown Trout', 'Ladyfish'] ] ]
       break;
     case 'khenarthisroost':
       fish = [
         [ ['blue'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater','Pyandonean Ray'],
-        ['lake',''] ],
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', 'Pyandonean Ray'],
+        ['lake', ''] ],
         [ ['green'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater',''],
-        ['lake',''] ] ]
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', ''],
+        ['lake', ''] ] ]
       break;
     /* Daggerfall Covenant */
     case 'glenumbra':
       fish = [
         [ ['blue'],
-        ['foul','Hag Fen Hagfish'],
-        ['river','Brook Trout'],
-        ['saltwater','Azurian Flounder'],
-        ['lake','Cambray Perch'] ],
+        ['foul', 'Hag Fen Hagfish'],
+        ['river', 'Brook Trout'],
+        ['saltwater', 'Azurian Flounder'],
+        ['lake', 'Cambray Perch'] ],
         [ ['green'],
-        ['foul','Dragonfish','Lamprey'],
-        ['river','Catfish','Warmouth'],
-        ['saltwater','Finless Sole','Tuna'],
-        ['lake','Powen','Rock Bass'] ] ]
+        ['foul', 'Dragonfish', 'Lamprey'],
+        ['river', 'Catfish', 'Warmouth'],
+        ['saltwater', 'Finless Sole', 'Tuna'],
+        ['lake', 'Powen', 'Rock Bass'] ] ]
       break;
     case 'stormhaven':
       fish = [
         [ ['blue'],
-        ['foul','Gray Loach'],
-        ['river','Dreugh Shrimp'],
-        ['saltwater','Alcaire Pike'],
-        ['lake','Silver Walleye'] ],
+        ['foul', 'Gray Loach'],
+        ['river', 'Dreugh Shrimp'],
+        ['saltwater', 'Alcaire Pike'],
+        ['lake', 'Silver Walleye'] ],
         [ ['green'],
-        ['foul','Sawfish','Yellow Moray'],
-        ['river','Grass Carp','River Stingray'],
-        ['saltwater','Dab','Stormhaven Flounder'],
-        ['lake','Barfish','Yellow Bass'] ] ]
+        ['foul', 'Sawfish', 'Yellow Moray'],
+        ['river', 'Grass Carp', 'River Stingray'],
+        ['saltwater', 'Dab', 'Stormhaven Flounder'],
+        ['lake', 'Barfish', 'Yellow Bass'] ] ]
       break;
     case 'rivenspire':
       fish = [
         [ ['blue'],
-        ['foul',''],
-        ['river','Ruby Trench'],
-        ['saltwater','Northpoint Cod','Snakehead'],
-        ['lake','Ichory Chub'] ],
+        ['foul', ''],
+        ['river', 'Ruby Trench'],
+        ['saltwater', 'Northpoint Cod', 'Snakehead'],
+        ['lake', 'Ichory Chub'] ],
         [ ['green'],
-        ['foul',''],
-        ['river','Ribbon Eel','Stream Catfish','Turbot'],
-        ['saltwater','Dusky Grouper','Hake'],
-        ['lake','Nase','Rivenspire Trout','Writhing Scrab'] ] ]
+        ['foul', ''],
+        ['river', 'Ribbon Eel', 'Stream Catfish', 'Turbot'],
+        ['saltwater', 'Dusky Grouper', 'Hake'],
+        ['lake', 'Nase', 'Rivenspire Trout', 'Writhing Scrab'] ] ]
       break;
     case 'alikrdesert':
       fish = [
         [ ['blue'],
-        ['foul','Midget Salmon','Sand Eel'],
-        ['river',''],
-        ['saltwater','Bonefish'],
-        ['lake','Desert Pupfish'] ],
+        ['foul', 'Midget Salmon', 'Sand Eel'],
+        ['river', ''],
+        ['saltwater', 'Bonefish'],
+        ['lake', 'Desert Pupfish'] ],
         [ ['green'],
-        ['foul','Cutthroat Eel','Sand Moray'],
-        ['river',''],
-        ['saltwater','Alewife','Driftfish','Sablefish'],
-        ['lake','Banded Killifish','Lungfish','Saw Belly'] ] ]
+        ['foul', 'Cutthroat Eel', 'Sand Moray'],
+        ['river', ''],
+        ['saltwater', 'Alewife', 'Driftfish', 'Sablefish'],
+        ['lake', 'Banded Killifish', 'Lungfish', 'Saw Belly'] ] ]
       break;
     case 'bangkorai':
       fish = [
         [ ['blue'],
-        ['foul',''],
-        ['river','Prickleback'],
-        ['saltwater','Bjoulsae Hake'],
-        ['lake','Lake Snapper','Scaly Lungfish'] ],
+        ['foul', ''],
+        ['river', 'Prickleback'],
+        ['saltwater', 'Bjoulsae Hake'],
+        ['lake', 'Lake Snapper', 'Scaly Lungfish'] ],
         [ ['green'],
-        ['foul',''],
-        ['river','Lenok','Panga','Pupfish'],
-        ['saltwater','Morid Cod','Swai','Toadfish'],
-        ['lake','Gar','Paddlefish'] ] ]
+        ['foul', ''],
+        ['river', 'Lenok', 'Panga', 'Pupfish'],
+        ['saltwater', 'Morid Cod', 'Swai', 'Toadfish'],
+        ['lake', 'Gar', 'Paddlefish'] ] ]
       break;
     case 'betnikh':
       fish = [
         [ ['blue'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater',''],
-        ['lake',''] ],
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', ''],
+        ['lake', ''] ],
         [ ['green'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater',''],
-        ['lake',''] ] ]
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', ''],
+        ['lake', ''] ] ]
       break;
     case 'strosmkai':
       fish = [
         [ ['blue'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater','Eltheric Grouper'],
-        ['lake',''] ],
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', 'Eltheric Grouper'],
+        ['lake', ''] ],
         [ ['green'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater',''],
-        ['lake',''] ] ]
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', ''],
+        ['lake', ''] ] ]
       break;
     /* Ebonheart Pact */
     case 'stonefalls':
       fish = [
         [ ['blue'],
-        ['foul','Scum Carp'],
-        ['river','Ash Shad'],
-        ['saltwater','Akaviri Wrasse'],
-        ['lake','Rainbow Zander'] ],
+        ['foul', 'Scum Carp'],
+        ['river', 'Ash Shad'],
+        ['saltwater', 'Akaviri Wrasse'],
+        ['lake', 'Rainbow Zander'] ],
         [ ['green'],
-        ['foul','Fungusfish','Stinkfish'],
-        ['river','Ricefish','Thorny Catfish'],
-        ['saltwater','Armorhead','Travally'],
-        ['lake','Lake Chub','Tench'] ] ]
+        ['foul', 'Fungusfish', 'Stinkfish'],
+        ['river', 'Ricefish', 'Thorny Catfish'],
+        ['saltwater', 'Armorhead', 'Travally'],
+        ['lake', 'Lake Chub', 'Tench'] ] ]
       break;
     case 'deshaan':
       fish = [
         [ ['blue'],
-        ['foul',''],
-        ['river','Toadstool Tilapia'],
-        ['saltwater','Pikeblenny'],
-        ['lake','Mud Lamprey','Old Man Gar'] ],
+        ['foul', ''],
+        ['river', 'Toadstool Tilapia'],
+        ['saltwater', 'Pikeblenny'],
+        ['lake', 'Mud Lamprey', 'Old Man Gar'] ],
         [ ['green'],
-        ['foul',''],
-        ['river','Cutthroat Trout','Deshaan Chub','Mouthbrooder'],
-        ['saltwater','Gibberfish','Monkfish','Mustard Eel'],
-        ['lake','Gourami','Ide'] ] ]
+        ['foul', ''],
+        ['river', 'Cutthroat Trout', 'Deshaan Chub', 'Mouthbrooder'],
+        ['saltwater', 'Gibberfish', 'Monkfish', 'Mustard Eel'],
+        ['lake', 'Gourami', 'Ide'] ] ]
       break;
     case 'shadowfen':
       fish = [
         [ ['blue'],
-        ['foul','Coelcanth','Toxic Xoach'],
-        ['river','Shark Tadpole'],
-        ['saltwater',''],
-        ['lake','Histcarp'] ],
+        ['foul', 'Coelcanth', 'Toxic Xoach'],
+        ['river', 'Shark Tadpole'],
+        ['saltwater', ''],
+        ['lake', 'Histcarp'] ],
         [ ['green'],
-        ['foul','Eel-Goby','Pricklefish'],
-        ['river','Boga','Hardyhead','Opah'],
-        ['saltwater',''],
-        ['lake','Orange Roughy','Quillback','Zander'] ] ]
+        ['foul', 'Eel-Goby', 'Pricklefish'],
+        ['river', 'Boga', 'Hardyhead', 'Opah'],
+        ['saltwater', ''],
+        ['lake', 'Orange Roughy', 'Quillback', 'Zander'] ] ]
       break;
     case 'eastmarch':
       fish = [
         [ ['blue'],
-        ['foul','Ice Remora'],
-        ['river','White River Pickerel'],
-        ['saltwater','Ghost Haddock'],
-        ['lake','King Sturgeon'] ],
+        ['foul', 'Ice Remora'],
+        ['river', 'White River Pickerel'],
+        ['saltwater', 'Ghost Haddock'],
+        ['lake', 'King Sturgeon'] ],
         [ ['green'],
-        ['foul','Modoc Sucker','Snipe Eel'],
-        ['river','Ice Fish','Steelhead'],
-        ['saltwater','Golem Shark','Pigfish'],
-        ['lake','Char','Eastmarch Pike'] ] ]
+        ['foul', 'Modoc Sucker', 'Snipe Eel'],
+        ['river', 'Ice Fish', 'Steelhead'],
+        ['saltwater', 'Golem Shark', 'Pigfish'],
+        ['lake', 'Char', 'Eastmarch Pike'] ] ]
       break;
     case 'therift':
       fish = [
         [ ['blue'],
-        ['foul','Sulfursucker'],
-        ['river','Muskellunge','White Roughy'],
-        ['saltwater',''],
-        ['lake','Ilinalta Trout'] ],
+        ['foul', 'Sulfursucker'],
+        ['river', 'Muskellunge', 'White Roughy'],
+        ['saltwater', ''],
+        ['lake', 'Ilinalta Trout'] ],
         [ ['green'],
-        ['foul','Bream','Skate','Skorm'],
-        ['river','Grouper','Sockeye Salmon'],
-        ['saltwater',''],
-        ['lake','Ice Koi','Jarl Salmon','Zebra Oto'] ] ]
+        ['foul', 'Bream', 'Skate', 'Skorm'],
+        ['river', 'Grouper', 'Sockeye Salmon'],
+        ['saltwater', ''],
+        ['lake', 'Ice Koi', 'Jarl Salmon', 'Zebra Oto'] ] ]
       break;
     case 'bleakrockisle':
       fish = [
         [ ['blue'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater','Inner Sea Scalyfin'],
-        ['lake',''] ],
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', 'Inner Sea Scalyfin'],
+        ['lake', ''] ],
         [ ['green'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater',''],
-        ['lake',''] ] ]
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', ''],
+        ['lake', ''] ] ]
       break;
     case 'balfoyen':
       fish = [
         [ ['blue'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater',''],
-        ['lake',''] ],
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', ''],
+        ['lake', ''] ],
         [ ['green'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater',''],
-        ['lake',''] ] ]
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', ''],
+        ['lake', ''] ] ]
       break;
     /* Cyrodiil & Neutral */
     case 'cyrodiil':
       fish = [
         [ ['blue'],
-        ['foul','Sewer Eel'],
-        ['river','Nibenay Trout'],
-        ['saltwater','Topal Fanche'],
-        ['lake','Rumare Bream'] ],
+        ['foul', 'Sewer Eel'],
+        ['river', 'Nibenay Trout'],
+        ['saltwater', 'Topal Fanche'],
+        ['lake', 'Rumare Bream'] ],
         [ ['green'],
-        ['foul','Pufferfish','Quillfish'],
-        ['river','Glassfish','Pirate Perch'],
-        ['saltwater','Emperor Angelfish','Jewel Fish'],
-        ['lake','Rainbow Fish','Yellow Perch'] ] ]
+        ['foul', 'Pufferfish', 'Quillfish'],
+        ['river', 'Glassfish', 'Pirate Perch'],
+        ['saltwater', 'Emperor Angelfish', 'Jewel Fish'],
+        ['lake', 'Rainbow Fish', 'Yellow Perch'] ] ]
       break;
     case 'coldharbour':
       fish = [
         [ ['blue'],
-        ['foul','Ghoulfish'],
-        ['foul','Heinous Gar'],
-        ['foul','Moray Leech'],
-        ['foul','Stingerpike'] ],
+        ['foul', 'Ghoulfish'],
+        ['foul', 'Heinous Gar'],
+        ['foul', 'Moray Leech'],
+        ['foul', 'Stingerpike'] ],
         [ ['green'],
-        ['foul','Azure Eel','Bichir'],
-        ['foul','Blue Slimefish','Cavefish'],
-        ['foul','Fang Shark','Harbour Gar'],
-        ['foul','Plasm Darter','Venomfish'] ] ]
+        ['foul', 'Azure Eel', 'Bichir'],
+        ['foul', 'Blue Slimefish', 'Cavefish'],
+        ['foul', 'Fang Shark', 'Harbour Gar'],
+        ['foul', 'Plasm Darter', 'Venomfish'] ] ]
       break;
     case 'craglorn':
       fish = [
         [ ['blue'],
-        ['river','Nedic Eel'],
-        ['river','Yokudan Cod'],
-        ['lake','Crag Salmon'],
-        ['lake','Glasshead Barreleye'] ],
+        ['river', 'Nedic Eel'],
+        ['river', 'Yokudan Cod'],
+        ['lake', 'Crag Salmon'],
+        ['lake', 'Glasshead Barreleye'] ],
         [ ['green'],
-        ['river','Bitterling','Dragon Goby'],
-        ['river','Mermouth','Spiny Orcfish'],
-        ['lake','Croaker','Forlorn Catfish'],
-        ['lake','Ghost Knifefish','Nirn Flounder'] ] ]
+        ['river', 'Bitterling', 'Dragon Goby'],
+        ['river', 'Mermouth', 'Spiny Orcfish'],
+        ['lake', 'Croaker', 'Forlorn Catfish'],
+        ['lake', 'Ghost Knifefish', 'Nirn Flounder'] ] ]
       break;
     /* DLC and Chapter Zones */
     case 'imperialcity':
       fish = [
         [ ['blue'],
-        ['foul','Aphotic Batfish'],
-        ['foul','Cannibal Lancet'],
-        ['foul','Glow-Spotted Blenny'],
-        ['foul',''] ],
+        ['foul', 'Aphotic Batfish'],
+        ['foul', 'Cannibal Lancet'],
+        ['foul', 'Glow-Spotted Blenny'],
+        ['foul', ''] ],
         [ ['green'],
-        ['foul','Blobfin','Flabby Whalefish','Guiyu'],
-        ['foul','Hatchetfish','Humpback Angler','Imperial Loosejaw'],
-        ['foul','Scabrous Grenadier','Trapjaw Eel','Wen Loach'], 
-        ['foul',''] ] ]
+        ['foul', 'Blobfin', 'Flabby Whalefish', 'Guiyu'],
+        ['foul', 'Hatchetfish', 'Humpback Angler', 'Imperial Loosejaw'],
+        ['foul', 'Scabrous Grenadier', 'Trapjaw Eel', 'Wen Loach'],
+        ['foul', ''] ] ]
       break;
     case 'wrothgar':
       fish = [
         [ ['blue'],
-        ['foul','Greater Ashmouth'],
-        ['river','Chinlea'],
-        ['saltwater','Blue-Ringed Octopus'],
-        ['lake','Giant Hammerjaw'] ],
+        ['foul', 'Greater Ashmouth'],
+        ['river', 'Chinlea'],
+        ['saltwater', 'Blue-Ringed Octopus'],
+        ['lake', 'Giant Hammerjaw'] ],
         [ ['green'],
-        ['foul','Lesser Ashmouth','Pariah Lumpfish'],
-        ['river','Nelma','Tum Weever'],
-        ['saltwater','Black Scabbardfish','Hairy Coffinfish'],
-        ['lake','Matron Eelpout','Vorkiposh'] ],
+        ['foul', 'Lesser Ashmouth', 'Pariah Lumpfish'],
+        ['river', 'Nelma', 'Tum Weever'],
+        ['saltwater', 'Black Scabbardfish', 'Hairy Coffinfish'],
+        ['lake', 'Matron Eelpout', 'Vorkiposh'] ],
         [ ['purple'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater','Crab-Slaughter Crane'],
-        ['lake',''] ] ]
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', 'Crab-Slaughter Crane'],
+        ['lake', ''] ] ]
       break;
     case 'hewsbane':
       fish = [
         [ ['blue'],
-        ['foul','Keuppia'],
-        ['river','Glass Catfish'],
-        ['saltwater','Sparkling Anglermouth'],
-        ['lake','Cichlid'] ],
+        ['foul', 'Keuppia'],
+        ['river', 'Glass Catfish'],
+        ['saltwater', 'Sparkling Anglermouth'],
+        ['lake', 'Cichlid'] ],
         [ ['green'],
-        ['foul','Daggertooth','Fringed Mudskipper'],
-        ['river','Firemouth','Hew\'s Rasbora'],
-        ['saltwater','Beggar Shark','Crestfish'],
-        ['lake','Bala Shark','Cherry Barb'] ] ]
+        ['foul', 'Daggertooth', 'Fringed Mudskipper'],
+        ['river', 'Firemouth', 'Hew\'s Rasbora'],
+        ['saltwater', 'Beggar Shark', 'Crestfish'],
+        ['lake', 'Bala Shark', 'Cherry Barb'] ] ]
       break;
     case 'goldcoast':
       fish = [
         [ ['blue'],
-        ['foul','Ghastly Batfish'],
-        ['river','Bullface Wingfin'],
-        ['saltwater','Sleeper Shark'],
-        ['lake','Palatine Sabertooth'] ],
+        ['foul', 'Ghastly Batfish'],
+        ['river', 'Bullface Wingfin'],
+        ['saltwater', 'Sleeper Shark'],
+        ['lake', 'Palatine Sabertooth'] ],
         [ ['green'],
-        ['foul','Black Anvil Loach','Spiny Frogfish'],
-        ['river','Gold Coast Crayfish','Longmouth Pike'],
-        ['saltwater','Rattail','Scorpionfish'],
-        ['lake','Hammer Bombil','Spotted Bass'] ] ]
+        ['foul', 'Black Anvil Loach', 'Spiny Frogfish'],
+        ['river', 'Gold Coast Crayfish', 'Longmouth Pike'],
+        ['saltwater', 'Rattail', 'Scorpionfish'],
+        ['lake', 'Hammer Bombil', 'Spotted Bass'] ] ]
       break;
     case 'clockworkcity':
       fish = [
         [ ['blue'],
-        ['oily','Ancestor Wrasse'],
-        ['oily','Barilzar\'s Grenadier'],
-        ['oily','Enmegalabzu'],
-        ['oily',''] ],
+        ['oily', 'Ancestor Wrasse'],
+        ['oily', 'Barilzar\'s Grenadier'],
+        ['oily', 'Enmegalabzu'],
+        ['oily', ''] ],
         [ ['green'],
-        ['oily','Clicking Travally','Copperclaw Crayfish','Coppery Cucumber'],
-        ['oily','Imperfect Blobfin','Oil-Eater Whalefish','Operant Eel'],
-        ['oily','Orod','Verminous Catfish','Whisper Knifefish'],
-        ['oily',''] ] ]
+        ['oily', 'Clicking Travally', 'Copperclaw Crayfish', 'Coppery Cucumber'],
+        ['oily', 'Imperfect Blobfin', 'Oil-Eater Whalefish', 'Operant Eel'],
+        ['oily', 'Orod', 'Verminous Catfish', 'Whisper Knifefish'],
+        ['oily', ''] ] ]
       break;
     case 'vvardenfell':
       fish = [
         [ ['blue'],
-        ['foul','Oanna'],
-        ['river','Ash Blindfish'],
-        ['saltwater','Resdaynian Sailfin'],
-        ['lake','Shalk-Brother Crayfish'] ],
+        ['foul', 'Oanna'],
+        ['river', 'Ash Blindfish'],
+        ['saltwater', 'Resdaynian Sailfin'],
+        ['lake', 'Shalk-Brother Crayfish'] ],
         [ ['green'],
-        ['foul','Firemouth Guiyu','Sleeper Coffinfish'],
-        ['river','Netch-Hook Eel','Pilgrim Goby'],
-        ['saltwater','Ghost Octopus','Weeping Pygmy Shark'],
-        ['lake','Hoaga Oto','Pity Bombil'] ] ]
+        ['foul', 'Firemouth Guiyu', 'Sleeper Coffinfish'],
+        ['river', 'Netch-Hook Eel', 'Pilgrim Goby'],
+        ['saltwater', 'Ghost Octopus', 'Weeping Pygmy Shark'],
+        ['lake', 'Hoaga Oto', 'Pity Bombil'] ] ]
       break;
     case 'summerset':
       fish = [
         [ ['blue'],
-        ['foul','Senche Flathead'],
-        ['river','Great Yellowfin'],
-        ['saltwater','Lingweloce'],
-        ['lake','Crystal Hannia'] ],
+        ['foul', 'Senche Flathead'],
+        ['river', 'Great Yellowfin'],
+        ['saltwater', 'Lingweloce'],
+        ['lake', 'Crystal Hannia'] ],
         [ ['green'],
-        ['foul','Burnish Groper','Copper Oreodory'],
-        ['river','Anu\'s Travally','Eton Sprat'],
-        ['saltwater','Quicksilver Lingwe','Radiant Dory'],
-        ['lake','Blooming Flowerhorn','Dusk Arowana'] ] ]
+        ['foul', 'Burnish Groper', 'Copper Oreodory'],
+        ['river', 'Anu\'s Travally', 'Eton Sprat'],
+        ['saltwater', 'Quicksilver Lingwe', 'Radiant Dory'],
+        ['lake', 'Blooming Flowerhorn', 'Dusk Arowana'] ] ]
       break;
     case 'artaeum':
       fish = [
         [ ['blue'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater','Pearlescent Crayfish'],
-        ['lake',''] ],
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', 'Pearlescent Crayfish'],
+        ['lake', ''] ],
         [ ['green'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater','Abyssal Sea Pig','Weaving Octopus'],
-        ['lake',''] ] ]
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', 'Abyssal Sea Pig', 'Weaving Octopus'],
+        ['lake', ''] ] ]
       break;
     case 'murkmire':
       fish = [
         [ ['blue'],
-        ['foul','Michinitl'],
-        ['river','Hist Sap Shiner'],
-        ['saltwater','Longlure Eelfin'],
-        ['lake','Moist Scale Burrower'] ],
+        ['foul', 'Michinitl'],
+        ['river', 'Hist Sap Shiner'],
+        ['saltwater', 'Longlure Eelfin'],
+        ['lake', 'Moist Scale Burrower'] ],
         [ ['green'],
-        ['foul','Ayotichin','Lined Sole'],
-        ['river','Kuuyicet','Thick Scaled Mullet'],
-        ['saltwater','Fat Sleeper','Spotted Seatrout'],
-        ['lake','Bowfin','Redear Sunfish'] ] ]
+        ['foul', 'Ayotichin', 'Lined Sole'],
+        ['river', 'Kuuyicet', 'Thick Scaled Mullet'],
+        ['saltwater', 'Fat Sleeper', 'Spotted Seatrout'],
+        ['lake', 'Bowfin', 'Redear Sunfish'] ] ]
       break;
     case 'northernelsweyr':
       fish = [
         [ ['blue'],
-        ['river','Greater Senchefin'],
-        ['river','Hircine\'s Pupfish'],
-        ['river','Moon-Sugar Shrimp'],
-        ['river','Northern Elsweyr Moon Tetra'] ],
+        ['river', 'Greater Senchefin'],
+        ['river', 'Hircine\'s Pupfish'],
+        ['river', 'Moon-Sugar Shrimp'],
+        ['river', 'Northern Elsweyr Moon Tetra'] ],
         [ ['green'],
-        ['river','Cudgeon','Desert Sucker'],
-        ['river','Freshwater Blenny','Galaxias'],
-        ['river','Grayling','Reedfish'],
-        ['river','Rimmen Bichir','Speckled Dace'] ] ]
+        ['river', 'Cudgeon', 'Desert Sucker'],
+        ['river', 'Freshwater Blenny', 'Galaxias'],
+        ['river', 'Grayling', 'Reedfish'],
+        ['river', 'Rimmen Bichir', 'Speckled Dace'] ] ]
       break;
     case 'southernelsweyr':
       fish = [
         [ ['blue'],
-        ['foul','Radhin Zhab'],
-        ['river','Roh-ri'],
-        ['saltwater','Khaj\'Roh'],
-        ['lake',''] ],
+        ['foul', 'Radhin Zhab'],
+        ['river', 'Roh-ri'],
+        ['saltwater', 'Khaj\'Roh'],
+        ['lake', ''] ],
         [ ['green'],
-        ['foul','Fif Cat','Pellitine Tilapia','Ruin Sucker'],
-        ['river','Elsweyr River Perch','Fresh-Water Sardinella','Shaveskin Darter'],
-        ['saltwater','Pellitine Horse Mackerel','Wedgefish','Zha\'ja Roh'],
-        ['lake',''] ] ]
+        ['foul', 'Fif Cat', 'Pellitine Tilapia', 'Ruin Sucker'],
+        ['river', 'Elsweyr River Perch', 'Fresh-Water Sardinella', 'Shaveskin Darter'],
+        ['saltwater', 'Pellitine Horse Mackerel', 'Wedgefish', 'Zha\'ja Roh'],
+        ['lake', ''] ] ]
       break;
     case 'blackreach-mzark':
       fish = [
         [ ['blue'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater',''],
-        ['lake',''] ],
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', ''],
+        ['lake', ''] ],
         [ ['green'],
-        ['foul',''],
-        ['river',''],
-        ['saltwater',''],
-        ['lake',''] ] ]
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', ''],
+        ['lake', ''] ] ]
       break;
     case 'westernskyrim':
       fish = [
         [ ['blue'],
-        ['foul','Sanguine Lamprey'],
-        ['river','Blue Muskie'],
-        ['saltwater','Birtingr'],
-        ['lake','Lodsilungur'] ],
+        ['foul', 'Sanguine Lamprey'],
+        ['river', 'Blue Muskie'],
+        ['saltwater', 'Birtingr'],
+        ['lake', 'Lodsilungur'] ],
         [ ['green'],
-        ['foul','Hypogean Tetra','Vandellia'],
-        ['river','Chillwind Pike','Morthal Longfin'],
-        ['saltwater','Ghost Salmon','Skyrim Gurry Shark'],
-        ['lake','Frigid Char','Solitude Loach'] ] ]
+        ['foul', 'Hypogean Tetra', 'Vandellia'],
+        ['river', 'Chillwind Pike', 'Morthal Longfin'],
+        ['saltwater', 'Ghost Salmon', 'Skyrim Gurry Shark'],
+        ['lake', 'Frigid Char', 'Solitude Loach'] ] ]
       break;
     case 'blackreach':
       fish = [
         [ ['blue'],
-        ['foul','Sanguine Lamprey'],
-        ['river','Blue Muskie'],
-        ['saltwater','Birtingr'],
-        ['lake','Lodsilungur'] ],
+        ['foul', 'Sanguine Lamprey'],
+        ['river', 'Blue Muskie'],
+        ['saltwater', 'Birtingr'],
+        ['lake', 'Lodsilungur'] ],
         [ ['green'],
-        ['foul','Hypogean Tetra','Vandellia'],
-        ['river','Chillwind Pike','Morthal Longfin'],
-        ['saltwater','Ghost Salmon','Skyrim Gurry Shark'],
-        ['lake','Frigid Char','Solitude Loach'] ] ]
+        ['foul', 'Hypogean Tetra', 'Vandellia'],
+        ['river', 'Chillwind Pike', 'Morthal Longfin'],
+        ['saltwater', 'Ghost Salmon', 'Skyrim Gurry Shark'],
+        ['lake', 'Frigid Char', 'Solitude Loach'] ] ]
       break;
     case 'thereach':
       fish = [
         [ ['blue'],
-        ['foul',''],
-        ['river','Blackreach Pilgrim','Fretfish'],
-        ['saltwater',''],
-        ['lake','Druadach Garpike'] ],
+        ['foul', ''],
+        ['river', 'Blackreach Pilgrim', 'Fretfish'],
+        ['saltwater', ''],
+        ['lake', 'Druadach Garpike'] ],
         [ ['green'],
-        ['foul',''],
-        ['river','Lost Valley Tench','Nchuand Cavetrout'],
-        ['saltwater',''],
-        ['lake','Pinegilled Drum','Hagfin Vendace','Karth Crayfish'] ] ]
+        ['foul', ''],
+        ['river', 'Lost Valley Tench', 'Nchuand Cavetrout'],
+        ['saltwater', ''],
+        ['lake', 'Pinegilled Drum', 'Hagfin Vendace', 'Karth Crayfish'] ] ]
       break;
     case 'blackreach-arkthzand':
       fish = [
         [ ['blue'],
-        ['foul','Briarthorn Goby'],
-        ['river','Blackreach Pilgrim','Fretfish'],
-        ['saltwater',''],
-        ['lake',''] ],
+        ['foul', 'Briarthorn Goby'],
+        ['river', 'Blackreach Pilgrim', 'Fretfish'],
+        ['saltwater', ''],
+        ['lake', ''] ],
         [ ['green'],
-        ['foul','Leechtooth Eel','Muckbelly Frogfish','Siltwallow Burrfish'],
-        ['river','Lost Valley Tench','Nchuand Cavetrout'],
-        ['saltwater',''],
-        ['lake',''] ] ]
+        ['foul', 'Leechtooth Eel', 'Muckbelly Frogfish', 'Siltwallow Burrfish'],
+        ['river', 'Lost Valley Tench', 'Nchuand Cavetrout'],
+        ['saltwater', ''],
+        ['lake', ''] ] ]
       break;
     default:
       return false;
@@ -715,17 +730,17 @@ function getRareFish(zone) {
   return fish;
 }
 
-/* Generate info text with finshing hole sums
+/* generate info text with finshing hole sums
  * and write it to the info-container
  */
-function generateInfoText(alliance,zone) {
-  var locA = getLocation(alliance); /* sanitize alliance */
-  var locZ = getLocation(zone); /* sanitize zone */
+function generateInfoText(zone) {
+  var locA = getLocation(zone)[0]; /* sanitize alliance */
+  var locZ = getLocation(zone)[1]; /* sanitize zone */
   var x = document.getElementById('a-' + locZ);
   var y = document.getElementById(locA);
   var z = document.getElementById('info-container');
   var fish = getRareFish(locZ);
-  var fishcaught = 13580; /* total number of fish caught*/
+  var fishcaught = 13580; /* total number of fish caught */
   var perfectroe = 141; /* total number of perfect roe from fish */
   var txt = '';
   var innerTxt = '';
@@ -751,19 +766,19 @@ function generateInfoText(alliance,zone) {
     if (fish[1][1][2] && fish[1][2][2] && fish[1][3][2] && fish[1][4][2]) { /* we have 4 columns */
       colClass = '-4';
       containerClass = 'full';
-    } else if ((!fish[1][1][2] && !fish[1][2][2] && !fish[1][3][2]) || /* 1,2,3 - we only have 1 column */
-               (!fish[1][1][2] && !fish[1][2][2] && !fish[1][4][2]) || /* 1,2,4 */
-               (!fish[1][1][2] && !fish[1][3][2] && !fish[1][4][2]) || /* 1,3,4 */
-               (!fish[1][2][2] && !fish[1][3][2] && !fish[1][4][2])) { /* 2,3,4 */
+    } else if ((!fish[1][1][2] && !fish[1][2][2] && !fish[1][3][2]) || /* 1, 2, 3 - we only have 1 column */
+               (!fish[1][1][2] && !fish[1][2][2] && !fish[1][4][2]) || /* 1, 2, 4 */
+               (!fish[1][1][2] && !fish[1][3][2] && !fish[1][4][2]) || /* 1, 3, 4 */
+               (!fish[1][2][2] && !fish[1][3][2] && !fish[1][4][2])) { /* 2, 3, 4 */
       colClass = '-1';
       containerClass = 'dyn';
     } else { /* we have more than 1 and less than 4 columns */
-      if ((!fish[1][1][2] && !fish[1][2][2]) || /* 1,2 - we only have 2 columns */
-          (!fish[1][1][2] && !fish[1][3][2]) || /* 1,3 */
-          (!fish[1][1][2] && !fish[1][4][2]) || /* 1,4 */
-          (!fish[1][2][2] && !fish[1][3][2]) || /* 2,3 */
-          (!fish[1][2][2] && !fish[1][4][2]) || /* 2,4 */
-          (!fish[1][3][2] && !fish[1][4][2])) { /* 3,4 */
+      if ((!fish[1][1][2] && !fish[1][2][2]) || /* 1, 2 - we only have 2 columns */
+          (!fish[1][1][2] && !fish[1][3][2]) || /* 1, 3 */
+          (!fish[1][1][2] && !fish[1][4][2]) || /* 1, 4 */
+          (!fish[1][2][2] && !fish[1][3][2]) || /* 2, 3 */
+          (!fish[1][2][2] && !fish[1][4][2]) || /* 2, 4 */
+          (!fish[1][3][2] && !fish[1][4][2])) { /* 3, 4 */
         colClass = '-2';
         containerClass = 'dyn';
       } else { /* leaves us with 3 columns in the end */
@@ -802,8 +817,7 @@ function generateInfoText(alliance,zone) {
 /* Toggle zone map active - only one is active at a time
  */
 function toggleZone(zone) {
-  var locZ = getLocation(zone); /* sanitize zone */
-  var locA = getLocation(document.getElementById(locZ).parentElement.id); /* sanitize alliance */
+  var locZ = getLocation(zone)[1]; /* sanitize zone */
   var numFoulHoles = 0;
   var numRiverHoles = 0;
   var numLakeHoles = 0;
@@ -817,10 +831,10 @@ function toggleZone(zone) {
   toggleIdActive('tb-' + locZ); /* now set one specific zone-button active by id */
 
   /* recount holes on zone change */
-  numFoulHoles = countFishingHoles(locZ,foulOrOily(locZ));
-  numRiverHoles = countFishingHoles(locZ,'river');
-  numLakeHoles = countFishingHoles(locZ,'lake');
-  numSaltwaterHoles = countFishingHoles(locZ,'saltwater');
+  numFoulHoles = countFishingHoles(locZ, foulOrOily(locZ));
+  numRiverHoles = countFishingHoles(locZ, 'river');
+  numLakeHoles = countFishingHoles(locZ, 'lake');
+  numSaltwaterHoles = countFishingHoles(locZ, 'saltwater');
 
   /* highlight rare fishing holes (rare means less than a certain percentage) */
   if (numFoulHoles/countAllFishingHoles(locZ)*100 < 6.5) { /* less than 6.5% of all zone fishoing holes? */
@@ -849,10 +863,10 @@ function toggleZone(zone) {
   }
 
   /* generate info text */
-  generateInfoText(locA,locZ);
+  generateInfoText(locZ);
 }
 
-/* Increase fishing hole pin size
+/* increase fishing hole pin size
  */
 function zoomInFishingHoles() {
   var x = document.getElementById('fishing-map-container');
@@ -869,7 +883,7 @@ function zoomInFishingHoles() {
   }
 }
 
-/* Decrease fishing hole pin size
+/* decrease fishing hole pin size
  */
 function zoomOutFishingHoles() {
   var x = document.getElementById('fishing-map-container');
@@ -887,10 +901,10 @@ function zoomOutFishingHoles() {
   }
 }
 
-/* Increase fishing map size by increasing max-width and
+/* increase fishing map size by increasing max-width and
  * max-height of zoom-width and zoom-height class elements
  */
-function zoomInFishingMap(scrolled,targetZoom) {
+function zoomInFishingMap(scrolled, targetZoom) {
   var x = document.getElementsByClassName('zoom-width');
   var y = document.getElementsByClassName('zoom-height');
   var z = document.getElementById('fishing-map-container');
@@ -913,32 +927,32 @@ function zoomInFishingMap(scrolled,targetZoom) {
     zoomStep = 10; /* pixels per click/wheel action */
   }
   
-  if (z.style.maxWidth.replace(/px/,'') < document.body.clientWidth) { /* only zoom in if there is space available */
+  if (z.style.maxWidth.replace(/px/, '') < document.body.clientWidth) { /* only zoom in if there is space available */
     for (var i = 0; i < x.length; i++) {
-      if (parseInt(x[i].style.maxWidth.replace(/px/,'')) < 1910) { /* width */
+      if (parseInt(x[i].style.maxWidth.replace(/px/, '')) < 1910) { /* width */
         if (tz > 0 && tz < 1910) { /* zoom directly to target zoom level */
           x[i].style.maxWidth = tz + 'px';
         } else {
-          x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/,''))+zoomStep + 'px';
+          x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/, ''))+zoomStep + 'px';
         }
       }
     }
     for (var i = 0; i < y.length; i++) {
-      if (parseInt(y[i].style.maxHeight.replace(/px/,'')) < 1910) { /* height */
+      if (parseInt(y[i].style.maxHeight.replace(/px/, '')) < 1910) { /* height */
         if (tz > 0 && tz < 1910) { /* zoom directly to target zoom level */
           y[i].style.maxHeight = tz + 'px';
         } else {
-          y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/,''))+zoomStep + 'px';
+          y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/, ''))+zoomStep + 'px';
         }
       }
     }
   }
 }
 
-/* Increase fishing map size by decreasing max-width and
+/* increase fishing map size by decreasing max-width and
  * max-height of zoom-width and zoom-height class elements
  */
-function zoomOutFishingMap(scrolled,targetZoom) {
+function zoomOutFishingMap(scrolled, targetZoom) {
   var x = document.getElementsByClassName('zoom-width');
   var y = document.getElementsByClassName('zoom-height');
   var s = false;
@@ -961,26 +975,26 @@ function zoomOutFishingMap(scrolled,targetZoom) {
   }
 
   for (var i = 0; i < x.length; i++) {
-    if (parseInt(x[i].style.maxWidth.replace(/px/,'')) > 610) { /* width */
+    if (parseInt(x[i].style.maxWidth.replace(/px/, '')) > 610) { /* width */
       if (tz > 610) { /* zoom directly to target zoom level */
         x[i].style.maxWidth = tz + 'px';
       } else {
-        x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/,''))-zoomStep + 'px';
+        x[i].style.maxWidth = parseInt(x[i].style.maxWidth.replace(/px/, ''))-zoomStep + 'px';
       }
     }
   }
   for (var i = 0; i < y.length; i++) {
-    if (parseInt(y[i].style.maxHeight.replace(/px/,'')) > 610) { /* height */
+    if (parseInt(y[i].style.maxHeight.replace(/px/, '')) > 610) { /* height */
       if (tz > 610) { /* zoom directly to target zoom level */
         y[i].style.maxHeight = tz + 'px';
       } else {
-        y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/,''))-zoomStep + 'px';
+        y[i].style.maxHeight = parseInt(y[i].style.maxHeight.replace(/px/, ''))-zoomStep + 'px';
       }
     }
   }
 }
 
-/* Set fishing map zoom according to browser windows size so
+/* set fishing map zoom according to browser windows size so
  * all controls are visible on page load
  */
 function setFishingMapZoom() {
@@ -996,7 +1010,7 @@ function setFishingMapZoom() {
   }
 }
 
-/* Use mouse wheel to zoom the fishing map
+/* use mouse wheel to zoom the fishing map
  */
 function scrollToZoom() {
   document.getElementById('fishing-map-container').addEventListener('wheel', function(e) {
@@ -1010,7 +1024,7 @@ function scrollToZoom() {
   });
 }
 
-/* Use mouse right click to navigate back on the map
+/* use mouse right click to navigate back on the map
  */
 function clickToBack() {
   document.getElementById('fishing-map-container').addEventListener('contextmenu', function(e) {
