@@ -108,7 +108,7 @@ function getLocation(zoneOrAlliance) {
     /* ep zones */
     ['ep', 'ebonheart-pact',
       ['stonefalls', 'deshaan', 'shadowfen', 'eastmarch', 'therift', 'bleakrockisle', 'balfoyen',
-      'blackreach-mzark', ] ],
+      'blackreach-mzark' ] ],
     /* cyro & Nnutral zones */
     ['cyro-neutral', 'cyro-neutral',
       ['cyrodiil', 'coldharbour', 'craglorn'] ],
