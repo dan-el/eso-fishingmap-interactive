@@ -107,7 +107,8 @@ function getLocation(zoneOrAlliance) {
       ['glenumbra', 'stormhaven', 'rivenspire', 'alikrdesert', 'bangkorai', 'betnikh', 'strosmkai'] ],
     /* ep zones */
     ['ep', 'ebonheart-pact',
-      ['stonefalls', 'deshaan', 'shadowfen', 'eastmarch', 'therift', 'bleakrockisle', 'balfoyen'] ],
+      ['stonefalls', 'deshaan', 'shadowfen', 'eastmarch', 'therift', 'bleakrockisle', 'balfoyen',
+      'blackreach-mzark', ] ],
     /* cyro & Nnutral zones */
     ['cyro-neutral', 'cyro-neutral',
       ['cyrodiil', 'coldharbour', 'craglorn'] ],
@@ -115,7 +116,7 @@ function getLocation(zoneOrAlliance) {
     ['dlc-chapter', 'dlc-chapter',
       ['imperialcity', 'wrothgar', 'hewsbane', 'goldcoast', 'clockworkcity', 'vvardenfell',
       'summerset', 'artaeum', 'murkmire', 'elsweyr', 'northernelsweyr', 'southernelsweyr',
-      'blackreach-mzark', 'westernskyrim', 'blackreach', 'thereach', 'blackreach-arkthzand'] ],
+      'westernskyrim', 'blackreach', 'thereach', 'blackreach-arkthzand'] ],
     /* dummy zones */
     ['overlay', 'overlay-zone',
       ['overlay', 'overlay-zone'] ],
