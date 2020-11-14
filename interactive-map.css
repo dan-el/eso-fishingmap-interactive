@@ -1,4 +1,4 @@
-/* SVG  styles */
+/* svg  styles */
 
 .map-container {
   position: relative;
@@ -91,7 +91,7 @@
   font: italic 48px sans-serif;
 }
 
-/* SVG styles */
+/* svg styles */
 
 /* toco ... top-container
  * zoco ... zone-container
@@ -484,7 +484,7 @@ svg.map-tamriel-svg {
   display: block;
 }
 
-/* Fishing hook icons */
+/* fishing hook icons */
 
 .beautiful .fh {
   width: 16px;
@@ -568,9 +568,9 @@ svg.map-tamriel-svg {
   background-image: url(images/lake.png);
 }
 
-/*Fishing hook icons */
+/* fishing hook icons */
 
-/* Blackreach link in Western Skyrim */
+/* blackreach link in western skyrim */
 
 #fishing-map-container .link-zone {
   border-radius: 50%;
@@ -681,7 +681,7 @@ svg.map-tamriel-svg {
   height: 100%;
 }
 
-/* Blackreach link in Western Skyrim */
+/* blackreach link in western skyrim */
 
 #info-container .close {
   content: "X";
