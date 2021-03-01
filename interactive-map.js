@@ -118,7 +118,7 @@ function getLocation(zoneOrAlliance) {
       'summerset', 'artaeum', 'murkmire', 'elsweyr', 'northernelsweyr', 'southernelsweyr',
       'westernskyrim', 'blackreach', 'thereach', 'blackreach-arkthzand'] ],
     /* dummy zones */
-    ['overlay', 'overlay-zone',
+    ['overlay', 'overlay-alliance',
       ['overlay', 'overlay-zone'] ],
     /* alliances & dummy alliances */
     ['alliance', 'alliance',
@@ -819,7 +819,7 @@ function generateInfoText(zone) {
  */
 function toggleZone(zone) {
   var locZ = getLocation(zone)[1]; /* sanitize zone */
-  var numFoulHoles = 0;
+  var numFoulHoles = 0; 
   var numRiverHoles = 0;
   var numLakeHoles = 0;
   var numSaltwaterHoles = 0;
