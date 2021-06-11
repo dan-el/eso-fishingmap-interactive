@@ -116,7 +116,7 @@ function getLocation(zoneOrAlliance) {
     ['dlc-chapter', 'dlc-chapter',
       ['imperialcity', 'wrothgar', 'hewsbane', 'goldcoast', 'clockworkcity', 'vvardenfell',
       'summerset', 'artaeum', 'murkmire', 'elsweyr', 'northernelsweyr', 'southernelsweyr',
-      'westernskyrim', 'blackreach', 'thereach', 'blackreach-arkthzand'] ],
+      'westernskyrim', 'blackreach', 'thereach', 'blackreach-arkthzand', 'blackwood'] ],
     /* dummy zones */
     ['overlay', 'overlay-alliance',
       ['overlay', 'overlay-zone'] ],
@@ -725,6 +725,19 @@ function getRareFish(zone) {
         ['saltwater', ''],
         ['lake', ''] ] ]
       break;
+      case 'blackwood':
+        fish = [
+          [ ['blue'],
+          ['foul', 'Stained Porgy'],
+          ['river', 'Pantherfish'],
+          ['saltwater', 'Opaline Albacore'],
+          ['lake', 'Blackwater Bullhead'] ],
+          [ ['green'],
+          ['foul', 'Inkspur Cuttlefish', 'Muddy Razorgill'],
+          ['river', 'Ivory Darter', 'Onkobra Muskie'],
+          ['saltwater', 'Harvester Octopus', 'Topal Nautilus'],
+          ['lake', 'Red Zander', 'Speckled Sauger'] ] ]
+        break;
     default:
       return false;
   }
