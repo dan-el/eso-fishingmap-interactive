@@ -834,7 +834,8 @@ div.rare-fish div.col div.cell.purple {
 #toggle-container-type,
 #toggle-container-zone-1,
 #toggle-container-zone-2,
-#toggle-container-zone-3 {
+#toggle-container-zone-3,
+#toggle-container-zone-4 {
   display: flex;
 }
 

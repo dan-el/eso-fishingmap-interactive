@@ -989,7 +989,7 @@ function zoomOutFishingMap(scrolled, targetZoom) {
   }
 
   for (var i = 0; i < x.length; i++) {
-    if (parseInt(x[i].style.maxWidth.replace(/px/, '')) > 610) { /* width */
+    if (parseInt(x[i].style.maxWidth.replace(/px/, '')) > 590) { /* width */
       if (tz > 610) { /* zoom directly to target zoom level */
         x[i].style.maxWidth = tz + 'px';
       } else {
@@ -998,7 +998,7 @@ function zoomOutFishingMap(scrolled, targetZoom) {
     }
   }
   for (var i = 0; i < y.length; i++) {
-    if (parseInt(y[i].style.maxHeight.replace(/px/, '')) > 610) { /* height */
+    if (parseInt(y[i].style.maxHeight.replace(/px/, '')) > 590) { /* height */
       if (tz > 610) { /* zoom directly to target zoom level */
         y[i].style.maxHeight = tz + 'px';
       } else {
