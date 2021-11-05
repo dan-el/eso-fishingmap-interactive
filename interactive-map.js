@@ -114,9 +114,9 @@ function getLocation(zoneOrAlliance) {
       ['cyrodiil', 'coldharbour', 'craglorn', 'imperialcity'] ],
     /* dlc & chapter zones */
     ['dlc-chapter', 'dlc-chapter',
-      ['wrothgar', 'hewsbane', 'goldcoast', 'clockworkcity', 'vvardenfell',
-      'summerset', 'artaeum', 'murkmire', 'elsweyr', 'northernelsweyr', 'southernelsweyr',
-      'westernskyrim', 'blackreach', 'thereach', 'blackreach-arkthzand', 'blackwood'] ],
+      ['wrothgar', 'hewsbane', 'goldcoast', 'clockworkcity', 'vvardenfell', 'summerset',
+      'artaeum', 'murkmire', 'elsweyr', 'northernelsweyr', 'southernelsweyr', 'westernskyrim',
+      'blackreach', 'thereach', 'blackreach-arkthzand', 'blackwood', 'deadlands'] ],
     /* dummy zones */
     ['overlay', 'overlay-alliance',
       ['overlay', 'overlay-zone'] ],
@@ -737,6 +737,19 @@ function getRareFish(zone) {
           ['river', 'Ivory Darter', 'Onkobra Muskie'],
           ['saltwater', 'Harvester Octopus', 'Topal Nautilus'],
           ['lake', 'Red Zander', 'Speckled Sauger'] ] ]
+        break;
+      case 'deadlands':
+        fish = [
+          [ ['blue'],
+          ['foul', ''],
+          ['river', ''],
+          ['saltwater', ''],
+          ['lake', ''] ],
+          [ ['green'],
+          ['foul', ''],
+          ['river', ''],
+          ['saltwater', ''],
+          ['lake', ''] ] ]
         break;
     default:
       return false;
