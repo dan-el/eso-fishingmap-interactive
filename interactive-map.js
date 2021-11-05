@@ -111,10 +111,10 @@ function getLocation(zoneOrAlliance) {
       'blackreach-mzark' ] ],
     /* cyro & Nnutral zones */
     ['cyro-neutral', 'cyro-neutral',
-      ['cyrodiil', 'coldharbour', 'craglorn'] ],
+      ['cyrodiil', 'coldharbour', 'craglorn', 'imperialcity'] ],
     /* dlc & chapter zones */
     ['dlc-chapter', 'dlc-chapter',
-      ['imperialcity', 'wrothgar', 'hewsbane', 'goldcoast', 'clockworkcity', 'vvardenfell',
+      ['wrothgar', 'hewsbane', 'goldcoast', 'clockworkcity', 'vvardenfell',
       'summerset', 'artaeum', 'murkmire', 'elsweyr', 'northernelsweyr', 'southernelsweyr',
       'westernskyrim', 'blackreach', 'thereach', 'blackreach-arkthzand', 'blackwood'] ],
     /* dummy zones */
@@ -511,7 +511,6 @@ function getRareFish(zone) {
         ['lake', 'Croaker', 'Forlorn Catfish'],
         ['lake', 'Ghost Knifefish', 'Nirn Flounder'] ] ]
       break;
-    /* DLC and Chapter Zones */
     case 'imperialcity':
       fish = [
         [ ['blue'],
@@ -525,6 +524,7 @@ function getRareFish(zone) {
         ['foul', 'Scabrous Grenadier', 'Trapjaw Eel', 'Wen Loach'],
         ['foul', ''] ] ]
       break;
+    /* DLC and Chapter Zones */
     case 'wrothgar':
       fish = [
         [ ['blue'],
