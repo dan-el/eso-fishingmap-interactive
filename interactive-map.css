@@ -70,11 +70,14 @@
   font: italic 48px sans-serif;
 }
 .map-container polygon.cyrodiil:hover,
-.map-container circle.cyrodiil:hover {
+.map-container circle.cyrodiil:hover,
+.map-container polygon.imperialcity:hover,
+.map-container circle.imperialcity:hover {
   stroke: green;
   fill: rgba(0,128,0,0.5);
 }
-.map-container text.cyrodiil {
+.map-container text.cyrodiil,
+.map-container text.imperialcity {
   fill: green;
   font: italic 48px sans-serif;
 }
