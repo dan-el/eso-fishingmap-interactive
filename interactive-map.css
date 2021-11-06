@@ -573,7 +573,7 @@ svg.map-tamriel-svg {
 
 /* fishing hook icons */
 
-/* blackreach link in western skyrim */
+/* linked zones */
 
 #fishing-map-container .link-zone {
   border-radius: 50%;
@@ -636,6 +636,15 @@ svg.map-tamriel-svg {
   margin-top: -5.5% !important;
 }
 
+#fishing-map-container .link-zone.deadlands-fargrave {
+  left: 21.50% !important;
+  top: 16.60% !important;
+  width: 9.2% !important;
+  height: 9.2% !important;
+  margin-left: -6.7% !important;
+  margin-top: -6.7% !important;
+}
+
 #fishing-map-container .link-zone:hover {
   border: 3px solid deeppink;
   background-color: rgba(255,20,147,0.5);
@@ -677,6 +686,10 @@ svg.map-tamriel-svg {
   content: "Arkthzand Cavern";
 }
 
+#fishing-map-container .link-zone.deadlands-fargrave:hover:after {
+  content: "Fargrave";
+}
+
 #fishing-map-container .link-zone a {
   display: block;
   background-color: transparent;
@@ -684,7 +697,7 @@ svg.map-tamriel-svg {
   height: 100%;
 }
 
-/* blackreach link in western skyrim */
+/* linked zones */
 
 #info-container .close {
   content: "X";
