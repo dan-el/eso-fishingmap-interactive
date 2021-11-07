@@ -645,6 +645,15 @@ svg.map-tamriel-svg {
   margin-top: -6.7% !important;
 }
 
+#fishing-map-container .link-zone.deadlands {
+  left: 26.30% !important;
+  top: 23.70% !important;
+  width: 9.2% !important;
+  height: 9.2% !important;
+  margin-left: -6.7% !important;
+  margin-top: -6.7% !important;
+}
+
 #fishing-map-container .link-zone:hover {
   border: 3px solid deeppink;
   background-color: rgba(255,20,147,0.5);
@@ -688,6 +697,10 @@ svg.map-tamriel-svg {
 
 #fishing-map-container .link-zone.deadlands-fargrave:hover:after {
   content: "Fargrave";
+}
+
+#fishing-map-container .link-zone.deadlands:hover:after {
+  content: "Deadlands";
 }
 
 #fishing-map-container .link-zone a {
