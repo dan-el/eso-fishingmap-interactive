@@ -151,6 +151,31 @@ function getLocation(zoneOrAlliance) {
   return [false, false]; /* return [alliance, zone] */
 }
 
+/* return zone name based on data-name
+*/
+function getZoneName(zoneOrAlliance, extra) {
+  var locZA = getLocation(zoneOrAlliance)[1]; /* sanitize zone or alliance */
+  var locZAName = document.getElementById(locZA).getAttribute('data-name');
+  if (extra !== '' && extra !== false) {
+    var eText = extra;
+  } else {
+    var eText = '';
+  }
+  var eCheck = false;
+  
+  /* only allow certain extra values */
+  if (eText == ': ' || eText == ' - ' || eText == ' &#8211; ') {
+    eCheck = true;
+  }
+
+  /* return zone name */
+  if (locZAName !== '' && locZAName !== null && eCheck) {
+    return eText + locZAName;
+  } else {
+    return locZAName;
+  }
+}
+
 /* do we have foul or oily holes in our zone? (only needed in cwc)
  */
 function foulOrOily(zone) {
@@ -741,15 +766,15 @@ function getRareFish(zone) {
       case 'deadlands':
         fish = [
           [ ['blue'],
-          ['foul', ''],
-          ['river', ''],
-          ['saltwater', ''],
-          ['lake', ''] ],
+          ['foul', 'Needlefish'],
+          ['foul', 'Rustbelly Loach'],
+          ['foul', 'Molten Nudibranch'],
+          ['foul', 'Ogrim Goonch'] ],
           [ ['green'],
-          ['foul', ''],
-          ['river', ''],
-          ['saltwater', ''],
-          ['lake', ''] ] ]
+          ['foul', 'Dusk Angler', 'Slag Eel'],
+          ['foul', 'Corpus Hagfin', 'Deadlands Trout'],
+          ['foul', 'Banegil', 'Vile Crayfish'],
+          ['foul', 'Black-Eyed Croaker', 'Ebony Mudfish'] ] ]
         break;
       case 'deadlands-fargrave':
         fish = [
