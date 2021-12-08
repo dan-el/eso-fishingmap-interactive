@@ -153,26 +153,15 @@ function getLocation(zoneOrAlliance) {
 
 /* return zone name based on data-name
 */
-function getZoneName(zoneOrAlliance, extra) {
-  var locZA = getLocation(zoneOrAlliance)[1]; /* sanitize zone or alliance */
-  var locZAName = document.getElementById(locZA).getAttribute('data-name');
-  if (extra !== '' && extra !== false) {
-    var eText = extra;
-  } else {
-    var eText = '';
-  }
-  var eCheck = false;
-  
-  /* only allow certain extra values */
-  if (eText == ': ' || eText == ' - ' || eText == ' &#8211; ') {
-    eCheck = true;
-  }
+function getZoneName(zone) {
+  var locZ = getLocation(zone)[1]; /* sanitize zone or alliance */
+  var locZName = document.getElementById(locZ).getAttribute('data-name');
 
   /* return zone name */
-  if (locZAName !== '' && locZAName !== null && eCheck) {
-    return eText + locZAName;
+  if (locZName !== '' && locZName) {
+    return locZName;
   } else {
-    return locZAName;
+    return '';
   }
 }
 
@@ -877,6 +866,21 @@ function generateInfoText(zone) {
 
   /* replace info-container content */
   document.getElementById('info-container').innerHTML = txt;
+}
+
+/* Generate HTML meta info data
+*/
+function generateMetaTitle(zone) {
+  var locZ = getLocation(zone)[1]; /* sanitize zone */
+  var metaTitle = 'Captain Trout’s Interactive Fishing Map' /* meta title base string */
+
+  /* append zone name to meta title */
+  if (locZ !== '' && locZ) {
+    var retval = metaTitle + ' - ' + getZoneName(locZ);
+  } else {
+    var retval = metaTitle;
+  }
+  return retval;
 }
 
 /* Toggle zone map active - only one is active at a time
