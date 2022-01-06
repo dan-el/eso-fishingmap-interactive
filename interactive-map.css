@@ -582,7 +582,7 @@ svg.map-tamriel-svg {
   z-index: 1000;
 }
 
-#fishing-map-container .link-zone.blackreach {
+#fishing-map-container .link-zone.blackreach-greymoor {
   left: 71.49% !important;
   top: 18.76% !important;
   width: 9.38% !important;
@@ -671,8 +671,8 @@ svg.map-tamriel-svg {
   display: block;
 }
 
-#fishing-map-container .link-zone.blackreach:hover:after {
-  content: "Blackreach";
+#fishing-map-container .link-zone.blackreach-greymoor:hover:after {
+  content: "Greymoor Cavern";
 }
 
 #fishing-map-container .link-zone.westernskyrim:hover:after {

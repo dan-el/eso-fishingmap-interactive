@@ -116,7 +116,8 @@ function getLocation(zoneOrAlliance) {
     ['dlc-chapter', 'dlc-chapter',
       ['wrothgar', 'hewsbane', 'goldcoast', 'clockworkcity', 'vvardenfell', 'summerset',
       'artaeum', 'murkmire', 'elsweyr', 'northernelsweyr', 'southernelsweyr', 'westernskyrim',
-      'blackreach', 'thereach', 'blackreach-arkthzand', 'blackwood', 'deadlands', 'deadlands-fargrave'] ],
+      'blackreach', 'blackreach-greymoor', 'thereach', 'blackreach-arkthzand', 'blackwood',
+      'deadlands', 'deadlands-fargrave'] ],
     /* dummy zones */
     ['overlay', 'overlay-alliance',
       ['overlay', 'overlay-zone'] ],
@@ -139,6 +140,8 @@ function getLocation(zoneOrAlliance) {
       if (locZA === validLocations[i][2][j]) {
         if (validLocations[i][2][j] === 'elsweyr') { /* keep the legacy 'elsweyr' location remapped to 'northernelsweyr' */
           var retval = [validLocations[i][1], 'northernelsweyr'];
+        } else if (validLocations[i][2][j] === 'blackreach') { /* keep the legacy 'blackreach' location remapped to 'blackreach-greymoor' */
+          var retval = [validLocations[i][1], 'blackreach-greymoor'];
         } else if (validLocations[i][2][j] === 'overlay') { /* keep the legacy 'overlay' location remapped to 'overlay-zone' */
           var retval = [validLocations[i][1], 'overlay-zone'];
         } else {
@@ -700,7 +703,7 @@ function getRareFish(zone) {
         ['saltwater', 'Ghost Salmon', 'Skyrim Gurry Shark'],
         ['lake', 'Frigid Char', 'Solitude Loach'] ] ]
       break;
-    case 'blackreach':
+    case 'blackreach-greymoor':
       fish = [
         [ ['blue'],
         ['foul', 'Sanguine Lamprey'],
