@@ -476,6 +476,20 @@ svg.map-tamriel-svg {
   border-color: rgba(255,0,0,.75);
 }
 
+/* special thanks */
+
+#cyrodiil .fh.lake[daco|="64.47%, 80.03%"]:hover:after {
+  content: "Lake (" attr(daco) ")\00000a-----\00000aI want to dedicate this special\00000afishing hole to the one and only\00000aChancellor. May it and all brave\00000afishermen and women who died\00000ain the attempt to master it serve\00000aas a monument to her!";
+  max-width: 230px;
+  white-space: pre;
+}
+
+#cyrodiil .fh.foul[daco|="16.65%, 39.96%"]:hover:after {
+  content: "Lake (" attr(daco) ")\00000a-----\00000aThis fishing hole is dedicated to\00000aAngryDragonLady for sharing\00000athe discovery with us.\00000aThank you!";
+  max-width: 230px;
+  white-space: pre;
+}
+
 .coming-soon {
   position: absolute;
   left: 15%;
