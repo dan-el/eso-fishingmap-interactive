@@ -478,7 +478,7 @@ svg.map-tamriel-svg {
 
 /* special thanks */
 
-#cyrodiil .fh.lake[daco|="64.47%, 80.03%"]:hover:after {
+#cyrodiil .fh.lake[daco|="64.47%, 80.02%"]:hover:after {
   content: "Lake (" attr(daco) ")\00000a-----\00000aI want to dedicate this special\00000afishing hole to the one and only\00000aChancellor. May it and all brave\00000afishermen and women who died\00000ain the attempt to master it serve\00000aas a monument to her!";
   max-width: 230px;
   white-space: pre;
