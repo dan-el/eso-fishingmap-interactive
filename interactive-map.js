@@ -797,8 +797,8 @@ function generateInfoText(zone) {
   var y = document.getElementById(locA);
   var z = document.getElementById('info-container');
   var fish = getRareFish(locZ);
-  var fishcaught = 13580; /* total number of fish caught */
-  var perfectroe = 141; /* total number of perfect roe from fish */
+  var fishcaught = 13919; /* total number of fish caught */
+  var perfectroe = 144; /* total number of perfect roe from fish */
   var txt = '';
   var innerTxt = '';
   var colClass = '';
