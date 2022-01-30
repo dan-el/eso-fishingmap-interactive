@@ -909,25 +909,25 @@ function toggleZone(zone) {
   numSaltwaterHoles = countFishingHoles(locZ, 'saltwater');
 
   /* highlight rare fishing holes (rare means less than a certain percentage) */
-  if (numFoulHoles/countAllFishingHoles(locZ)*100 < 6.5) { /* less than 6.5% of all zone fishoing holes? */
+  if (numFoulHoles/countAllFishingHoles(locZ)*100 < 5.5) { /* less than 5.5% of all zone fishoing holes? */
     var foulHoles = document.getElementById(locZ).getElementsByClassName(foulOrOily(locZ) + ' fh');
     for (var i = 0; i < foulHoles.length; i++) {
       foulHoles[i].classList.add('rare');
     }
   }
-  if (numRiverHoles/countAllFishingHoles(locZ)*100 < 6.5) { /* less than 6.5% of all zone fishoing holes? */
+  if (numRiverHoles/countAllFishingHoles(locZ)*100 < 5.5) { /* less than 5.5% of all zone fishoing holes? */
     var riverHoles = document.getElementById(locZ).getElementsByClassName('river fh');
     for (var i = 0; i < riverHoles.length; i++) {
       riverHoles[i].classList.add('rare');
     }
   }
-  if (numLakeHoles/countAllFishingHoles(locZ)*100 < 6.5) { /* less than 6.5% of all zone fishoing holes? */
+  if (numLakeHoles/countAllFishingHoles(locZ)*100 < 5.5) { /* less than 5.5% of all zone fishoing holes? */
     var lakeHoles = document.getElementById(locZ).getElementsByClassName('lake fh');
     for (var i = 0; i < lakeHoles.length; i++) {
       lakeHoles[i].classList.add('rare');
     }
   }
-  if (numSaltwaterHoles/countAllFishingHoles(locZ)*100 < 6.5) { /* less than 6.5% of all zone fishoing holes? */
+  if (numSaltwaterHoles/countAllFishingHoles(locZ)*100 < 5.5) { /* less than 5.5% of all zone fishoing holes? */
     var saltwaterHoles = document.getElementById(locZ).getElementsByClassName('saltwater fh');
     for (var i = 0; i < saltwaterHoles.length; i++) {
       saltwaterHoles[i].classList.add('rare');

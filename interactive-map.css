@@ -180,6 +180,10 @@ svg.map-tamriel-svg {
   position: absolute;
 }
 
+.fh.rare {
+  z-index: 5;
+}
+
 .fh.rare:before {
   content: " ";
   width: 12px;
