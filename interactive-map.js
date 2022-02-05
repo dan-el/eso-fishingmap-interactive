@@ -109,7 +109,7 @@ function getLocation(zoneOrAlliance) {
     ['ep', 'ebonheart-pact',
       ['stonefalls', 'deshaan', 'shadowfen', 'eastmarch', 'therift', 'bleakrockisle', 'balfoyen',
       'blackreach-mzark' ] ],
-    /* cyro & Nnutral zones */
+    /* cyro & neutral zones */
     ['cyro-neutral', 'cyro-neutral',
       ['cyrodiil', 'coldharbour', 'craglorn', 'imperialcity'] ],
     /* dlc & chapter zones */
@@ -118,13 +118,16 @@ function getLocation(zoneOrAlliance) {
       'artaeum', 'murkmire', 'elsweyr', 'northernelsweyr', 'southernelsweyr', 'westernskyrim',
       'blackreach', 'blackreach-greymoor', 'thereach', 'blackreach-arkthzand', 'blackwood',
       'deadlands', 'deadlands-fargrave'] ],
-    /* dummy zones */
+    /* overlay zone */
     ['overlay', 'overlay-alliance',
       ['overlay', 'overlay-zone'] ],
+    /* tamriel zone */
+    ['tamriel', 'tamriel-alliance',
+      ['tamriel', 'tamriel-zone'] ],
     /* alliances & dummy alliances */
     ['alliance', 'alliance',
       ['aldmeri-dominion', 'daggerfall-covenant', 'ebonheart-pact', 'cyro-neutral', 'dlc-chapter',
-      'overlay-alliance'] ]
+      'overlay-alliance', 'tamriel-alliance'] ]
   ];
 
   var locZA = '';
@@ -797,7 +800,7 @@ function generateInfoText(zone) {
   var y = document.getElementById(locA);
   var z = document.getElementById('info-container');
   var fish = getRareFish(locZ);
-  var fishcaught = 13919; /* total number of fish caught */
+  var fishcaught = 14143; /* total number of fish caught */
   var perfectroe = 144; /* total number of perfect roe from fish */
   var txt = '';
   var innerTxt = '';
@@ -875,7 +878,7 @@ function generateInfoText(zone) {
 */
 function generateMetaTitle(zone) {
   var locZ = getLocation(zone)[1]; /* sanitize zone */
-  var metaTitle = 'Captain Trout’s Interactive Fishing Map' /* meta title base string */
+  var metaTitle = 'Captain Trout\'s Interactive Fishing Map' /* meta title base string */
 
   /* append zone name to meta title */
   if (locZ !== '' && locZ) {

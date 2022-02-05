@@ -730,6 +730,259 @@ svg.map-tamriel-svg {
 
 /* linked zones */
 
+/* tamriel zone */
+
+#tamriel-alliance .zoco {
+  display: block;
+  position: absolute;
+  background: none;
+}
+
+#tamriel-alliance #watermark.zoco {
+  background-image: url(images/watermark.png);
+  background-size: 100%;
+}
+
+#tamriel-alliance #auridon.zoco {
+  width: 16.3%;
+  height: 16.3%;
+  top: 59.4%;
+  left: 13.4%;
+}
+
+#tamriel-alliance #grahtwood.zoco {
+  width: 14.7%;
+  height: 14.7%;
+  top: 65.9%;
+  left: 35%;
+}
+
+#tamriel-alliance #greenshade.zoco {
+  width: 11.6%;
+  height: 11.6%;
+  top: 63.7%;
+  left: 27.1%;
+}
+
+#tamriel-alliance #malabaltor.zoco {
+  width: 13.6%;
+  height: 13.6%;
+  top: 55.4%;
+  left: 29.5%;
+}
+
+#tamriel-alliance #reapersmarch.zoco {
+  width: 12.6%;
+  height: 12.6%;
+  top: 54.9%;
+  left: 39.8%;
+}
+
+#tamriel-alliance #khenarthisroost.zoco {
+  width: 3.6%;
+  height: 3.6%;
+  top: 78.1%;
+  left: 48.75%;
+}
+
+#tamriel-alliance #glenumbra.zoco {
+  width: 15.3%;
+  height: 15.3%;
+  top: 27.25%;
+  left: 1.55%;
+}
+
+#tamriel-alliance #stormhaven.zoco {
+  width: 14.5%;
+  height: 14.5%;
+  top: 25.1%;
+  left: 14.25%;
+}
+
+#tamriel-alliance #rivenspire.zoco {
+  width: 13.1%;
+  height: 13.1%;
+  top: 17.8%;
+  left: 11.25%;
+}
+
+#tamriel-alliance #alikrdesert.zoco {
+  width: 15.5%;
+  height: 15.5%;
+  top: 32.2%;
+  left: 10.6%;
+}
+
+#tamriel-alliance #bangkorai.zoco {
+  width: 12.5%;
+  height: 12.5%;
+  top: 27%;
+  left: 23.3%;
+}
+
+#tamriel-alliance #betnikh.zoco {
+  width: 3.2%;
+  height: 3.2%;
+  top: 42.1%;
+  left: 6.7%;
+}
+
+#tamriel-alliance #strosmkai.zoco {
+  width: 2.5%;
+  height: 2.5%;
+  top: 53.15%;
+  left: 14.8%;
+}
+
+#tamriel-alliance #stonefalls.zoco {
+  width: 14.3%;
+  height: 14.3%;
+  top: 38%;
+  left: 66.1%;
+}
+
+#tamriel-alliance #deshaan.zoco {
+  width: 15.5%;
+  height: 15.5%;
+  top: 43.2%;
+  left: 70%;
+}
+
+#tamriel-alliance #shadowfen.zoco {
+  width: 12%;
+  height: 12%;
+  top: 51.6%;
+  left: 69.5%;
+}
+
+#tamriel-alliance #eastmarch.zoco {
+  width: 15.4%;
+  height: 15.4%;
+  top: 22.1%;
+  left: 55.8%;
+}
+
+#tamriel-alliance #therift.zoco {
+  width: 14%;
+  height: 14%;
+  top: 30.7%;
+  left: 55.8%;
+}
+
+#tamriel-alliance #bleakrockisle.zoco {
+  width: 2.4%;
+  height: 2.4%;
+  top: 25.3%;
+  left: 67%;
+}
+
+#tamriel-alliance #balfoyen.zoco {
+  width: 3.2%;
+  height: 3.2%;
+  top: 42.7%;
+  left: 79.5%;
+}
+
+#tamriel-alliance #cyrodiil.zoco {
+  width: 17%;
+  height: 17%;
+  top: 40.4%;
+  left: 46.5%;
+}
+
+#tamriel-alliance #craglorn.zoco {
+  width: 13%;
+  height: 13%;
+  top: 29.3%;
+  left: 34.4%;
+}
+
+#tamriel-alliance #imperialcity.zoco {
+  width: 2.5%;
+  height: 2.5%;
+  top: 46.4%;
+  left: 53.7%;
+}
+
+#tamriel-alliance #wrothgar.zoco {
+  width: 13.5%;
+  height: 13.5%;
+  top: 17%;
+  left: 19.3%;
+}
+
+#tamriel-alliance #hewsbane.zoco {
+  width: 10.1%;
+  height: 10.1%;
+  top: 45.7%;
+  left: 18.4%;
+}
+
+#tamriel-alliance #goldcoast.zoco {
+  width: 10.1%;
+  height: 10.1%;
+  top: 51.7%;
+  left: 28.7%;
+}
+
+#tamriel-alliance #vvardenfell.zoco {
+  width: 18.1%;
+  height: 18.1%;
+  top: 22%;
+  left: 68.1%;
+}
+
+#tamriel-alliance #summerset.zoco {
+  width: 26.3%;
+  height: 26.3%;
+  top: 60.7%;
+  left: -0.3%;
+}
+
+#tamriel-alliance #murkmire.zoco {
+  width: 11.2%;
+  height: 11.2%;
+  top: 71.3%;
+  left: 67.8%;
+}
+
+#tamriel-alliance #northernelsweyr.zoco {
+  width: 12.2%;
+  height: 12.2%;
+  top: 59%;
+  left: 46%;
+}
+
+#tamriel-alliance #southernelsweyr.zoco {
+  width: 14.5%;
+  height: 14.5%;
+  top: 68.45%;
+  left: 48.65%;
+}
+
+#tamriel-alliance #westernskyrim.zoco {
+  width: 15.35%;
+  height: 15.35%;
+  top: 15.7%;
+  left: 34.05%;
+}
+
+#tamriel-alliance #thereach.zoco {
+  width: 9%;
+  height: 9%;
+  top: 24.3%;
+  left: 32.3%;
+}
+
+#tamriel-alliance #blackwood.zoco {
+  width: 15.4%;
+  height: 15.4%;
+  top: 60.3%;
+  left: 56.6%;
+}
+
+/* tamriel zone */
+
 #info-container .close {
   content: "X";
   position: absolute;
