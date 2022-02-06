@@ -816,7 +816,7 @@ function generateInfoText(zone) {
   txt = txt + '<div class="close" onclick="toggleClassElements(\'info-element\');">X</div>';
   /* generate info text with statistics */
   txt = txt + '<p>All fishing holes in ' + y.getAttribute('data-name') + ': <b>' + countAllFishingHoles(locA) + '</b></p>';
-  if (locZ !== 'overlay-zone' && x !== null) {
+  if (locZ !== 'overlay-zone' && locZ !== 'tamriel-zone' && x !== null) {
     txt = txt + '<p>All fishing holes in ' + x.innerHTML + ': <b>' + countAllFishingHoles(locZ) + '</b></p>';
   }
   txt = txt + '<p>Perfect Roe Rate: ' + perfectroe + '/' + fishcaught + ' (<b>' + Number(Math.round((perfectroe/fishcaught*100)+'e2')+'e-2') + '%</b>)</p>'
@@ -898,12 +898,14 @@ function toggleZone(zone) {
   var numLakeHoles = 0;
   var numSaltwaterHoles = 0;
 
-  hideClassElements('zoco'); /* hide all zone containers */
-  toggleIdElement(locZ); /* now show one specific zone container by id */
-  hideClassElements('fishing-map-image'); /* hide all fishing maps */
-  toggleIdElement('img-' + locZ); /* now show one specific fishing map by id */
-  unsetClassActive('zone-button'); /* unset all zone-buttons */
-  toggleIdActive('tb-' + locZ); /* now set one specific zone-button active by id */
+  if (locZ !== 'tamriel-zone') { /* show everything in tamriel-zone */
+    hideClassElements('zoco'); /* hide all zone containers */
+    toggleIdElement(locZ); /* now show one specific zone container by id */
+    hideClassElements('fishing-map-image'); /* hide all fishing maps */
+    toggleIdElement('img-' + locZ); /* now show one specific fishing map by id */
+    unsetClassActive('zone-button'); /* unset all zone-buttons */
+    toggleIdActive('tb-' + locZ); /* now set one specific zone-button active by id */
+  }
 
   /* recount holes on zone change */
   numFoulHoles = countFishingHoles(locZ, foulOrOily(locZ));
