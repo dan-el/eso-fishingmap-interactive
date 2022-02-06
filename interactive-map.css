@@ -423,6 +423,12 @@ svg.map-tamriel-svg {
   cursor: pointer;
 }
 
+#tamriel-zone .fh:hover,
+#tamriel-zone .fh:active,
+#tamriel-zone .fh.active {
+  cursor: initial;
+}
+
 .fh:hover:after {
   position: absolute;
   top: -30px;
@@ -487,6 +493,18 @@ svg.map-tamriel-svg {
 
 .fh.lake:before {
   border-color: rgba(255,0,0,.75);
+}
+
+#tamriel-zone .fh:hover:after,
+#tamriel-zone .fh.foul:hover:after,
+#tamriel-zone .fh.oily:hover:after,
+#tamriel-zone .fh.river:hover:after,
+#tamriel-zone .fh.saltwater:hover:after,
+#tamriel-zone .fh.lake:hover:after {
+  border: none;
+  padding: 0;
+  background: none;
+  content: none;
 }
 
 /* special thanks */
@@ -1023,7 +1041,8 @@ svg.map-tamriel-svg {
   background-color: transparent;
 }
 
-.info-element.overlay-zone > p {
+.info-element.overlay-zone > p:last-child,
+.info-element.tamriel-zone > p:last-child {
   padding-bottom: 0;
 }
 
