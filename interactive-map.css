@@ -394,9 +394,18 @@ svg.map-tamriel-svg {
   padding: 0 !important;
 }
 
-.zone-button:hover,
 .zone-button:active,
 .zone-button.active {
+  background-color: rgba(226,204,145,.6);
+}
+
+#tb-overlay-zone.zone-button:active,
+#tb-overlay-zone.zone-button.active {
+  background-color: rgba(226,204,145,1);
+}
+
+.zone-button:hover,
+#tb-overlay-zone.zone-button:hover {
   background-color: rgba(226,204,145,.6);
 }
 
