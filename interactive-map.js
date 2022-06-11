@@ -117,7 +117,7 @@ function getLocation(zoneOrAlliance) {
       ['wrothgar', 'hewsbane', 'goldcoast', 'clockworkcity', 'vvardenfell', 'summerset',
       'artaeum', 'murkmire', 'elsweyr', 'northernelsweyr', 'southernelsweyr', 'westernskyrim',
       'blackreach', 'blackreach-greymoor', 'thereach', 'blackreach-arkthzand', 'blackwood',
-      'deadlands', 'deadlands-fargrave'] ],
+      'deadlands', 'deadlands-fargrave', 'highisleandamenos'] ],
     /* overlay zone */
     ['overlay', 'overlay-alliance',
       ['overlay', 'overlay-zone'] ],
@@ -783,6 +783,19 @@ function getRareFish(zone) {
           ['river', ''],
           ['saltwater', ''],
           ['lake', ''] ] ]
+        break;
+      case 'highisleandamenos':
+        fish = [
+          [ ['blue'],
+          ['foul', 'Skulltooth Barbel'],
+          ['river', 'Rockscale'],
+          ['saltwater', 'Bluespotted Cornetfish'],
+          ['lake', 'Rainbow Gudgeon'] ],
+          [ ['green'],
+          ['foul', 'Ropefish', 'Systres Flounder'],
+          ['river', 'Marbled Goby', 'Silver Bream'],
+          ['saltwater', 'Daggerfish', 'Gonfalon Rockfish'],
+          ['lake', 'Bronze-Banded Sunfish', 'Mudfin'] ] ]
         break;
     default:
       return false;
