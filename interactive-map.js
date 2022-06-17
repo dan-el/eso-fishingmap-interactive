@@ -97,7 +97,7 @@ function getLocation(zoneOrAlliance) {
   var validLocations = [
     /* structure:
     ['alliance-shortname', 'alliance-name',
-      ['zone-1', 'zone-1', 'zone-3',...]],...
+      ['zone-1', 'zone-2', 'zone-3', ...] ], ...
     */
     /* ad zones */
     ['ad', 'aldmeri-dominion',
@@ -745,58 +745,58 @@ function getRareFish(zone) {
         ['saltwater', ''],
         ['lake', ''] ] ]
       break;
-      case 'blackwood':
-        fish = [
-          [ ['blue'],
-          ['foul', 'Stained Porgy'],
-          ['river', 'Pantherfish'],
-          ['saltwater', 'Opaline Albacore'],
-          ['lake', 'Blackwater Bullhead'] ],
-          [ ['green'],
-          ['foul', 'Inkspur Cuttlefish', 'Muddy Razorgill'],
-          ['river', 'Ivory Darter', 'Onkobra Muskie'],
-          ['saltwater', 'Harvester Octopus', 'Topal Nautilus'],
-          ['lake', 'Red Zander', 'Speckled Sauger'] ] ]
-        break;
-      case 'deadlands':
-        fish = [
-          [ ['blue'],
-          ['foul', 'Needlefish'],
-          ['foul', 'Rustbelly Loach'],
-          ['foul', 'Molten Nudibranch'],
-          ['foul', 'Ogrim Goonch'] ],
-          [ ['green'],
-          ['foul', 'Dusk Angler', 'Slag Eel'],
-          ['foul', 'Corpus Hagfin', 'Deadlands Trout'],
-          ['foul', 'Banegil', 'Vile Crayfish'],
-          ['foul', 'Black-Eyed Croaker', 'Ebony Mudfish'] ] ]
-        break;
-      case 'deadlands-fargrave':
-        fish = [
-          [ ['blue'],
-          ['foul', ''],
-          ['river', ''],
-          ['saltwater', ''],
-          ['lake', ''] ],
-          [ ['green'],
-          ['foul', ''],
-          ['river', ''],
-          ['saltwater', ''],
-          ['lake', ''] ] ]
-        break;
-      case 'highisleandamenos':
-        fish = [
-          [ ['blue'],
-          ['foul', 'Skulltooth Barbel'],
-          ['river', 'Rockscale'],
-          ['saltwater', 'Bluespotted Cornetfish'],
-          ['lake', 'Rainbow Gudgeon'] ],
-          [ ['green'],
-          ['foul', 'Ropefish', 'Systres Flounder'],
-          ['river', 'Marbled Goby', 'Silver Bream'],
-          ['saltwater', 'Daggerfish', 'Gonfalon Rockfish'],
-          ['lake', 'Bronze-Banded Sunfish', 'Mudfin'] ] ]
-        break;
+    case 'blackwood':
+      fish = [
+        [ ['blue'],
+        ['foul', 'Stained Porgy'],
+        ['river', 'Pantherfish'],
+        ['saltwater', 'Opaline Albacore'],
+        ['lake', 'Blackwater Bullhead'] ],
+        [ ['green'],
+        ['foul', 'Inkspur Cuttlefish', 'Muddy Razorgill'],
+        ['river', 'Ivory Darter', 'Onkobra Muskie'],
+        ['saltwater', 'Harvester Octopus', 'Topal Nautilus'],
+        ['lake', 'Red Zander', 'Speckled Sauger'] ] ]
+      break;
+    case 'deadlands':
+      fish = [
+        [ ['blue'],
+        ['foul', 'Needlefish'],
+        ['foul', 'Rustbelly Loach'],
+        ['foul', 'Molten Nudibranch'],
+        ['foul', 'Ogrim Goonch'] ],
+        [ ['green'],
+        ['foul', 'Dusk Angler', 'Slag Eel'],
+        ['foul', 'Corpus Hagfin', 'Deadlands Trout'],
+        ['foul', 'Banegil', 'Vile Crayfish'],
+        ['foul', 'Black-Eyed Croaker', 'Ebony Mudfish'] ] ]
+      break;
+    case 'deadlands-fargrave':
+      fish = [
+        [ ['blue'],
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', ''],
+        ['lake', ''] ],
+        [ ['green'],
+        ['foul', ''],
+        ['river', ''],
+        ['saltwater', ''],
+        ['lake', ''] ] ]
+      break;
+    case 'highisleandamenos':
+      fish = [
+        [ ['blue'],
+        ['foul', 'Skulltooth Barbel'],
+        ['river', 'Rockscale'],
+        ['saltwater', 'Bluespotted Cornetfish'],
+        ['lake', 'Rainbow Gudgeon'] ],
+        [ ['green'],
+        ['foul', 'Ropefish', 'Systres Flounder'],
+        ['river', 'Marbled Goby', 'Silver Bream'],
+        ['saltwater', 'Daggerfish', 'Gonfalon Rockfish'],
+        ['lake', 'Bronze-Banded Sunfish', 'Mudfin'] ] ]
+      break;
     default:
       return false;
   }
@@ -1059,9 +1059,9 @@ function zoomOutFishingMap(scrolled, targetZoom) {
   }
 
   /* set zoom step - less for mouse wheel zooming */
-  zoomStep = 100; /* pixels per click/wheel action */
+  zoomStep = 100; /* pixels per click action */
   if (s) {
-    zoomStep = 10; /* pixels per click/wheel action */
+    zoomStep = 10; /* pixels per scroll action */
   }
 
   for (var i = 0; i < x.length; i++) {
