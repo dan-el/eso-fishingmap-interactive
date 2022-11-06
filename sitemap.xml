@@ -204,4 +204,8 @@
 		<loc>https://map.housetertia.com/dlc-chapter#highisleandamenos</loc>
 		<priority>0.7</priority>
 	</url>
+	<url>
+		<loc>https://map.housetertia.com/dlc-chapter#galenandyffelon</loc>
+		<priority>0.7</priority>
+	</url>
 </urlset>
