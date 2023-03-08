@@ -516,7 +516,7 @@ svg.map-tamriel-svg {
 }
 
 #cyrodiil .fh.foul[daco|="16.65%, 39.96%"]:hover:after {
-  content: "Lake\00000a-----\00000aThis fishing hole is dedicated to\00000aAngryDragonLady for sharing\00000athe discovery with us.\00000aThank you!";
+  content: "Foul\00000a-----\00000aThis fishing hole is dedicated to\00000aAngryDragonLady for sharing\00000athe discovery with us.\00000aThank you!";
   max-width: 230px;
   white-space: pre;
 }
