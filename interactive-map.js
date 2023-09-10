@@ -117,7 +117,8 @@ function getLocation(zoneOrAlliance) {
       ['wrothgar', 'hewsbane', 'goldcoast', 'clockworkcity', 'vvardenfell', 'summerset',
       'artaeum', 'murkmire', 'elsweyr', 'northernelsweyr', 'southernelsweyr', 'westernskyrim',
       'blackreach', 'blackreach-greymoor', 'thereach', 'blackreach-arkthzand', 'blackwood',
-      'deadlands', 'deadlands-fargrave', 'highisleandamenos', 'galenandyffelon'] ],
+      'deadlands', 'deadlands-fargrave', 'highisleandamenos', 'galenandyffelon', 'telvannipeninsula',
+      'apocrypha'] ],
     /* overlay zone */
     ['overlay', 'overlay-alliance',
       ['overlay', 'overlay-zone'] ],
@@ -810,6 +811,32 @@ function getRareFish(zone) {
         ['saltwater', 'Lizardfish', 'Pearlfish', 'Suncleft Cod'],
         ['lake', 'Glimmertarn Darter', 'Stone Circle Perch', 'Tidebarrow Tetra'] ] ]
       break;
+      case 'telvannipeninsula':
+        fish = [
+          [ ['blue'],
+          ['foul', 'Lurker Spawn'],
+          ['river', 'Sadrith Splat'],
+          ['saltwater', 'Howling Shark'],
+          ['lake', 'Morrowind Dreugh Shrimp'] ],
+          [ ['green'],
+          ['foul', 'Inkfish', 'Inkwell Squid'],
+          ['river', 'Brown Hat Snail', 'Magma Salmon'],
+          ['saltwater', 'Obdurate Albacore', 'Puffball Blowfish'],
+          ['lake', 'Agarivore Shark', 'Deadlock Lobster'] ] ]
+        break;
+      case 'apocrypha':
+        fish = [
+          [ ['blue'],
+          ['foul', 'Lurker Spawn'],
+          ['river', 'Sadrith Splat'],
+          ['saltwater', 'Howling Shark'],
+          ['lake', 'Morrowind Dreugh Shrimp'] ],
+          [ ['green'],
+          ['foul', 'Inkfish', 'Inkwell Squid'],
+          ['river', 'Brown Hat Snail', 'Magma Salmon'],
+          ['saltwater', 'Obdurate Albacore', 'Puffball Blowfish'],
+          ['lake', 'Agarivore Shark', 'Deadlock Lobster'] ] ]
+        break;
     default:
       return false;
   }

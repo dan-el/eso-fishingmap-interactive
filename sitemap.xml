@@ -208,4 +208,12 @@
 		<loc>https://map.housetertia.com/dlc-chapter#galenandyffelon</loc>
 		<priority>0.7</priority>
 	</url>
+	<url>
+		<loc>https://map.housetertia.com/dlc-chapter#telvannipeninsula</loc>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://map.housetertia.com/dlc-chapter#apocrypha</loc>
+		<priority>0.7</priority>
+	</url>
 </urlset>

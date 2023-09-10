@@ -36,11 +36,11 @@
   fill: rgba(255,255,0,0.5);
 }
 .map-container text tspan {
-  font: italic 22px sans-serif;
+  font: 22px sans-serif;
 }
 .map-container text.ad {
   fill: yellow;
-  font: italic 48px sans-serif;
+  font: 48px sans-serif;
 }
 .map-container polygon.ep:hover,
 .map-container circle.ep:hover {
@@ -49,7 +49,7 @@
 }
 .map-container text.ep {
   fill: red;
-  font: italic 48px sans-serif;
+  font: 48px sans-serif;
 }
 .map-container polygon.dc:hover,
 .map-container circle.dc:hover {
@@ -58,7 +58,7 @@
 }
 .map-container text.dc {
   fill: blue;
-  font: italic 48px sans-serif;
+  font: 48px sans-serif;
 }
 .map-container polygon.dlc:hover,
 .map-container circle.dlc:hover {
@@ -67,7 +67,7 @@
 }
 .map-container text.dlc {
   fill: deeppink;
-  font: italic 48px sans-serif;
+  font: 48px sans-serif;
 }
 .map-container polygon.cyrodiil:hover,
 .map-container circle.cyrodiil:hover,
@@ -79,7 +79,7 @@
 .map-container text.cyrodiil,
 .map-container text.imperialcity {
   fill: green;
-  font: italic 48px sans-serif;
+  font: 48px sans-serif;
 }
 .map-container polygon.craglorn:hover,
 .map-container circle.craglorn:hover,
@@ -91,7 +91,7 @@
 .map-container text.craglorn,
 .map-container text.coldharbour {
   fill: saddlebrown;
-  font: italic 48px sans-serif;
+  font: 48px sans-serif;
 }
 
 /* svg styles */
@@ -699,6 +699,24 @@ svg.map-tamriel-svg {
   margin-top: -6.7% !important;
 }
 
+#fishing-map-container .link-zone.apocrypha {
+  left: 72.4% !important;
+  top: 80.5% !important;
+  width: 13.9% !important;
+  height: 13.9% !important;
+  margin-left: -6.7% !important;
+  margin-top: -6.7% !important;
+}
+
+#fishing-map-container .link-zone.telvannipeninsula {
+  left: 81.7% !important;
+  top: 21.8% !important;
+  width: 10.3% !important;
+  height: 10.3% !important;
+  margin-left: -6.7% !important;
+  margin-top: -6.7% !important;
+}
+
 #fishing-map-container .link-zone:hover {
   border: 3px solid deeppink;
   background-color: rgba(255,20,147,0.5);
@@ -709,7 +727,6 @@ svg.map-tamriel-svg {
   border: none;
   font-family: sans-serif;
   font-weight: bold;
-  font-style: italic;
   font-size: 110%;
   line-height: 150%;
   width: 150%;
@@ -746,6 +763,14 @@ svg.map-tamriel-svg {
 
 #fishing-map-container .link-zone.deadlands:hover:after {
   content: "Deadlands";
+}
+
+#fishing-map-container .link-zone.apocrypha:hover:after {
+  content: "Apocrypha";
+}
+
+#fishing-map-container .link-zone.telvannipeninsula:hover:after {
+  content: "Telvanni Peninsula";
 }
 
 #fishing-map-container .link-zone a {
@@ -1020,6 +1045,13 @@ svg.map-tamriel-svg {
   height: 3.15%;
   top: 55%;
   left: 4.15%;
+}
+
+#tamriel-alliance #telvannipeninsula.zoco {
+  width: 10%;
+  height: 10%;
+  top: 50%;
+  left: 50%;
 }
 
 /* tamriel zone */
