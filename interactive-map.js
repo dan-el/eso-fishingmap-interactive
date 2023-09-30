@@ -174,14 +174,17 @@ function getZoneName(zone) {
 
 /* do we have foul or oily holes in our zone? (only needed in cwc)
  */
-function foulOrOily(zone) {
+function foulOrOilyOrAbyssal(zone) {
   var locZ = getLocation(zone)[1]; /* sanitize zone */
   var x = document.getElementById(locZ).getElementsByClassName('foul fh'); /* foul fishing holes */
   var y = document.getElementById(locZ).getElementsByClassName('oily fh'); /* oily fishing holes */
+  var z = document.getElementById(locZ).getElementsByClassName('abyssal fh'); /* abyssal fishing holes */
 
   if (y.length > 0 && x.length === 0) {
     return 'oily';
-  } else {
+  } else if (z.length > 0 && x.length === 0) {
+    return 'abyssal';
+  } else { 
     return 'foul';
   }
 }
@@ -192,14 +195,15 @@ function foulOrOily(zone) {
 function countFishingHoles(zone, type) {
   var locZ = getLocation(zone)[1]; /* sanitize zone */
   var x = ''; /* hole type */
-  if (type === 'oily') { /* oily is equal to foul in terms of button id */
+  if (type === 'oily' || type === 'abyssal') { /* oily and abyssal are equal to foul in terms of button id */
     x = 'foul';
   } else {
     x = type;
   }
   var y = document.getElementById('tb-' + x); /* toggle button for hole types */
-  if (locZ === 'overlay-zone' && type === 'foul') { /* add oily holes number to foul ones in overlay-zone - we have both! */
+  if (locZ === 'overlay-zone' && type === 'foul') { /* add oily and abyssal holes number to foul ones in overlay-zone - we have both! */
     var z = document.getElementById(locZ).getElementsByClassName('oily' + ' fh').length +
+            document.getElementById(locZ).getElementsByClassName('abyssal' + ' fh').length +
             document.getElementById(locZ).getElementsByClassName(type + ' fh').length;
   } else {
     var z = document.getElementById(locZ).getElementsByClassName(type + ' fh').length; /* zone fishing holes of a certain type */
@@ -697,12 +701,12 @@ function getRareFish(zone) {
     case 'westernskyrim':
       fish = [
         [ ['blue'],
-        ['foul', 'Sanguine Lamprey'],
+        ['foul', ''],
         ['river', 'Blue Muskie'],
         ['saltwater', 'Birtingr'],
         ['lake', 'Lodsilungur'] ],
         [ ['green'],
-        ['foul', 'Hypogean Tetra', 'Vandellia'],
+        ['foul', ''],
         ['river', 'Chillwind Pike', 'Morthal Longfin'],
         ['saltwater', 'Ghost Salmon', 'Skyrim Gurry Shark'],
         ['lake', 'Frigid Char', 'Solitude Loach'] ] ]
@@ -712,12 +716,12 @@ function getRareFish(zone) {
         [ ['blue'],
         ['foul', 'Sanguine Lamprey'],
         ['river', 'Blue Muskie'],
-        ['saltwater', 'Birtingr'],
+        ['saltwater', ''],
         ['lake', 'Lodsilungur'] ],
         [ ['green'],
         ['foul', 'Hypogean Tetra', 'Vandellia'],
         ['river', 'Chillwind Pike', 'Morthal Longfin'],
-        ['saltwater', 'Ghost Salmon', 'Skyrim Gurry Shark'],
+        ['saltwater', ''],
         ['lake', 'Frigid Char', 'Solitude Loach'] ] ]
       break;
     case 'thereach':
@@ -814,12 +818,12 @@ function getRareFish(zone) {
       case 'telvannipeninsula':
         fish = [
           [ ['blue'],
-          ['foul', 'Lurker Spawn'],
+          ['foul', ''],
           ['river', 'Sadrith Splat'],
           ['saltwater', 'Howling Shark'],
           ['lake', 'Morrowind Dreugh Shrimp'] ],
           [ ['green'],
-          ['foul', 'Inkfish', 'Inkwell Squid'],
+          ['foul', ''],
           ['river', 'Brown Hat Snail', 'Magma Salmon'],
           ['saltwater', 'Obdurate Albacore', 'Puffball Blowfish'],
           ['lake', 'Agarivore Shark', 'Deadlock Lobster'] ] ]
@@ -827,15 +831,15 @@ function getRareFish(zone) {
       case 'apocrypha':
         fish = [
           [ ['blue'],
-          ['foul', 'Lurker Spawn'],
-          ['river', 'Sadrith Splat'],
-          ['saltwater', 'Howling Shark'],
-          ['lake', 'Morrowind Dreugh Shrimp'] ],
+          ['abyssal', 'Lurker Spawn'],
+          ['river', ''],
+          ['saltwater', ''],
+          ['lake', ''] ],
           [ ['green'],
-          ['foul', 'Inkfish', 'Inkwell Squid'],
-          ['river', 'Brown Hat Snail', 'Magma Salmon'],
-          ['saltwater', 'Obdurate Albacore', 'Puffball Blowfish'],
-          ['lake', 'Agarivore Shark', 'Deadlock Lobster'] ] ]
+          ['abyssal', 'Inkfish', 'Inkwell Squid'],
+          ['river', ''],
+          ['saltwater', ''],
+          ['lake', ''] ] ]
         break;
     default:
       return false;
@@ -961,14 +965,14 @@ function toggleZone(zone) {
   }
 
   /* recount holes on zone change */
-  numFoulHoles = countFishingHoles(locZ, foulOrOily(locZ));
+  numFoulHoles = countFishingHoles(locZ, foulOrOilyOrAbyssal(locZ));
   numRiverHoles = countFishingHoles(locZ, 'river');
   numLakeHoles = countFishingHoles(locZ, 'lake');
   numSaltwaterHoles = countFishingHoles(locZ, 'saltwater');
 
   /* highlight rare fishing holes (rare means less than a certain percentage) */
   if (numFoulHoles/countAllFishingHoles(locZ)*100 < 5.5) { /* less than 5.5% of all zone fishoing holes? */
-    var foulHoles = document.getElementById(locZ).getElementsByClassName(foulOrOily(locZ) + ' fh');
+    var foulHoles = document.getElementById(locZ).getElementsByClassName(foulOrOilyOrAbyssal(locZ) + ' fh');
     for (var i = 0; i < foulHoles.length; i++) {
       foulHoles[i].classList.add('rare');
     }

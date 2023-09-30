@@ -249,7 +249,10 @@ svg.map-tamriel-svg {
 #overlay-zone .foul.active,
 #overlay-zone .oily:hover,
 #overlay-zone .oily:active,
-#overlay-zone .oily.active {
+#overlay-zone .oily.active,
+#overlay-zone .abyssal:hover,
+#overlay-zone .abyssal:active,
+#overlay-zone .abyssal.active {
   background-color: rgba(255,255,0,1);
 }
 
@@ -338,7 +341,8 @@ svg.map-tamriel-svg {
 }
 
 .foul,
-.oily {
+.oily,
+.abyssal {
   background-color: rgba(255,255,0,1);
   color: black;
 }
@@ -348,7 +352,10 @@ svg.map-tamriel-svg {
 .foul.active,
 .oily:hover,
 .oily:active,
-.oily.active {
+.oily.active,
+.abyssal:hover,
+.abyssal:active,
+.abyssal.active {
   background-color: rgba(255,255,0,.6);
 }
 
@@ -465,6 +472,16 @@ svg.map-tamriel-svg {
   border-color: rgba(255,255,0,.75);
 }
 
+.fh.abyssal:hover:after {
+  content: "Foul Abyssal";
+  border-color: rgb(255,255,0);
+  background-color: rgba(255,255,0,.75);
+}
+
+.fh.abyssal:before {
+  border-color: rgba(255,255,0,.75);
+}
+
 .fh.river:hover:after {
   content: "River";
   border-color: rgb(0,255,255);
@@ -498,6 +515,7 @@ svg.map-tamriel-svg {
 #tamriel-zone .fh:hover:after,
 #tamriel-zone .fh.foul:hover:after,
 #tamriel-zone .fh.oily:hover:after,
+#tamriel-zone .fh.abyssal:hover:after,
 #tamriel-zone .fh.river:hover:after,
 #tamriel-zone .fh.saltwater:hover:after,
 #tamriel-zone .fh.lake:hover:after {
@@ -596,8 +614,10 @@ svg.map-tamriel-svg {
 
 .beautiful .fh.foul,
 .beautiful .fh.oily,
+.beautiful .fh.abyssal,
 .beautiful #overlay-zone .fh.foul,
-.beautiful #overlay-zone .fh.oily {
+.beautiful #overlay-zone .fh.oily,
+.beautiful #overlay-zone .fh.abyssal {
   background-image: url(images/foul.png);
 }
 
@@ -1048,10 +1068,10 @@ svg.map-tamriel-svg {
 }
 
 #tamriel-alliance #telvannipeninsula.zoco {
-  width: 10%;
-  height: 10%;
-  top: 50%;
-  left: 50%;
+  width: 18.4%;
+  height: 18.4%;
+  top: 33%;
+  left: 78.5%;
 }
 
 /* tamriel zone */
