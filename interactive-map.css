@@ -1457,6 +1457,8 @@ div.rare-fish div.col div.cell.purple {
   .toggle-button .zone-button a  {
     padding-left: 1px;
     padding-right: 1px;
+    padding-top: 9px;
+    padding-bottom: 9px;
   }
   
   .fh {
@@ -1538,6 +1540,8 @@ div.rare-fish div.col div.cell.purple {
   .toggle-button .zone-button a  {
     padding-left: 2px;
     padding-right: 2px;
+    padding-top: 7px;
+    padding-bottom: 7px;
   }
 }
 
