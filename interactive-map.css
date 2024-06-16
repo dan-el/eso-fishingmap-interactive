@@ -421,7 +421,8 @@ svg.map-tamriel-svg {
   text-decoration: none;
   color: black;
   display: block;
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .fh:hover,
@@ -1074,6 +1075,13 @@ svg.map-tamriel-svg {
   left: 78.5%;
 }
 
+#tamriel-alliance #westweald.zoco {
+  width: 17.1%;
+  height: 17.1%;
+  top: 42.7%;
+  left: 31.9%;
+}
+
 /* tamriel zone */
 
 #info-container .close {
@@ -1171,10 +1179,6 @@ div.rare-fish div.col-4 {
   width: 25%;
 }
 
-div.rare-fish div.col-5 {
-  width: 20%;
-}
-
 div.rare-fish div.col div.cell {
   display: table;
   width: 100%;
@@ -1248,7 +1252,7 @@ div.rare-fish div.col div.cell.purple {
 }
 
 .col-3 .toggle-button {
-  width: 33.33%;
+  width: 33.33333333333333333333%;
 }
 
 .col-4 .toggle-button {
@@ -1257,6 +1261,10 @@ div.rare-fish div.col div.cell.purple {
 
 .col-5 .toggle-button {
   width: 20%;
+}
+
+.col-6 .toggle-button {
+  width: 16.66666666666666666666%;
 }
 
 .toggle-button div {

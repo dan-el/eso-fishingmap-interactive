@@ -216,4 +216,8 @@
 		<loc>https://map.housetertia.com/dlc-chapter#apocrypha</loc>
 		<priority>0.7</priority>
 	</url>
+	<url>
+		<loc>https://map.housetertia.com/dlc-chapter#westweald</loc>
+		<priority>0.7</priority>
+	</url>
 </urlset>

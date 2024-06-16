@@ -118,7 +118,7 @@ function getLocation(zoneOrAlliance) {
       'artaeum', 'murkmire', 'elsweyr', 'northernelsweyr', 'southernelsweyr', 'westernskyrim',
       'blackreach', 'blackreach-greymoor', 'thereach', 'blackreach-arkthzand', 'blackwood',
       'deadlands', 'deadlands-fargrave', 'highisleandamenos', 'galenandyffelon', 'telvannipeninsula',
-      'apocrypha'] ],
+      'apocrypha', 'westweald'] ],
     /* overlay zone */
     ['overlay', 'overlay-alliance',
       ['overlay', 'overlay-zone'] ],
@@ -841,6 +841,19 @@ function getRareFish(zone) {
           ['saltwater', ''],
           ['lake', ''] ] ]
         break;
+        case 'westweald':
+          fish = [
+            [ ['blue'],
+            ['foul', 'Bonytongue'],
+            ['river', 'Larich Loach'],
+            ['saltwater', ''],
+            ['lake', 'Bitterfish'] ],
+            [ ['green'],
+            ['foul', 'Skingrad Sculpin', 'Wildburn Blobfish', 'Dead Hopper Nymph'],
+            ['river', 'Golden Sturgeon', 'Giant Strid Piranha', 'Marble Trout'],
+            ['saltwater', ''],
+            ['lake', 'Salasso Carp', 'Colovian Zander', 'False Hadolid'] ] ]
+          break;
     default:
       return false;
   }
